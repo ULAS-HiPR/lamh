@@ -3297,21 +3297,10 @@
 			(uuid "47d0e243-9a32-4593-98d0-0dfa905a2078")
 		)
 		(fp_text user "*"
-			(at -2.115078 -6.708122 270)
+			(at -2.115078 -5.79725 270)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "cc39c209-183b-40be-9598-7b968e6f9d56")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(fp_text user "*"
-			(at -2.115078 -6.708122 90)
-			(layer "F.SilkS")
-			(uuid "fceac889-d273-4c50-b16c-45c9440da2ba")
 			(effects
 				(font
 					(size 1 1)
@@ -3595,6 +3584,17 @@
 			(uuid "667bb6e1-8835-415a-bf02-9e63099e8e0f")
 		)
 		(embedded_fonts no)
+		(model "${KICAD9_3DMODEL_DIR}/Package_SO.3dshapes/TSSOP-28_4.4x9.7mm_P0.65mm.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical"
 		(layer "F.Cu")
@@ -7712,6 +7712,17 @@
 			(uuid "7b8bebaa-37ba-43dd-845c-bd88fa4bdf23")
 		)
 		(embedded_fonts no)
+		(model "${KICAD9_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23-5.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "footprints:MOLEX_436500303"
 		(layer "F.Cu")
@@ -10668,6 +10679,17 @@
 			(uuid "b6e774aa-1ae6-47fe-847f-9cb1834e8ec0")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/footprints.pretty/ESQ-110-X-X-D.step"
+			(offset
+				(xyz 0 0 2.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
+			)
+		)
 	)
 	(footprint "Package_TO_SOT_SMD:SOT-23"
 		(layer "F.Cu")
