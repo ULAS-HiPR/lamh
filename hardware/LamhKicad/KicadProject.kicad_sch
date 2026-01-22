@@ -639,6 +639,426 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "436500303:436500303"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "436500303"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Footprint" "436500303:MOLEX_436500303"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MF" "Molex"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "5.57 mm"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Package" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Price" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Check_prices" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=eda"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "Manufacturer Recommendations"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "F3"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=snap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MP" "436500303"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "Conn Power HDR 3 POS 3mm Solder RA Thru-Hole 3 Terminal 1 Port Micro-Fit 3.0™ Tray"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Availability" "In Stock"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "Molex"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "436500303_0_0"
+				(polyline
+					(pts
+						(xy 0 6.35) (xy 0 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 6.35) (xy 1.27 7.62)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 -8.89)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 1.905 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 1.905 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -8.89) (xy 1.27 -10.16)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 0.635 4.7625)
+					(end 2.2225 5.3975)
+					(stroke
+						(width 0.1)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.635 2.2225)
+					(end 2.2225 2.8575)
+					(stroke
+						(width 0.1)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.635 -0.3175)
+					(end 2.2225 0.3175)
+					(stroke
+						(width 0.1)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -10.16) (xy 12.7 -10.16)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 7.62) (xy 1.27 7.62)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -10.16) (xy 12.7 7.62)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 5.08)
+					(name "SHIELD1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "S1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 5.08)
+					(name "SHIELD2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "S2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic_MountingPin:Conn_01x10_MountingPin"
 			(pin_names
 				(offset 1.016)
@@ -4248,7 +4668,7 @@
 	)
 	(text "Servos"
 		(exclude_from_sim no)
-		(at 23.368 77.216 0)
+		(at 25.146 74.676 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -4324,18 +4744,6 @@
 		)
 		(uuid "672e7be4-0ffc-4dae-84c4-da50eadd22df")
 	)
-	(text "Servo connectors"
-		(exclude_from_sim no)
-		(at 33.782 131.572 0)
-		(effects
-			(font
-				(size 1.905 1.905)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "73e844f5-5510-4e9a-ab0a-cfc0fc0f7714")
-	)
 	(text "Connector"
 		(exclude_from_sim no)
 		(at 110.998 156.972 0)
@@ -4409,6 +4817,12 @@
 		(uuid "b9cb8fcd-c3b3-4239-9824-1915d5b42cb8")
 	)
 	(junction
+		(at 40.64 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "02572d84-b41a-4fa4-9f96-b0ba5c8bc308")
+	)
+	(junction
 		(at 35.56 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4475,6 +4889,12 @@
 		(uuid "25362ba8-e1de-4aa3-931e-ab7630714893")
 	)
 	(junction
+		(at 40.64 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2ae81dd5-c8cd-4efc-b02e-7bfcbea81630")
+	)
+	(junction
 		(at 123.19 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4485,6 +4905,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2e61d912-5990-483f-9ff9-0ebb4687086a")
+	)
+	(junction
+		(at 39.37 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2eac3997-f792-4d1a-b9b4-c4f62ab64c39")
+	)
+	(junction
+		(at 40.64 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "32997a49-bf1a-44ba-ad8c-25f8ea8dda49")
 	)
 	(junction
 		(at 52.07 36.83)
@@ -4517,6 +4949,12 @@
 		(uuid "43c0d038-8106-413d-98fd-acfdfbb98f48")
 	)
 	(junction
+		(at 39.37 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "468523cf-c0ef-4be2-8b91-e90a9228b33b")
+	)
+	(junction
 		(at 119.38 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4527,6 +4965,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4df2c773-af30-49a0-abb8-1bd1ce0038db")
+	)
+	(junction
+		(at 36.83 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4f3ab3b3-1c11-49ef-996a-afe9fefdd45c")
+	)
+	(junction
+		(at 40.64 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5ccdc15d-c5bf-47d9-b085-3c0d869b9a6b")
 	)
 	(junction
 		(at 62.23 104.14)
@@ -4565,6 +5015,12 @@
 		(uuid "72dedc95-c6f9-4ff9-97b5-1e3915ec20a5")
 	)
 	(junction
+		(at 40.64 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "795b73f4-ef4e-4d36-bbb6-c4606d5a22cf")
+	)
+	(junction
 		(at 215.9 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4581,6 +5037,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f928f59-0bc3-4cb7-bf94-22499c6976eb")
+	)
+	(junction
+		(at 36.83 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "905717c7-d768-458d-817b-5d9e392fbada")
 	)
 	(junction
 		(at 69.85 86.36)
@@ -4611,6 +5073,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ba0abed1-848d-46a4-8fca-929b8b6ab532")
+	)
+	(junction
+		(at 40.64 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bd497b6f-9616-49af-85cc-a80aefb7fd25")
 	)
 	(junction
 		(at 143.51 53.34)
@@ -4649,6 +5117,12 @@
 		(uuid "d1fe92c8-24e6-430c-82c2-a9bef05074fd")
 	)
 	(junction
+		(at 36.83 116.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "da3de442-f7a1-4be5-b219-9d8423230a24")
+	)
+	(junction
 		(at 58.42 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4659,6 +5133,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e4499260-ed68-43b2-bdcd-1b911fb28c07")
+	)
+	(junction
+		(at 39.37 121.92)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e9027f11-ad38-4a4e-b2b1-90f13e82409a")
+	)
+	(junction
+		(at 36.83 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ef993232-2dd4-4b18-8a1b-d531d548193a")
 	)
 	(junction
 		(at 157.48 53.34)
@@ -4683,6 +5169,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7db43cb-5d87-4900-a758-9f95c3262709")
+	)
+	(junction
+		(at 40.64 124.46)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fc8fed1f-e7bc-456d-9427-194d72a3c97b")
 	)
 	(no_connect
 		(at 115.57 127)
@@ -4792,6 +5284,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 88.9) (xy 40.64 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0276b370-5dac-400f-aec4-65d56f8e9269")
+	)
+	(wire
+		(pts
 			(xy 219.71 137.16) (xy 219.71 135.89)
 		)
 		(stroke
@@ -4852,6 +5354,26 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 142.24) (xy 36.83 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e8519fb-507f-4b4f-9342-5f75c2e2e364")
+	)
+	(wire
+		(pts
+			(xy 41.91 111.76) (xy 41.91 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "106753eb-adcf-4c98-bbf4-3cbc54ef334f")
+	)
+	(wire
+		(pts
 			(xy 86.36 46.99) (xy 86.36 52.07)
 		)
 		(stroke
@@ -4862,6 +5384,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 86.36) (xy 39.37 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12d7eb1c-fc0d-438f-ae19-f95e6212af0a")
+	)
+	(wire
+		(pts
 			(xy 119.38 96.52) (xy 121.92 96.52)
 		)
 		(stroke
@@ -4869,6 +5401,26 @@
 			(type default)
 		)
 		(uuid "132b2d02-24d0-40d4-a071-7484d51e2be7")
+	)
+	(wire
+		(pts
+			(xy 40.64 116.84) (xy 40.64 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "139fd636-bd0c-4e57-9e12-15ebf9f0ce49")
+	)
+	(wire
+		(pts
+			(xy 41.91 114.3) (xy 41.91 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14598286-0369-4a7f-9f15-1ce7fdff139a")
 	)
 	(wire
 		(pts
@@ -4912,6 +5464,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 81.28) (xy 40.64 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19a21e04-2d44-49b5-9710-00a2ab2998f7")
+	)
+	(wire
+		(pts
 			(xy 62.23 95.25) (xy 62.23 104.14)
 		)
 		(stroke
@@ -4919,6 +5481,16 @@
 			(type default)
 		)
 		(uuid "1a855f0b-140d-429f-a2a1-bd48b061b40d")
+	)
+	(wire
+		(pts
+			(xy 43.18 116.84) (xy 43.18 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1afd2d2a-ec27-4bf4-86e5-5b13bc24fdbf")
 	)
 	(wire
 		(pts
@@ -4979,6 +5551,16 @@
 			(type default)
 		)
 		(uuid "1fee3c47-6156-4b96-8518-199e65e8aa6e")
+	)
+	(wire
+		(pts
+			(xy 40.64 124.46) (xy 40.64 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2373ebf3-70f2-482b-a7af-28a6b89fd62d")
 	)
 	(wire
 		(pts
@@ -5122,6 +5704,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 106.68) (xy 40.64 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "415b78f2-70ea-46d3-9966-7617126e79b1")
+	)
+	(wire
+		(pts
 			(xy 234.95 77.47) (xy 241.3 77.47)
 		)
 		(stroke
@@ -5142,6 +5734,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 111.76) (xy 41.91 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4494fd83-81b2-424b-88b5-95e1cbe8775e")
+	)
+	(wire
+		(pts
 			(xy 215.9 39.37) (xy 215.9 41.91)
 		)
 		(stroke
@@ -5159,6 +5761,36 @@
 			(type default)
 		)
 		(uuid "46b000bf-485d-429d-8f8b-fbae3a11de23")
+	)
+	(wire
+		(pts
+			(xy 36.83 124.46) (xy 40.64 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47a8d447-d316-4e6d-8a47-a257231db0ff")
+	)
+	(wire
+		(pts
+			(xy 40.64 134.62) (xy 40.64 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47d90598-980e-471a-99e2-23534ed12a0a")
+	)
+	(wire
+		(pts
+			(xy 39.37 104.14) (xy 36.83 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49969f93-91f2-44d7-bb8c-8d3afc38ec6a")
 	)
 	(wire
 		(pts
@@ -5202,6 +5834,26 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 86.36) (xy 39.37 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ca31e6c-fdb7-4091-80de-a32281b7c1a7")
+	)
+	(wire
+		(pts
+			(xy 59.69 114.3) (xy 41.91 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4da2ca16-d26b-426d-9923-fd3001212ea5")
+	)
+	(wire
+		(pts
 			(xy 35.56 168.91) (xy 45.72 168.91)
 		)
 		(stroke
@@ -5219,6 +5871,16 @@
 			(type default)
 		)
 		(uuid "50934772-1880-45fc-96d6-3fd4fb107fa2")
+	)
+	(wire
+		(pts
+			(xy 36.83 96.52) (xy 36.83 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53d007b1-3372-424e-9555-70f01f008b61")
 	)
 	(wire
 		(pts
@@ -5342,13 +6004,23 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 115.57) (xy 199.39 115.57)
+			(xy 36.83 81.28) (xy 36.83 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "630e0a49-3b74-415e-88e1-d2cb1039572b")
+		(uuid "673f6b64-cd46-441b-a6a5-8e26a3d382f5")
+	)
+	(wire
+		(pts
+			(xy 36.83 132.08) (xy 36.83 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b9366b1-814f-4bad-9a76-f54ba2ae83e4")
 	)
 	(wire
 		(pts
@@ -5379,6 +6051,16 @@
 			(type default)
 		)
 		(uuid "70b5a7ee-42e5-40d2-9db6-4c04fbcd4fd0")
+	)
+	(wire
+		(pts
+			(xy 41.91 127) (xy 36.83 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72d3b5c1-787a-4a24-81a1-932a44a2cc5a")
 	)
 	(wire
 		(pts
@@ -5432,16 +6114,6 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 123.19) (xy 199.39 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "79967523-e493-44fd-a22c-c031738fc39b")
-	)
-	(wire
-		(pts
 			(xy 115.57 101.6) (xy 123.19 101.6)
 		)
 		(stroke
@@ -5472,6 +6144,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 139.7) (xy 36.83 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d1c9794-3f1d-4985-9d44-c6189852da4f")
+	)
+	(wire
+		(pts
 			(xy 67.31 86.36) (xy 69.85 86.36)
 		)
 		(stroke
@@ -5499,6 +6181,16 @@
 			(type default)
 		)
 		(uuid "859a1de3-1fea-4fbf-b638-0d0090c46cdc")
+	)
+	(wire
+		(pts
+			(xy 36.83 99.06) (xy 40.64 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86b45737-a84b-4b95-8eb7-4aced44275e7")
 	)
 	(wire
 		(pts
@@ -5549,6 +6241,16 @@
 			(type default)
 		)
 		(uuid "90e13b92-0e96-443b-addc-8fd32eb8e167")
+	)
+	(wire
+		(pts
+			(xy 40.64 81.28) (xy 36.83 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "910dc7d5-3928-42ed-8503-1f025ebf450e")
 	)
 	(wire
 		(pts
@@ -5612,6 +6314,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 121.92) (xy 36.83 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99ba34f3-7b2d-40d4-ab6b-2d14790b4df2")
+	)
+	(wire
+		(pts
 			(xy 85.09 168.91) (xy 90.17 168.91)
 		)
 		(stroke
@@ -5632,6 +6344,16 @@
 	)
 	(wire
 		(pts
+			(xy 41.91 109.22) (xy 36.83 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9aa7ef18-97f0-4cd4-902d-6a80289abb25")
+	)
+	(wire
+		(pts
 			(xy 53.34 104.14) (xy 50.8 104.14)
 		)
 		(stroke
@@ -5639,6 +6361,16 @@
 			(type default)
 		)
 		(uuid "9ad150bd-bb29-40c7-9721-982395dec266")
+	)
+	(wire
+		(pts
+			(xy 43.18 91.44) (xy 36.83 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c1ed317-7eaa-47c2-9f72-2fc62dd78df7")
 	)
 	(wire
 		(pts
@@ -5802,6 +6534,16 @@
 	)
 	(wire
 		(pts
+			(xy 39.37 86.36) (xy 41.91 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1288661-a882-4f34-8b17-26d889ad479a")
+	)
+	(wire
+		(pts
 			(xy 119.38 109.22) (xy 119.38 114.3)
 		)
 		(stroke
@@ -5832,6 +6574,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 109.22) (xy 43.18 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b7f51f79-f1a1-4bc9-9ea1-e271b7558b93")
+	)
+	(wire
+		(pts
 			(xy 35.56 168.91) (xy 35.56 170.18)
 		)
 		(stroke
@@ -5839,6 +6591,16 @@
 			(type default)
 		)
 		(uuid "b8b9afd3-92a1-4e12-96b0-c4e17ac366eb")
+	)
+	(wire
+		(pts
+			(xy 40.64 99.06) (xy 40.64 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b982b22f-d1d4-4020-8083-023b68fd2bfa")
 	)
 	(wire
 		(pts
@@ -5852,13 +6614,13 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 118.11) (xy 199.39 118.11)
+			(xy 43.18 109.22) (xy 43.18 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bd531576-6a79-44aa-a9b0-55995071a771")
+		(uuid "bd31bdd3-b5f1-44af-b259-9c11f364dbf0")
 	)
 	(wire
 		(pts
@@ -5942,6 +6704,16 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 88.9) (xy 40.64 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c843be6e-16e1-43d9-9079-d2fcd9640cb1")
+	)
+	(wire
+		(pts
 			(xy 143.51 43.18) (xy 143.51 44.45)
 		)
 		(stroke
@@ -5972,6 +6744,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 116.84) (xy 43.18 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cae2b3a5-513a-4c2a-b60b-8dbf5c62f964")
+	)
+	(wire
+		(pts
 			(xy 115.57 96.52) (xy 119.38 96.52)
 		)
 		(stroke
@@ -5979,6 +6761,16 @@
 			(type default)
 		)
 		(uuid "cb85800f-0478-47a0-816b-e72a73e5d364")
+	)
+	(wire
+		(pts
+			(xy 39.37 104.14) (xy 39.37 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cbe41ec4-64f1-4cbd-9458-f75834cab76e")
 	)
 	(wire
 		(pts
@@ -6062,6 +6854,16 @@
 	)
 	(wire
 		(pts
+			(xy 43.18 144.78) (xy 36.83 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc732a0a-09cb-4110-9142-7edde74ab415")
+	)
+	(wire
+		(pts
 			(xy 157.48 53.34) (xy 157.48 52.07)
 		)
 		(stroke
@@ -6092,6 +6894,26 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 81.28) (xy 40.64 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df01eb34-c342-4851-aa66-7540517179d0")
+	)
+	(wire
+		(pts
+			(xy 40.64 116.84) (xy 36.83 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df8865f3-1843-4f44-a40c-a82654ca509f")
+	)
+	(wire
+		(pts
 			(xy 81.28 168.91) (xy 85.09 168.91)
 		)
 		(stroke
@@ -6099,6 +6921,16 @@
 			(type default)
 		)
 		(uuid "df969d56-2e8d-4a12-a8b4-920098498a75")
+	)
+	(wire
+		(pts
+			(xy 36.83 114.3) (xy 36.83 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e12aa4db-0330-42c8-905d-87dd61cb2ffb")
 	)
 	(wire
 		(pts
@@ -6132,6 +6964,16 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 134.62) (xy 36.83 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e60329ba-18a5-4913-b755-2c15ccb514e7")
+	)
+	(wire
+		(pts
 			(xy 157.48 53.34) (xy 171.45 53.34)
 		)
 		(stroke
@@ -6162,16 +7004,6 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 120.65) (xy 199.39 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9c75122-3248-497e-9fe2-7efa3504b35d")
-	)
-	(wire
-		(pts
 			(xy 62.23 86.36) (xy 64.77 86.36)
 		)
 		(stroke
@@ -6199,6 +7031,16 @@
 			(type default)
 		)
 		(uuid "f268ff60-57e8-4b51-a1ed-c621f726d4a3")
+	)
+	(wire
+		(pts
+			(xy 36.83 106.68) (xy 40.64 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3cf6a06-6198-493a-bb4c-c93a2b5c77ff")
 	)
 	(wire
 		(pts
@@ -6282,13 +7124,13 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 125.73) (xy 199.39 125.73)
+			(xy 39.37 121.92) (xy 39.37 139.7)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fd6db3ca-cbc4-4ba0-b7e0-6cdf473c8aca")
+		(uuid "fd6e45e4-b266-4056-8dd8-9be476e59877")
 	)
 	(wire
 		(pts
@@ -6328,28 +7170,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "AUX2_SEAT"
-		(shape input)
-		(at 193.04 123.19 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "02b7a734-940a-4b06-a90b-e1c55eb84f2e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 179.8344 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -6574,28 +7394,6 @@
 			)
 		)
 	)
-	(global_label "AUX1_SEAT"
-		(shape input)
-		(at 193.04 120.65 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4327f397-1f6c-4784-bf3b-aaac9b393149")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 179.8344 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "CAN_+"
 		(shape input)
 		(at 59.69 49.53 180)
@@ -6618,7 +7416,7 @@
 			)
 		)
 	)
-	(global_label "5VLOGIC"
+	(global_label "5V_LOGIC"
 		(shape input)
 		(at 27.94 168.91 180)
 		(fields_autoplaced yes)
@@ -6630,7 +7428,29 @@
 		)
 		(uuid "43dd99d3-ca5f-49e2-b7d4-7be98d8a6dbd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 17.1533 168.91 0)
+			(at 16.1857 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SCL"
+		(shape input)
+		(at 199.39 110.49 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4745162f-f7ea-44f2-a9b1-d3f123613fd2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 192.8972 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6653,28 +7473,6 @@
 		(uuid "4790ecdd-7bd4-4e4f-bea3-e6715fa09418")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 107.8677 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SCL"
-		(shape input)
-		(at 193.04 115.57 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "51b530c3-a7dd-4d99-91ba-0cf27c2ee8f9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 186.5472 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6860,6 +7658,28 @@
 			)
 		)
 	)
+	(global_label "5v_SERVO"
+		(shape input)
+		(at 41.91 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "873028e8-8e97-4101-aa65-ac94144d8f00")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 54.0875 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "CAN_+"
 		(shape input)
 		(at 120.65 46.99 0)
@@ -6939,28 +7759,6 @@
 		(uuid "95f01e34-13e0-401b-9920-71e68b31df2d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 99.5825 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "MAIN_SEAT"
-		(shape input)
-		(at 193.04 118.11 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9d894300-e8e9-4674-a7da-eff9c1509080")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.1972 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7366,9 +8164,9 @@
 			)
 		)
 	)
-	(global_label "SCL"
+	(global_label "SDA"
 		(shape input)
-		(at 193.04 125.73 180)
+		(at 199.39 107.95 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7376,9 +8174,9 @@
 			)
 			(justify right)
 		)
-		(uuid "fda738e2-6c0d-4c7e-ae21-b4c725236d63")
+		(uuid "fd96f0d5-81ab-4791-a518-8e8e144b9afe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 186.5472 125.73 0)
+			(at 192.8367 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7748,7 +8546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
 			(at 57.15 99.06 0)
 			(effects
 				(font
@@ -8863,6 +9661,467 @@
 		)
 	)
 	(symbol
+		(lib_id "436500303:436500303")
+		(at 31.75 86.36 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4a5f08f5-ed48-4929-9740-080ac82150ca")
+		(property "Reference" "J2"
+			(at 24.13 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "436500303"
+			(at 20.828 87.884 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "MOLEX_436500303"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Molex"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.57 mm"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=eda"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "F3"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=snap"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "436500303"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Conn Power HDR 3 POS 3mm Solder RA Thru-Hole 3 Terminal 1 Port Micro-Fit 3.0™ Tray"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Molex"
+			(at 31.75 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1a0ee766-0f10-44d1-a758-cabb17e069fb")
+		)
+		(pin "3"
+			(uuid "ba543ac5-6f8e-4bad-8cd4-37780c58a9b7")
+		)
+		(pin "1"
+			(uuid "84e4ab41-f76e-473a-8547-dadd95c606b5")
+		)
+		(pin "S1"
+			(uuid "ed03b321-3ba8-46de-92ad-f7a969e4eccf")
+		)
+		(pin "S2"
+			(uuid "c0559dff-3819-4e82-9479-b1ab21c244fb")
+		)
+		(instances
+			(project ""
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "436500303:436500303")
+		(at 31.75 104.14 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4bd06edf-1431-4006-9972-ec34f3793f63")
+		(property "Reference" "J3"
+			(at 23.622 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "436500303"
+			(at 20.828 105.664 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "MOLEX_436500303"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Molex"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.57 mm"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=eda"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "F3"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=snap"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "436500303"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Conn Power HDR 3 POS 3mm Solder RA Thru-Hole 3 Terminal 1 Port Micro-Fit 3.0™ Tray"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Molex"
+			(at 31.75 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f6476eaa-1420-41da-8661-2d76c41b3305")
+		)
+		(pin "3"
+			(uuid "83616db3-239b-4c13-8aab-483e630a6560")
+		)
+		(pin "1"
+			(uuid "67ea00ce-7139-4396-9361-59a4f16322e1")
+		)
+		(pin "S1"
+			(uuid "de586a30-4d4d-4868-a8e4-d12a43d9a301")
+		)
+		(pin "S2"
+			(uuid "dfec70d3-9a70-4562-90a9-872bbe8d48fa")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 41.91 81.28 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d78f441-bba2-4b6b-93e4-66b5373be941")
+		(property "Reference" "#PWR016"
+			(at 48.26 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 45.72 81.2799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 41.91 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 41.91 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 41.91 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bc4d037c-1db4-49b5-8c7f-7012b3c96063")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 115.57 104.14 90)
 		(unit 1)
@@ -8954,7 +10213,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
 			(at 57.15 101.6 0)
 			(effects
 				(font
@@ -9796,7 +11055,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
 			(at 57.15 96.52 0)
 			(effects
 				(font
@@ -10699,6 +11958,203 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "436500303:436500303")
+		(at 31.75 121.92 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9ce1cd02-aa17-46cf-a6c7-ad198ef54982")
+		(property "Reference" "J4"
+			(at 24.13 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "436500303"
+			(at 20.828 123.444 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "MOLEX_436500303"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Molex"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.57 mm"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=eda"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "F3"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=snap"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "436500303"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Conn Power HDR 3 POS 3mm Solder RA Thru-Hole 3 Terminal 1 Port Micro-Fit 3.0™ Tray"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Molex"
+			(at 31.75 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1c969494-fa96-43ba-a3e8-65b466b3235c")
+		)
+		(pin "3"
+			(uuid "56b5b566-36d3-4ad2-981e-307e30345f67")
+		)
+		(pin "1"
+			(uuid "6185d4bd-dcf6-47df-b361-b198249c488e")
+		)
+		(pin "S1"
+			(uuid "d76ee1f8-dc90-4bda-8b38-9c982f7838e6")
+		)
+		(pin "S2"
+			(uuid "b8f8a58a-c8e6-4755-a63d-4e61897c6575")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -11686,7 +13142,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
 			(at 57.15 104.14 0)
 			(effects
 				(font
@@ -11861,6 +13317,203 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "436500303:436500303")
+		(at 31.75 139.7 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e4ed8706-156f-4944-8e00-efd73e8e1620")
+		(property "Reference" "J6"
+			(at 23.622 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "436500303"
+			(at 20.828 141.224 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "MOLEX_436500303"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Molex"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.57 mm"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=eda"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "F3"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/436500303/Molex/view-part/?ref=snap"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "436500303"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Conn Power HDR 3 POS 3mm Solder RA Thru-Hole 3 Terminal 1 Port Micro-Fit 3.0™ Tray"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Molex"
+			(at 31.75 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9f16aa58-e03f-4695-a759-5f60a9fa6b37")
+		)
+		(pin "3"
+			(uuid "9f1d091f-1563-499b-bac3-dfb274e3ec14")
+		)
+		(pin "1"
+			(uuid "bc28104a-cc51-407b-8a54-6069253b41a0")
+		)
+		(pin "S1"
+			(uuid "e17c3732-1ed8-498f-bef5-143ea27f4ac6")
+		)
+		(pin "S2"
+			(uuid "40b90617-0a75-4bcc-8100-3602c2f2f6b9")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "J6")
 					(unit 1)
 				)
 			)
