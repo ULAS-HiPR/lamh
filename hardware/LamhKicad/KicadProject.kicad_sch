@@ -7314,28 +7314,6 @@
 			)
 		)
 	)
-	(global_label "NRST2"
-		(shape input)
-		(at 195.58 198.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0f176471-723c-4c2e-ba19-10059123aaa6")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 204.5523 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SDA"
 		(shape input)
 		(at 177.8 123.19 0)
@@ -7556,28 +7534,6 @@
 			)
 		)
 	)
-	(global_label "NRST3"
-		(shape input)
-		(at 167.64 200.66 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4790ecdd-7bd4-4e4f-bea3-e6715fa09418")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.6677 200.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "3.3V"
 		(shape input)
 		(at 101.6 120.65 180)
@@ -7591,28 +7547,6 @@
 		(uuid "5ad87937-ee13-4aff-925a-f26f54657d87")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 94.5024 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "NRST5"
-		(shape input)
-		(at 167.64 203.2 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5e518b26-661e-4500-8513-531cbd34acbc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.6677 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7688,7 +7622,7 @@
 			)
 		)
 	)
-	(global_label "SWCLK"
+	(global_label "NRST"
 		(shape input)
 		(at 168.91 208.28 180)
 		(fields_autoplaced yes)
@@ -7700,7 +7634,7 @@
 		)
 		(uuid "634278eb-1af8-4a10-abad-5f2ff21ff5f8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 159.6958 208.28 0)
+			(at 161.1472 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8062,28 +7996,6 @@
 			)
 		)
 	)
-	(global_label "NRST1"
-		(shape input)
-		(at 167.64 198.12 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c325e41d-2c66-4925-8ff7-3644a7d2ec2c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.6677 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "3.3V"
 		(shape input)
 		(at 140.97 193.04 0)
@@ -8150,7 +8062,7 @@
 			)
 		)
 	)
-	(global_label "NRST4"
+	(global_label "SWCLK4"
 		(shape input)
 		(at 194.31 200.66 0)
 		(fields_autoplaced yes)
@@ -8162,7 +8074,7 @@
 		)
 		(uuid "eb17f6d7-d825-47f0-af19-a1b824f08188")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.2823 200.66 0)
+			(at 204.7337 200.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
