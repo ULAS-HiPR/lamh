@@ -14350,6 +14350,17 @@
 		(uuid "6b191e21-01df-48a8-8ef4-96dcf509602c")
 	)
 	(gr_circle
+		(center 188.265155 96.33586)
+		(end 218.015155 96.33586)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "ab5f0845-8ecc-4371-97fc-982439e966a8")
+	)
+	(gr_circle
 		(center 171.294592 113.306423)
 		(end 176.294592 113.306423)
 		(stroke
