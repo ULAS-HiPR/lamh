@@ -5093,6 +5093,12 @@
 		(uuid "a0a80f1b-b526-43db-9352-5210ca155578")
 	)
 	(junction
+		(at 233.68 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ace147c3-394a-46f2-9096-dd6c7c3b8cca")
+	)
+	(junction
 		(at 115.57 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5490,7 +5496,7 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 86.36) (xy 250.19 86.36)
+			(xy 229.87 86.36) (xy 233.68 86.36)
 		)
 		(stroke
 			(width 0)
@@ -5817,6 +5823,16 @@
 			(type default)
 		)
 		(uuid "44cf9597-2b73-4b29-8d31-97f9eb389a28")
+	)
+	(wire
+		(pts
+			(xy 240.03 91.44) (xy 242.57 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45923e78-e97e-4ecd-b466-dd49480102a3")
 	)
 	(wire
 		(pts
@@ -6940,6 +6956,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 95.25) (xy 233.68 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5a474fb-4219-4658-b53d-3cce289888b0")
+	)
+	(wire
+		(pts
 			(xy 285.75 96.52) (xy 292.1 96.52)
 		)
 		(stroke
@@ -7207,6 +7233,16 @@
 			(type default)
 		)
 		(uuid "faf5128d-ee94-4530-867d-2c6410e8a2a4")
+	)
+	(wire
+		(pts
+			(xy 233.68 86.36) (xy 250.19 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc570ad5-0218-421b-a522-88322e80b2a5")
 	)
 	(wire
 		(pts
@@ -8150,9 +8186,9 @@
 			)
 		)
 	)
-	(global_label "NRST4"
+	(global_label "NRST"
 		(shape input)
-		(at 243.84 86.36 180)
+		(at 229.87 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8162,7 +8198,29 @@
 		)
 		(uuid "fba4cf6a-5dda-4ef4-8618-2abbc16bd95a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 234.8677 86.36 0)
+			(at 222.1072 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "3.3V"
+		(shape input)
+		(at 233.68 95.25 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fc24a1f2-d5ee-40c2-ae9e-5d0293c04964")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 226.5824 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8797,6 +8855,73 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 240.03 91.44 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2662fb80-9ec1-499f-8a19-d687f7267f73")
+		(property "Reference" "#PWR017"
+			(at 240.03 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 240.03 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 240.03 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5421a0e3-fa47-48b6-834e-48bd1280de8c")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -10190,6 +10315,73 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 233.68 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4fdbea00-14cd-4245-b51c-d06595df695a")
+		(property "Reference" "R15"
+			(at 231.394 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 236.22 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 231.902 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 233.68 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 233.68 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a43c5930-aaca-4ecb-8c3e-683eecee0062")
+		)
+		(pin "1"
+			(uuid "4dc76471-7df7-4196-b17e-2728b5b57159")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -12435,6 +12627,73 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 246.38 91.44 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a3492167-0ed1-460c-a067-13368c7d5b9f")
+		(property "Reference" "R14"
+			(at 246.38 89.154 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 246.38 93.98 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 246.38 89.662 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 246.38 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 246.38 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "eaab4c2b-c0be-4dfd-ba8a-e8fa24ffa6db")
+		)
+		(pin "1"
+			(uuid "bbb26b56-db1b-473f-8288-6f9ea24221de")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "R14")
 					(unit 1)
 				)
 			)
