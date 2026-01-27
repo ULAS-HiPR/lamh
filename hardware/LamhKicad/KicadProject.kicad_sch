@@ -5136,6 +5136,16 @@
 		)
 		(uuid "2b047b79-41b7-413f-b210-55f519b56ecc")
 	)
+	(text "cable\n"
+		(exclude_from_sim no)
+		(at 69.342 218.948 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "3931678c-1444-461e-a6b5-ee6dab48f7ab")
+	)
 	(text "3v3 LDO"
 		(exclude_from_sim no)
 		(at 75.438 182.118 0)
@@ -5191,6 +5201,36 @@
 			)
 		)
 		(uuid "672e7be4-0ffc-4dae-84c4-da50eadd22df")
+	)
+	(text "https://www.digikey.com/en/products/detail/molex/0436500303/269000?s=N4IgTCBcDaICwGYBsBWADGhmQF0C+QA"
+		(exclude_from_sim no)
+		(at 122.682 231.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "69055b8f-3a59-4812-95f2-6af872d6be9a")
+	)
+	(text "https://www.digikey.ie/en/products/detail/molex/1451320303/9742477"
+		(exclude_from_sim no)
+		(at 102.616 222.25 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6e10fd8d-2352-40ad-b284-bf7930c2d9f5")
+	)
+	(text "connector\n"
+		(exclude_from_sim no)
+		(at 71.374 227.076 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "91dee781-2a5e-438f-936b-95f5e285f34f")
 	)
 	(text "Connector"
 		(exclude_from_sim no)
