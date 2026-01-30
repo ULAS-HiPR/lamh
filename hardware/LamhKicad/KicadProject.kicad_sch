@@ -5204,7 +5204,7 @@
 	)
 	(text "https://www.digikey.com/en/products/detail/molex/0436500303/269000?s=N4IgTCBcDaICwGYBsBWADGhmQF0C+QA"
 		(exclude_from_sim no)
-		(at 122.682 231.14 0)
+		(at 123.952 231.14 0)
 		(effects
 			(font
 				(size 1.27 1.27)
