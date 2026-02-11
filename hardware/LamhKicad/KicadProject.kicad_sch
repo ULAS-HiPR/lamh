@@ -1059,32 +1059,42 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic_MountingPin:Conn_01x10_MountingPin"
+		(symbol "5023860570:5023860570"
 			(pin_names
 				(offset 1.016)
-				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 0 12.7 0)
+				(at -7.62 11.43 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Value" "Conn_01x10_MountingPin"
-				(at 1.27 -15.24 0)
+			(property "Value" "5023860570"
+				(at -7.62 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
+					(justify left bottom)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "5023860570:MOLEX_5023860570"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -1093,7 +1103,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "Description" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -1102,149 +1112,143 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connectable mounting pin connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "MF" "Molex"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "connector"
+			(property "MAXIMUM_PACKAGE_HEIGHT" "5.55 mm"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
+			(property "Package" "None"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x10_MountingPin_1_1"
-				(rectangle
-					(start -1.27 11.43)
-					(end 1.27 -13.97)
+			(property "Price" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Check_prices" "https://www.snapeda.com/parts/5023860570/Molex/view-part/?ref=eda"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "Manufacturer Recommendations"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "F"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/5023860570/Molex/view-part/?ref=snap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MP" "5023860570"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=5660655&manufacturer=Molex&part_name=5023860570&search_term=5023860570"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "1.25mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle, Single Row, Right-Angle, Tin (Sn) Plating, 5 Circuits"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Availability" "In Stock"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "Molex"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "5023860570_0_0"
+				(polyline
+					(pts
+						(xy -7.62 7.62) (xy -6.35 7.62)
+					)
 					(stroke
 						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 10.287)
-					(end 0 10.033)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 7.747)
-					(end 0 7.493)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -10.033)
-					(end 0 -10.287)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -12.573)
-					(end 0 -12.827)
-					(stroke
-						(width 0.1524)
 						(type default)
 					)
 					(fill
@@ -1253,218 +1257,353 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 -14.732) (xy 1.016 -14.732)
+						(xy -7.62 5.08) (xy -6.35 5.08)
 					)
 					(stroke
-						(width 0.1524)
+						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(text "Mounting"
-					(at 0 -14.351 0)
-					(effects
-						(font
-							(size 0.381 0.381)
-						)
+				(polyline
+					(pts
+						(xy -7.62 2.54) (xy -6.35 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 0) (xy -6.35 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -2.54) (xy -6.35 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -7.62) (xy -6.35 -7.62)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -10.16) (xy -6.35 -10.16)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 -11.43) (xy -6.35 -12.7)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -7.0984 -12.7)
+					(end 8.1416 10.16)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -6.35 10.16) (xy -7.62 8.89)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -6.35 2.54)
+					(mid -6.164 2.989)
+					(end -5.715 3.175)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 1.905)
+					(mid -6.164 2.091)
+					(end -6.35 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -6.35 0)
+					(mid -6.164 0.449)
+					(end -5.715 0.635)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 -0.635)
+					(mid -6.164 -0.449)
+					(end -6.35 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -6.35 -2.54)
+					(mid -6.164 -2.091)
+					(end -5.715 -1.905)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 -3.175)
+					(mid -6.164 -2.989)
+					(end -6.35 -2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 6.985)
+					(mid -6.3472 7.62)
+					(end -5.715 8.255)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 4.445)
+					(mid -6.3472 5.08)
+					(end -5.715 5.715)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 -8.255)
+					(mid -6.3472 -7.62)
+					(end -5.715 -6.985)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -5.715 -10.795)
+					(mid -6.3472 -10.16)
+					(end -5.715 -9.525)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 				(pin passive line
-					(at -5.08 10.16 0)
-					(length 3.81)
-					(name "Pin_1"
+					(at -12.7 7.62 0)
+					(length 5.08)
+					(name "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 7.62 0)
-					(length 3.81)
-					(name "Pin_2"
+					(at -12.7 5.08 0)
+					(length 5.08)
+					(name "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 5.08 0)
-					(length 3.81)
-					(name "Pin_3"
+					(at -12.7 2.54 0)
+					(length 5.08)
+					(name "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 2.54 0)
-					(length 3.81)
-					(name "Pin_4"
+					(at -12.7 0 0)
+					(length 5.08)
+					(name "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_5"
+					(at -12.7 -2.54 0)
+					(length 5.08)
+					(name "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_6"
+					(at -12.7 -7.62 0)
+					(length 5.08)
+					(name "SHIELD1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "6"
+					(number "S1"
 						(effects
 							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_8"
+					(at -12.7 -10.16 0)
+					(length 5.08)
+					(name "SHIELD2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
-					(number "8"
+					(number "S2"
 						(effects
 							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -10.16 0)
-					(length 3.81)
-					(name "Pin_9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -12.7 0)
-					(length 3.81)
-					(name "Pin_10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -17.78 90)
-					(length 3.048)
-					(name "MountPin"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "MP"
-						(effects
-							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
@@ -4284,6 +4423,212 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "S2761-46R:S2761-46R"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at -2.5444 2.5415 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "S2761-46R"
+				(at -2.55 -5.0866 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Footprint" "S2761-46R:HARWIN_S2761-46R"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MF" "Harwin"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Package" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Price" "None"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "Manufacturer Recommendations"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "1"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MP" "S2761-46R"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Availability" "In Stock"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "Harwin"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "S2761-46R_0_0"
+				(circle
+					(center 0 0)
+					(radius 0.635)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 5.08)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "STDCRA38M:NX3225GD-8MHZ-STD-CRA-3"
 			(pin_names
 				(offset 0.254)
@@ -4732,226 +5077,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TLV70433DBVT:TLV70433DBVT"
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Value" "TLV70433DBVT"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Footprint" "DBV0005A_N"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.ti.com/lit/gpn/tlv704"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "TLV70433DBVT"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "DBV0005A_N DBV0005A_M DBV0005A_L"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "TLV70433DBVT_0_1"
-				(polyline
-					(pts
-						(xy -12.7 10.16) (xy -12.7 -10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -12.7 -10.16) (xy 12.7 -10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 10.16) (xy -12.7 10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 -10.16) (xy 12.7 10.16)
-					)
-					(stroke
-						(width 0.2032)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at -17.78 5.08 0)
-					(length 5.08)
-					(name "IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -17.78 -2.54 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -17.78 -5.08 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 17.78 5.08 180)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 17.78 -5.08 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers
@@ -5067,6 +5192,18 @@
 		(uuid 19b3e814-c318-4ee8-8545-fd36f6f2f5f2)
 	)
 	(rectangle
+		(start 80.01 175.26)
+		(end 147.32 215.9)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 61958b94-df0d-4e9d-a6b4-27099904cd7f)
+	)
+	(rectangle
 		(start 82.55 44.45)
 		(end 185.42 93.98)
 		(stroke
@@ -5148,7 +5285,7 @@
 	)
 	(text "3v3 LDO"
 		(exclude_from_sim no)
-		(at 75.438 182.118 0)
+		(at 87.503 180.848 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -5284,37 +5421,11 @@
 		)
 		(uuid "fc7c99ad-854a-4991-a4b4-d342fa478846")
 	)
-	(text_box ""
-		(exclude_from_sim no)
-		(at 66.04 177.8 0)
-		(size 83.82 36.83)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "b9cb8fcd-c3b3-4239-9824-1915d5b42cb8")
-	)
 	(junction
 		(at 91.44 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "02572d84-b41a-4fa4-9f96-b0ba5c8bc308")
-	)
-	(junction
-		(at 86.36 193.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0437f522-513e-4b6d-a8ae-608d187a1ec3")
 	)
 	(junction
 		(at 283.21 67.31)
@@ -5353,6 +5464,12 @@
 		(uuid "1038a602-375c-4111-8322-389a7e00a1a3")
 	)
 	(junction
+		(at 194.31 187.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "184e463d-a43e-48b4-a4d1-46fd66d3a431")
+	)
+	(junction
 		(at 118.11 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5383,6 +5500,12 @@
 		(uuid "2ae81dd5-c8cd-4efc-b02e-7bfcbea81630")
 	)
 	(junction
+		(at 152.4 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2b7ba754-2b79-4a17-9cf1-c0a9a6256dc2")
+	)
+	(junction
 		(at 163.83 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5393,12 +5516,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2c533bd0-4920-4c25-9cfd-446b0fe11200")
-	)
-	(junction
-		(at 194.31 190.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2e61d912-5990-483f-9ff9-0ebb4687086a")
 	)
 	(junction
 		(at 90.17 110.49)
@@ -5461,6 +5578,12 @@
 		(uuid "468523cf-c0ef-4be2-8b91-e90a9228b33b")
 	)
 	(junction
+		(at 102.87 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "47c638aa-ee46-4f8e-bbd1-f2b5802f2fda")
+	)
+	(junction
 		(at 170.18 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5483,6 +5606,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4f3ab3b3-1c11-49ef-996a-afe9fefdd45c")
+	)
+	(junction
+		(at 168.91 208.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5519922b-7bc4-4439-b63f-ab15b5b86dca")
 	)
 	(junction
 		(at 91.44 105.41)
@@ -5521,16 +5650,40 @@
 		(uuid "6c7e97ff-3862-47fd-b7fc-e3f83fefeb09")
 	)
 	(junction
+		(at 156.21 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6d9fa1ad-ec79-4d5b-8691-1b67b5cb5506")
+	)
+	(junction
 		(at 266.7 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "72dedc95-c6f9-4ff9-97b5-1e3915ec20a5")
 	)
 	(junction
+		(at 132.08 189.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7607f816-3eaa-419a-9e45-3d02a3eb9673")
+	)
+	(junction
 		(at 91.44 130.81)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "795b73f4-ef4e-4d36-bbb6-c4606d5a22cf")
+	)
+	(junction
+		(at 168.91 198.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "815874dd-8059-430e-a108-03b417b6fa37")
+	)
+	(junction
+		(at 194.31 193.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "865dfd22-db29-401b-834c-e83b377e68b0")
 	)
 	(junction
 		(at 266.7 63.5)
@@ -5551,12 +5704,6 @@
 		(uuid "8b9a7b77-86b1-40f0-bd0f-47de6491ef74")
 	)
 	(junction
-		(at 194.31 195.58)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8f928f59-0bc3-4cb7-bf94-22499c6976eb")
-	)
-	(junction
 		(at 87.63 123.19)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5575,10 +5722,22 @@
 		(uuid "9383ac4c-e2e1-4990-9c8e-297cec83838c")
 	)
 	(junction
+		(at 208.28 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9ca3a187-6482-4fc3-b5fd-31d59722fff2")
+	)
+	(junction
 		(at 163.83 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9d0eb610-2991-43c3-a0cf-36c5c159a55f")
+	)
+	(junction
+		(at 208.28 161.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9eaf5c88-b0f6-44b2-b40b-a22967c4ba71")
 	)
 	(junction
 		(at 102.87 53.34)
@@ -5603,6 +5762,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b005e78e-6e5d-4fc4-bc81-8a576c054d87")
+	)
+	(junction
+		(at 104.14 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b2386a3e-223d-47f2-8c70-184d837f9c2c")
+	)
+	(junction
+		(at 104.775 189.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b402faa3-a4c1-4511-9d42-0cbe370e5c2a")
 	)
 	(junction
 		(at 124.46 68.58)
@@ -5635,6 +5806,12 @@
 		(uuid "c1c3dc5c-33a6-4cf7-93a4-8b940a643f39")
 	)
 	(junction
+		(at 107.95 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c30e1cfe-4d03-484b-a2b1-e321baeb05f8")
+	)
+	(junction
 		(at 232.41 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5647,16 +5824,16 @@
 		(uuid "c884a0cb-c1fe-4584-9e0a-7eb3f0127aa1")
 	)
 	(junction
+		(at 168.91 205.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ca83d22d-981d-4f77-91ae-3380ceed854e")
+	)
+	(junction
 		(at 120.65 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d1b9a4ad-9cbe-4e9c-a053-37c5e0716cea")
-	)
-	(junction
-		(at 135.89 193.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d1fe92c8-24e6-430c-82c2-a9bef05074fd")
 	)
 	(junction
 		(at 87.63 140.97)
@@ -5677,10 +5854,22 @@
 		(uuid "e4499260-ed68-43b2-bdcd-1b911fb28c07")
 	)
 	(junction
+		(at 168.91 193.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e79efb57-0834-4e28-b3b7-3ff93832aa59")
+	)
+	(junction
 		(at 90.17 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e9027f11-ad38-4a4e-b2b1-90f13e82409a")
+	)
+	(junction
+		(at 99.06 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ed879f7a-a1a8-4728-8984-428e5e8b71e9")
 	)
 	(junction
 		(at 87.63 158.75)
@@ -5701,10 +5890,10 @@
 		(uuid "f1474438-5c29-4d2d-9ae6-bc5cf0962a03")
 	)
 	(junction
-		(at 209.55 160.02)
+		(at 168.91 210.82)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f6a627c9-2478-4cb4-aa6c-95de86cab2a6")
+		(uuid "f5dbc53b-cf40-406c-9150-3c6a7033ddff")
 	)
 	(junction
 		(at 270.51 55.88)
@@ -5731,20 +5920,8 @@
 		(uuid "288bf97d-1120-4786-ac81-5025391027de")
 	)
 	(no_connect
-		(at 168.91 200.66)
-		(uuid "39cccf86-d4bc-4b23-87e1-68f39a965a1e")
-	)
-	(no_connect
-		(at 96.52 203.2)
-		(uuid "3adf988f-563d-4708-8c0f-1bd2c1782128")
-	)
-	(no_connect
 		(at 120.65 135.89)
 		(uuid "3d0c985c-3a12-40df-8643-451d6a14df65")
-	)
-	(no_connect
-		(at 209.55 149.86)
-		(uuid "44cbab49-89d0-4b5c-937a-1474bfb81bb0")
 	)
 	(no_connect
 		(at 120.65 146.05)
@@ -5753,14 +5930,6 @@
 	(no_connect
 		(at 166.37 146.05)
 		(uuid "4b3474c3-fcaf-49a1-bc68-09dff6f3c162")
-	)
-	(no_connect
-		(at 96.52 200.66)
-		(uuid "5ce4ad29-a2ec-4792-95e2-10080dc96b09")
-	)
-	(no_connect
-		(at 209.55 147.32)
-		(uuid "5ef5d8a7-e678-4822-8cea-542597b9c752")
 	)
 	(no_connect
 		(at 166.37 138.43)
@@ -5775,24 +5944,8 @@
 		(uuid "733474c1-15ce-49d2-b576-19883477f9b9")
 	)
 	(no_connect
-		(at 168.91 203.2)
-		(uuid "799bf023-211f-4af5-96e0-224559656c00")
-	)
-	(no_connect
-		(at 194.31 198.12)
-		(uuid "7c24c67e-63a8-4d83-bd80-5282a6e9a470")
-	)
-	(no_connect
-		(at 204.47 142.24)
-		(uuid "800e5ed3-16be-424a-97d0-3aaa07a599a6")
-	)
-	(no_connect
 		(at 166.37 140.97)
 		(uuid "9753b1cb-bd7b-4bf6-99fd-48b9145d231f")
-	)
-	(no_connect
-		(at 209.55 165.1)
-		(uuid "9f802b55-a76d-4fd8-9921-e9852486ce18")
 	)
 	(no_connect
 		(at 166.37 153.67)
@@ -5805,10 +5958,6 @@
 	(no_connect
 		(at 120.65 130.81)
 		(uuid "ecac6d80-fea1-4d21-850e-80090677f5fd")
-	)
-	(no_connect
-		(at 168.91 198.12)
-		(uuid "f362e85d-c248-4399-b484-0b18b900c31c")
 	)
 	(no_connect
 		(at 166.37 135.89)
@@ -5916,6 +6065,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 205.74) (xy 168.91 208.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fb8a145-01e6-4aea-9142-a94070bf59eb")
+	)
+	(wire
+		(pts
 			(xy 137.16 71.12) (xy 137.16 76.2)
 		)
 		(stroke
@@ -5973,6 +6132,16 @@
 			(type default)
 		)
 		(uuid "1528e9f1-5088-4eb6-a25a-55181d6c2e5a")
+	)
+	(wire
+		(pts
+			(xy 152.4 71.12) (xy 168.91 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15c09ed5-4a42-4ca1-a896-a30e4cb1441b")
 	)
 	(wire
 		(pts
@@ -6043,6 +6212,16 @@
 			(type default)
 		)
 		(uuid "1d1ebaae-6300-4355-960c-4521654eb6ad")
+	)
+	(wire
+		(pts
+			(xy 168.91 198.12) (xy 194.31 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1dc3e654-5277-48a7-b08e-4aafbefe9dbf")
 	)
 	(wire
 		(pts
@@ -6156,16 +6335,6 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 193.04) (xy 194.31 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2cf2745f-eef2-4313-8cb2-bdb887031707")
-	)
-	(wire
-		(pts
 			(xy 194.31 77.47) (xy 208.28 77.47)
 		)
 		(stroke
@@ -6236,6 +6405,16 @@
 	)
 	(wire
 		(pts
+			(xy 204.47 161.29) (xy 208.28 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3701a045-69ce-4c57-8dd0-4be087c471ea")
+	)
+	(wire
+		(pts
 			(xy 236.22 96.52) (xy 236.22 109.22)
 		)
 		(stroke
@@ -6273,6 +6452,16 @@
 			(type default)
 		)
 		(uuid "3f0e7ac1-bc49-4520-ab34-1441a2bd9df9")
+	)
+	(wire
+		(pts
+			(xy 168.91 200.66) (xy 194.31 200.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f41be11-bdd8-4629-a44f-c95af4700251")
 	)
 	(wire
 		(pts
@@ -6396,6 +6585,16 @@
 	)
 	(wire
 		(pts
+			(xy 121.92 189.23) (xy 132.08 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bf058a2-336f-4a86-854c-5c1998a49a27")
+	)
+	(wire
+		(pts
 			(xy 87.63 110.49) (xy 90.17 110.49)
 		)
 		(stroke
@@ -6403,16 +6602,6 @@
 			(type default)
 		)
 		(uuid "4ca31e6c-fdb7-4091-80de-a32281b7c1a7")
-	)
-	(wire
-		(pts
-			(xy 86.36 193.04) (xy 96.52 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "505fcac5-5bd9-4982-a926-91a1b01e1ef9")
 	)
 	(wire
 		(pts
@@ -6446,7 +6635,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 71.12) (xy 168.91 71.12)
+			(xy 144.78 71.12) (xy 152.4 71.12)
 		)
 		(stroke
 			(width 0)
@@ -6476,16 +6665,6 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 157.48) (xy 209.55 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5990d233-97cf-45d3-a7ef-5bda4b82cc02")
-	)
-	(wire
-		(pts
 			(xy 109.22 83.82) (xy 109.22 88.9)
 		)
 		(stroke
@@ -6493,6 +6672,16 @@
 			(type default)
 		)
 		(uuid "5bff6598-ed97-4d4b-9d76-fec85ac4f2e7")
+	)
+	(wire
+		(pts
+			(xy 194.31 193.04) (xy 194.31 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d592788-2271-4442-af91-f22709ff9625")
 	)
 	(wire
 		(pts
@@ -6506,6 +6695,16 @@
 	)
 	(wire
 		(pts
+			(xy 208.28 153.67) (xy 208.28 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ef9c7df-f904-44a4-8d66-0cae866905cc")
+	)
+	(wire
+		(pts
 			(xy 194.31 63.5) (xy 194.31 67.31)
 		)
 		(stroke
@@ -6513,16 +6712,6 @@
 			(type default)
 		)
 		(uuid "5f83c14b-75dd-400a-91ba-436e7af25b33")
-	)
-	(wire
-		(pts
-			(xy 168.91 195.58) (xy 194.31 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5fea1090-ea4c-46d5-9de2-4c592a04aec3")
 	)
 	(wire
 		(pts
@@ -6536,6 +6725,26 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 148.59) (xy 110.49 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "648f47d7-278b-40b6-895e-b16abdfb8783")
+	)
+	(wire
+		(pts
+			(xy 107.95 138.43) (xy 110.49 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6550ece8-12ed-4e41-afaa-07b04a99d710")
+	)
+	(wire
+		(pts
 			(xy 87.63 105.41) (xy 87.63 102.87)
 		)
 		(stroke
@@ -6543,6 +6752,16 @@
 			(type default)
 		)
 		(uuid "673f6b64-cd46-441b-a6a5-8e26a3d382f5")
+	)
+	(wire
+		(pts
+			(xy 168.91 208.28) (xy 168.91 210.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a48f0ce-24bd-4309-b446-e42f23e01efb")
 	)
 	(wire
 		(pts
@@ -6696,7 +6915,17 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 148.59) (xy 110.49 148.59)
+			(xy 168.91 193.04) (xy 194.31 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79f76ca2-cd54-4bc1-a801-483c045cbac7")
+	)
+	(wire
+		(pts
+			(xy 97.79 148.59) (xy 99.06 148.59)
 		)
 		(stroke
 			(width 0)
@@ -6713,16 +6942,6 @@
 			(type default)
 		)
 		(uuid "7ac93633-d2ce-414b-b488-c94b23baeb3e")
-	)
-	(wire
-		(pts
-			(xy 86.36 201.93) (xy 86.36 204.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bf0a1d0-4273-4ce7-b236-e99794b9a86a")
 	)
 	(wire
 		(pts
@@ -6766,6 +6985,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 193.04) (xy 168.91 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "838eebd7-6386-45ef-a434-b21f137103cc")
+	)
+	(wire
+		(pts
 			(xy 115.57 111.76) (xy 115.57 110.49)
 		)
 		(stroke
@@ -6783,6 +7012,26 @@
 			(type default)
 		)
 		(uuid "86b45737-a84b-4b95-8eb7-4aced44275e7")
+	)
+	(wire
+		(pts
+			(xy 156.21 86.36) (xy 144.78 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88a45733-b015-40d5-95db-132dc1c3851c")
+	)
+	(wire
+		(pts
+			(xy 99.06 189.23) (xy 104.775 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88c6f7cd-0732-42e2-986e-847387f11f6d")
 	)
 	(wire
 		(pts
@@ -6926,16 +7175,6 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 191.77) (xy 135.89 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96841d21-83d7-45ac-aae4-9e9430d6e27e")
-	)
-	(wire
-		(pts
 			(xy 90.17 146.05) (xy 87.63 146.05)
 		)
 		(stroke
@@ -6943,26 +7182,6 @@
 			(type default)
 		)
 		(uuid "99ba34f3-7b2d-40d4-ab6b-2d14790b4df2")
-	)
-	(wire
-		(pts
-			(xy 135.89 193.04) (xy 140.97 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99f6a068-3deb-4d98-a5df-dd6486398582")
-	)
-	(wire
-		(pts
-			(xy 132.08 203.2) (xy 135.89 203.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a441c03-8d32-4622-a21d-914f783aeb8a")
 	)
 	(wire
 		(pts
@@ -6996,13 +7215,23 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 86.36) (xy 144.78 86.36)
+			(xy 163.83 86.36) (xy 156.21 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "9c632e67-b6ef-47e5-baed-89975776c8a3")
+	)
+	(wire
+		(pts
+			(xy 102.87 143.51) (xy 110.49 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cf77c74-893d-4598-95c4-2c2f51b417fe")
 	)
 	(wire
 		(pts
@@ -7086,6 +7315,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 190.5) (xy 168.91 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3637ee7-9b3b-45e2-be79-ab71e6d14165")
+	)
+	(wire
+		(pts
 			(xy 262.89 76.2) (xy 262.89 78.74)
 		)
 		(stroke
@@ -7156,16 +7395,6 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 152.4) (xy 209.55 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ace71a00-c193-452a-aff8-b2c2e0858dd8")
-	)
-	(wire
-		(pts
 			(xy 102.87 53.34) (xy 115.57 53.34)
 		)
 		(stroke
@@ -7223,16 +7452,6 @@
 			(type default)
 		)
 		(uuid "b6dcb09a-5aa5-4f6f-8598-feec963bec0e")
-	)
-	(wire
-		(pts
-			(xy 86.36 193.04) (xy 86.36 194.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8b9afd3-92a1-4e12-96b0-c4e17ac366eb")
 	)
 	(wire
 		(pts
@@ -7356,13 +7575,23 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 190.5) (xy 194.31 190.5)
+			(xy 132.08 189.23) (xy 135.89 189.23)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c683eb43-9f7f-47ae-a4eb-15006517d226")
+		(uuid "c7b5f02e-1d37-478e-875c-266982da16dd")
+	)
+	(wire
+		(pts
+			(xy 208.28 158.75) (xy 208.28 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c80deab0-0d25-407e-a538-ea92e9ce19ae")
 	)
 	(wire
 		(pts
@@ -7486,16 +7715,6 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 193.04) (xy 86.36 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d58bc9e1-3363-428f-950c-98b3a17761f2")
-	)
-	(wire
-		(pts
 			(xy 233.68 95.25) (xy 233.68 93.98)
 		)
 		(stroke
@@ -7503,6 +7722,26 @@
 			(type default)
 		)
 		(uuid "d5a474fb-4219-4658-b53d-3cce289888b0")
+	)
+	(wire
+		(pts
+			(xy 133.35 199.39) (xy 132.08 199.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbc18f25-a807-495f-a3ba-e34f243868df")
+	)
+	(wire
+		(pts
+			(xy 194.31 190.5) (xy 194.31 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc05a764-75a2-4fe7-9999-03f49f4f876e")
 	)
 	(wire
 		(pts
@@ -7573,16 +7812,6 @@
 			(type default)
 		)
 		(uuid "df8865f3-1843-4f44-a40c-a82654ca509f")
-	)
-	(wire
-		(pts
-			(xy 132.08 193.04) (xy 135.89 193.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df969d56-2e8d-4a12-a8b4-920098498a75")
 	)
 	(wire
 		(pts
@@ -7696,7 +7925,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 138.43) (xy 110.49 138.43)
+			(xy 93.98 138.43) (xy 107.95 138.43)
 		)
 		(stroke
 			(width 0)
@@ -7776,7 +8005,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 143.51) (xy 110.49 143.51)
+			(xy 96.52 143.51) (xy 102.87 143.51)
 		)
 		(stroke
 			(width 0)
@@ -7806,6 +8035,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 203.2) (xy 168.91 205.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "faf90c8d-0fa0-438f-8a0f-141fd46b8051")
+	)
+	(wire
+		(pts
 			(xy 96.52 132.08) (xy 96.52 143.51)
 		)
 		(stroke
@@ -7823,6 +8062,16 @@
 			(type default)
 		)
 		(uuid "fc901875-516b-46c0-9b92-59a71e75e591")
+	)
+	(wire
+		(pts
+			(xy 105.41 189.23) (xy 104.775 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcc49106-d93a-4aae-a34f-c570692b5f12")
 	)
 	(wire
 		(pts
@@ -8030,24 +8279,24 @@
 			)
 		)
 	)
-	(global_label "SWCLK4"
+	(global_label "SWDIO"
 		(shape input)
-		(at 209.55 167.64 0)
+		(at 208.28 146.05 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "3eb05b83-30bd-4fbd-9126-7bac156e1c68")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 219.9737 167.64 0)
+			(at 199.4286 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -8098,7 +8347,7 @@
 	)
 	(global_label "5V_LOGIC"
 		(shape input)
-		(at 78.74 193.04 180)
+		(at 99.06 189.23 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8108,7 +8357,7 @@
 		)
 		(uuid "43dd99d3-ca5f-49e2-b7d4-7be98d8a6dbd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 66.9857 193.04 0)
+			(at 87.3057 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8140,6 +8389,28 @@
 			)
 		)
 	)
+	(global_label "5v_SERVO"
+		(shape input)
+		(at 194.31 193.04 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5553f54a-586d-4592-b256-3b79bf486d6d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 206.4875 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "3.3V"
 		(shape input)
 		(at 101.6 120.65 180)
@@ -8162,63 +8433,19 @@
 			)
 		)
 	)
-	(global_label "SWDIO"
+	(global_label "3.3V"
 		(shape input)
-		(at 168.91 205.74 180)
+		(at 208.28 151.13 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
-		)
-		(uuid "5f8a2b1c-c430-4e6d-a0f0-dd50ecba62c2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 160.0586 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "3.3V"
-		(shape input)
-		(at 209.55 154.94 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
 		)
 		(uuid "61972bb9-aab1-4ffb-ab0d-99f16de7afa4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.6476 154.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "NRST"
-		(shape input)
-		(at 168.91 208.28 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "634278eb-1af8-4a10-abad-5f2ff21ff5f8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 161.1472 208.28 0)
+			(at 201.1824 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8228,7 +8455,7 @@
 			)
 		)
 	)
-	(global_label "SWCLK4"
+	(global_label "SWCLK"
 		(shape input)
 		(at 248.92 106.68 180)
 		(fields_autoplaced yes)
@@ -8240,7 +8467,7 @@
 		)
 		(uuid "70f933d1-9c59-4ca7-bac8-296820d4c9fa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 238.4963 106.68 0)
+			(at 239.7058 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8285,6 +8512,28 @@
 		(uuid "873028e8-8e97-4101-aa65-ac94144d8f00")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 104.8875 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "3.3V"
+		(shape input)
+		(at 135.89 189.23 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "89c6febc-b8d0-4cc9-9725-f264e8db4844")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 142.9876 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8360,68 +8609,24 @@
 			)
 		)
 	)
-	(global_label "5V_LOGIC"
-		(shape input)
-		(at 194.31 193.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a0e2402f-c1c7-44a4-943d-94ae814f8298")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.0643 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "5v_SERVO"
-		(shape input)
-		(at 194.31 187.96 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a449955b-14dc-4af7-8f56-fcf723fd0e5f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.4875 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "NRST"
 		(shape input)
-		(at 209.55 170.18 0)
+		(at 208.28 148.59 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "b0b710aa-3bce-4472-96c0-6fe0740dc9c0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 217.3128 170.18 0)
+			(at 200.5172 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -8516,28 +8721,6 @@
 	)
 	(global_label "3.3V"
 		(shape input)
-		(at 140.97 193.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "cf54252b-eaa7-4eac-81c3-d169ee8121de")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.0676 193.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "3.3V"
-		(shape input)
 		(at 270.51 54.61 90)
 		(fields_autoplaced yes)
 		(effects
@@ -8558,7 +8741,7 @@
 			)
 		)
 	)
-	(global_label "SWCLK4"
+	(global_label "5V_LOGIC"
 		(shape input)
 		(at 194.31 200.66 0)
 		(fields_autoplaced yes)
@@ -8568,9 +8751,9 @@
 			)
 			(justify left)
 		)
-		(uuid "eb17f6d7-d825-47f0-af19-a1b824f08188")
+		(uuid "f45c1fd2-8c64-43a4-97d0-cd7be6726f1e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 204.7337 200.66 0)
+			(at 206.0643 200.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8580,24 +8763,24 @@
 			)
 		)
 	)
-	(global_label "SWDIO"
+	(global_label "SWCLK"
 		(shape input)
-		(at 209.55 162.56 0)
+		(at 208.28 143.51 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "f94b59db-bb2f-422a-ba88-b12981832cdc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 218.4014 162.56 0)
+			(at 199.0658 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -8774,73 +8957,6 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 194.31 195.58 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "055f397f-daf9-4883-9bb2-46ef42def6bb")
-		(property "Reference" "#PWR03"
-			(at 200.66 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 198.12 195.5799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 194.31 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 194.31 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 194.31 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5822d98-e8e2-4516-afd4-ad31453bcf33")
-		)
-		(instances
-			(project "KicadProject"
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -9258,6 +9374,194 @@
 		)
 	)
 	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 132.08 194.31 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "210c736d-f05a-4742-a726-73e880a7980c")
+		(property "Reference" "3v3"
+			(at 134.62 193.0399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 134.62 195.5799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 132.08 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f0d8131a-baa7-4d70-875f-06ad648cb2c9")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "3v3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 250.19 72.39 0)
 		(unit 1)
@@ -9464,53 +9768,52 @@
 		)
 	)
 	(symbol
-		(lib_id "TLV70433DBVT:TLV70433DBVT")
-		(at 114.3 198.12 0)
+		(lib_id "S2761-46R:S2761-46R")
+		(at 99.06 133.35 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2a3485fb-ecac-446e-8582-56bb65480941")
-		(property "Reference" "U3"
-			(at 114.3 182.88 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "TLV70433DBVT"
-			(at 114.3 185.42 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "DBV0005A_N"
-			(at 114.3 198.12 0)
+		(uuid "279ff8a7-98ed-43ff-b08b-d69e298c8350")
+		(property "Reference" "S1"
+			(at 99.06 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-					(italic yes)
 				)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 99.06 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.ti.com/lit/gpn/tlv704"
-			(at 114.3 198.12 0)
+		(property "Datasheet" ""
+			(at 99.06 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
-					(italic yes)
 				)
 				(hide yes)
 			)
 		)
 		(property "Description" ""
-			(at 114.3 198.12 0)
+			(at 99.06 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9518,91 +9821,133 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "8ee15a31-62f0-4bf4-862f-8b69486aaf66")
+		(property "MF" "Harwin"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
 		)
-		(pin "3"
-			(uuid "3bf49f81-a982-4a2c-9d63-aea7cd512e05")
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 99.06 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "3ccf83fa-b5fa-4e6e-88e2-773e3922bc89")
-		)
-		(pin "5"
-			(uuid "e2531b17-7050-4447-b416-84c615b5b6d2")
-		)
-		(pin "4"
-			(uuid "04c379a7-7c67-464f-bb12-8da1640043e8")
-		)
-		(instances
-			(project ""
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 135.89 184.15 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2a786220-40ec-45aa-9704-05768c53e627")
-		(property "Reference" "#PWR07"
-			(at 135.89 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 135.89 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 135.89 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.89 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b6bdb000-5e6e-46c3-a5fc-35f4bdb0cc39")
+			(uuid "f4e55a84-8918-4052-9d1c-a90afdf661b5")
 		)
 		(instances
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "#PWR07")
+					(reference "S1")
 					(unit 1)
 				)
 			)
@@ -9817,114 +10162,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic_MountingPin:Conn_01x10_MountingPin")
-		(at 204.47 160.02 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "32a17f9e-26e3-47b5-af4f-edcb155b68aa")
-		(property "Reference" "J1"
-			(at 201.93 157.1243 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JTAG-10 PIN"
-			(at 201.93 159.6643 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical"
-			(at 204.47 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 204.47 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connectable mounting pin connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 204.47 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "1fd297f8-737c-44c7-a60c-bee6a7f8a36f")
-		)
-		(pin "8"
-			(uuid "f8cb713d-1ba7-4df2-9c0d-89cec0451690")
-		)
-		(pin "1"
-			(uuid "23b7aacd-d805-40bf-8ce7-9a59ceb2aacf")
-		)
-		(pin "7"
-			(uuid "f90a3e15-6ead-4c55-8705-008e407311bf")
-		)
-		(pin "2"
-			(uuid "ca6cfcf4-5066-4bb2-a66e-a36aaf15de92")
-		)
-		(pin "5"
-			(uuid "f20a5a9c-d55b-4ae6-a444-f2c538181ae5")
-		)
-		(pin "3"
-			(uuid "93e3c0ab-35fc-4a0e-8be8-af320a0edb26")
-		)
-		(pin "4"
-			(uuid "427a6f59-18ee-438d-914b-d75def7f58c7")
-		)
-		(pin "10"
-			(uuid "ea321678-d265-434e-ad7a-58b9c7a38179")
-		)
-		(pin "9"
-			(uuid "7d9bc103-1964-4d3b-b3d0-090654737ea6")
-		)
-		(pin "MP"
-			(uuid "bf459c07-5b18-4077-9a17-27992efb4c47")
-		)
-		(instances
-			(project "KicadProject"
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "J1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 209.55 160.02 90)
+		(at 204.47 161.29 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3506a281-ab2b-4ea7-b2b9-0338064de25f")
 		(property "Reference" "#PWR041"
-			(at 215.9 160.02 0)
+			(at 198.12 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9933,16 +10180,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 213.36 160.0199 90)
+			(at 204.978 157.988 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 209.55 160.02 0)
+			(at 204.47 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9951,7 +10197,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 209.55 160.02 0)
+			(at 204.47 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9960,7 +10206,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 209.55 160.02 0)
+			(at 204.47 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10258,72 +10504,6 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 86.36 204.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "49f9a6e0-c06e-4c1c-99de-a7957b5b59bf")
-		(property "Reference" "#PWR01"
-			(at 86.36 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 86.36 209.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 86.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 86.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 86.36 204.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b5dbcf12-f0d0-426f-8ec0-90430e7c3861")
-		)
-		(instances
-			(project ""
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -10857,6 +11037,222 @@
 		)
 	)
 	(symbol
+		(lib_id "5023860570:5023860570")
+		(at 220.98 151.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "51ec6f7c-5276-41f0-ad92-608e936dc576")
+		(property "Reference" "J1"
+			(at 231.14 151.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "5023860570"
+			(at 231.14 153.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MOLEX_5023860570"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Molex"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "5.55 mm"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/5023860570/Molex/view-part/?ref=eda"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "F"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/5023860570/Molex/view-part/?ref=snap"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "5023860570"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=5660655&manufacturer=Molex&part_name=5023860570&search_term=5023860570"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "1.25mm Pitch CLIK-Mate Wire-to-Board PCB Receptacle, Single Row, Right-Angle, Tin (Sn) Plating, 5 Circuits"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Molex"
+			(at 220.98 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "241a6e73-b928-45dd-add6-9b6d756c9832")
+		)
+		(pin "1"
+			(uuid "d33c33e1-bb4c-4111-823b-51ee2dcca564")
+		)
+		(pin "3"
+			(uuid "16b63485-857c-427c-8f68-fe4a68f32dd8")
+		)
+		(pin "4"
+			(uuid "e8fed8a3-8510-447b-a9cd-638812f56f59")
+		)
+		(pin "S2"
+			(uuid "59179da3-2ef2-49a5-adad-68d2b7871c5a")
+		)
+		(pin "S1"
+			(uuid "61305947-0384-4b63-8585-f56e46230c31")
+		)
+		(pin "5"
+			(uuid "dc637683-7343-4a38-aac5-9a93534ea257")
+		)
+		(instances
+			(project ""
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
 		(at 107.95 125.73 0)
 		(unit 1)
@@ -11080,73 +11476,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 194.31 190.5 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "541adc8e-7a7b-40e5-8465-fafa02962171")
-		(property "Reference" "#PWR042"
-			(at 200.66 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 198.12 190.4999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 194.31 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 194.31 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 194.31 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "91d47d9a-9e14-4659-b50f-11a589f6ea1f")
-		)
-		(instances
-			(project "KicadProject"
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "#PWR042")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 114.3 138.43 90)
 		(unit 1)
@@ -11345,6 +11674,194 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 99.06 153.67 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5d26b9d9-a195-484e-9b7c-175f5d350c58")
+		(property "Reference" "S4"
+			(at 101.6 152.3999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 101.6 154.9399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0dab831e-ddba-4989-beb8-0cd3b0e2c25f")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "S4")
 					(unit 1)
 				)
 			)
@@ -11764,73 +12281,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 135.89 203.2 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7a90faf3-8f67-4ff1-9815-6f5fe0d808bc")
-		(property "Reference" "#PWR08"
-			(at 142.24 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 139.7 203.1999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 135.89 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.89 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 135.89 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "add0ca91-ba85-4d4c-8105-74df8d33549f")
-		)
-		(instances
-			(project "KicadProject"
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 118.11 115.57 180)
 		(unit 1)
@@ -11895,6 +12345,194 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 156.21 91.44 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7d773e8e-301c-4dc5-bb66-3cd9f02179e7")
+		(property "Reference" "C-1"
+			(at 158.75 90.1699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 158.75 92.7099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 156.21 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "26aa5fa2-5c1a-4c2b-a256-a4bbc4b5ed1b")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "C-1")
 					(unit 1)
 				)
 			)
@@ -13576,6 +14214,73 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 133.35 199.39 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a6fcfda1-d0a2-47e9-bc7a-c3c8eb187453")
+		(property "Reference" "#PWR01"
+			(at 139.7 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 137.16 199.3899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 133.35 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a198f45f-54f9-467c-bd19-ad2999824670")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 102.87 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13710,35 +14415,45 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 135.89 187.96 0)
+		(lib_id "S2761-46R:S2761-46R")
+		(at 152.4 66.04 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c45dc806-a23b-4ed3-9824-5d3ad6c9f1a0")
-		(property "Reference" "C5"
-			(at 139.7 186.6899 0)
+		(uuid "bdda0e08-159e-45ef-8439-2d90c1c39c53")
+		(property "Reference" "C+1"
+			(at 154.94 64.7699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "100uF"
-			(at 139.7 189.2299 0)
+		(property "Value" "S2761-46R"
+			(at 154.94 67.3099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 136.8552 191.77 0)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13746,8 +14461,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 135.89 187.96 0)
+		(property "Description" ""
+			(at 152.4 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13755,25 +14470,321 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
-			(at 135.89 187.96 0)
+		(property "MF" "Harwin"
+			(at 152.4 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
 				(hide yes)
 			)
 		)
 		(pin "1"
-			(uuid "f48914a1-bf8e-40ed-925c-0e4fee438665")
-		)
-		(pin "2"
-			(uuid "12816746-3487-4dda-a443-c200656f7a8b")
+			(uuid "16904cad-10aa-4d62-b6fb-2764ae329a67")
 		)
 		(instances
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "C5")
+					(reference "C+1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 107.95 143.51 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bfb0230d-eed9-42f2-b472-c061d3c6e480")
+		(property "Reference" "S2"
+			(at 110.49 142.2399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 110.49 144.7799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 107.95 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c7143fc1-0124-4b7f-a872-469d230083c2")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "S2")
 					(unit 1)
 				)
 			)
@@ -14112,76 +15123,6 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 86.36 198.12 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d4b2f72e-d2ae-4c39-b7e2-9878596092c5")
-		(property "Reference" "C2"
-			(at 90.17 196.8499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 90.17 199.3899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 87.3252 201.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 86.36 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 86.36 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "def23987-414d-4368-a889-2a519fc1ed56")
-		)
-		(pin "2"
-			(uuid "f59f85f0-22ac-4102-8322-be5cbd13de78")
-		)
-		(instances
-			(project ""
-				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
-					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -14601,6 +15542,194 @@
 		)
 	)
 	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 132.08 204.47 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dfe3c25b-83e1-41e9-9e0b-f5d68132c5e8")
+		(property "Reference" "GND1"
+			(at 134.62 203.1999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 134.62 205.7399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 132.08 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9dea21d-ce4e-48ed-b3f6-837ff93bd3b2")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "GND1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "436500303:436500303")
 		(at 82.55 163.83 180)
 		(unit 1)
@@ -14798,6 +15927,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 194.31 187.96 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e70f2fbd-d5ea-4a2a-b1b3-724c02aee610")
+		(property "Reference" "#PWR023"
+			(at 200.66 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 198.12 187.9599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 194.31 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "57052fd5-fd32-4c85-ad68-0d5fb1bf67e6")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 114.3 148.59 90)
 		(unit 1)
@@ -14933,6 +16129,194 @@
 		)
 	)
 	(symbol
+		(lib_id "S2761-46R:S2761-46R")
+		(at 102.87 148.59 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee9d0cec-f9a1-4d29-87ba-8237431ed1b6")
+		(property "Reference" "S3"
+			(at 105.41 147.3199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "S2761-46R"
+			(at 105.41 149.8599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "HARWIN_S2761-46R"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MF" "Harwin"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "1.15mm"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Package" "None"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Price" "None"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Check_prices" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=eda"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "1"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SnapEDA_Link" "https://www.snapeda.com/parts/S2761-46R/Harwin/view-part/?ref=snap"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MP" "S2761-46R"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "SMT Test Point, 1.15mm high, tin, Tape and Reeled"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Availability" "In Stock"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Harwin"
+			(at 102.87 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "97b10e13-a050-4563-9d17-b1006fbc636a")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "S3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 232.41 96.52 0)
 		(unit 1)
@@ -14993,6 +16377,73 @@
 			(project "KicadProject"
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 168.91 198.12 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fa1b2139-1db4-4c20-91ec-3c6dcc1f7f24")
+		(property "Reference" "#PWR03"
+			(at 162.56 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 165.1 198.1199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 168.91 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "104f006b-463a-4428-a82e-de2e12ff538f")
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -15208,6 +16659,68 @@
 				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
 					(reference "D1")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 104.775 185.42)
+		(size 17.145 6.985)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "856a01bf-dd82-4d93-b31c-d966941a70df")
+		(property "Sheetname" "power"
+			(at 104.775 184.7084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 104.775 192.9896 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "3.3v" output
+			(at 121.92 189.23 0)
+			(uuid "a0ed92aa-e1d0-4692-ac02-5cd4a71f027b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "vin" input
+			(at 104.775 189.23 180)
+			(uuid "93748a33-eb3a-4450-91aa-73d228e2c17a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "KicadProject"
+				(path "/2c2d4507-fc07-48cd-99bd-ca69b6f1feaa"
+					(page "2")
 				)
 			)
 		)

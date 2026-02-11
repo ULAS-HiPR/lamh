@@ -2,4 +2,8 @@
   (version 7)
   (lib (name "436500303")(type "KiCad")(uri "${KIPRJMOD}/lib/436500303.kicad_sym")(options "")(descr ""))
   (lib (name "STDCRA38M")(type "KiCad")(uri "${KIPRJMOD}/lib/STDCRA38M.kicad_sym")(options "")(descr ""))
+  (lib (name "MPM3650CGQW-P")(type "KiCad")(uri "${KIPRJMOD}/lib/MPM3650CGQW-P.kicad_sym")(options "")(descr ""))
+  (lib (name "LT3045EDD_PBF")(type "KiCad")(uri "${KIPRJMOD}/lib/LT3045EDD_PBF.kicad_sym")(options "")(descr ""))
+  (lib (name "5023860570")(type "KiCad")(uri "${KIPRJMOD}/lib/5023860570.kicad_sym")(options "")(descr ""))
+  (lib (name "S2761-46R")(type "KiCad")(uri "${KIPRJMOD}/lib/S2761-46R.kicad_sym")(options "")(descr ""))
 )
