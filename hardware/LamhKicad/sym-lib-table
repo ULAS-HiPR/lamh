@@ -6,4 +6,5 @@
   (lib (name "LT3045EDD_PBF")(type "KiCad")(uri "${KIPRJMOD}/lib/LT3045EDD_PBF.kicad_sym")(options "")(descr ""))
   (lib (name "5023860570")(type "KiCad")(uri "${KIPRJMOD}/lib/5023860570.kicad_sym")(options "")(descr ""))
   (lib (name "S2761-46R")(type "KiCad")(uri "${KIPRJMOD}/lib/S2761-46R.kicad_sym")(options "")(descr ""))
+  (lib (name "EBBA-02-C-SS-BU")(type "KiCad")(uri "${KIPRJMOD}/lib/EBBA-02-C-SS-BU.kicad_sym")(options "")(descr ""))
 )
