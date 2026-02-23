@@ -1148,16 +1148,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "what value should these caps be? "
-		(exclude_from_sim no)
-		(at 172.974 51.308 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b153bd36-3331-43d8-bdc6-9bde7a028263")
-	)
 	(text "R2 = 10.0kΩ + R1 = 53.6kΩ"
 		(exclude_from_sim no)
 		(at 92.456 96.266 0)

@@ -5459,7 +5459,7 @@
 	)
 	(text "cable\n"
 		(exclude_from_sim no)
-		(at 69.342 218.948 0)
+		(at 215.9 181.864 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5525,7 +5525,7 @@
 	)
 	(text "https://www.digikey.com/en/products/detail/molex/0436500303/269000?s=N4IgTCBcDaICwGYBsBWADGhmQF0C+QA"
 		(exclude_from_sim no)
-		(at 123.952 231.14 0)
+		(at 270.51 194.056 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5535,7 +5535,7 @@
 	)
 	(text "https://www.digikey.ie/en/products/detail/molex/1451320303/9742477"
 		(exclude_from_sim no)
-		(at 102.616 222.25 0)
+		(at 249.174 185.166 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5545,7 +5545,7 @@
 	)
 	(text "connector\n"
 		(exclude_from_sim no)
-		(at 71.374 227.076 0)
+		(at 217.932 189.992 0)
 		(effects
 			(font
 				(size 1.27 1.27)
