@@ -1,3 +1,4 @@
+#include "state_machine.h"
 #include "telemetry.h"
 
 
@@ -12,7 +13,7 @@ void Telemetry::run() {
 void Telemetry::StartTelemetryEntry(void *argument) {
     auto *self = static_cast<Telemetry*>(argument);
     if (self) {
-        self->StartStateMachine();
+        self->StartTelemetry();
     }
 }
 
@@ -22,19 +23,19 @@ void Telemetry::StartTelemetry() {
 
     for (;;) {
         char data = radio.read();
-        State s_data = parse_message(data)
+        task::State_Machine::State s_data = parse_message(data);
         osMessageQueuePut(telem_queue_, &s_data, 0, 0);
         osDelay(100);  
     }
 }
 
-static State Telemetry::parse_messge(char msg){
+static task::State_Machine::State Telemetry::parse_messge(char msg){
     if(msg == 'r'){
-        return State::ROLL;
+        return task::State_Machine::State::ROLL;
     } else if (msg == 'u'){
-        return State::UNROLL;
+        return task::State_Machine::State::UNROLL;
     }else{
-        return State::STOP;
+        return task::State_Machine::State::STOP;
     }
 }
 

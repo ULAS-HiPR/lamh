@@ -17,12 +17,10 @@
 void SystemClock_Config(void);
 void Error_Handler(void);
 
-osMessageQueueId_t telemetryQueueHandle;
 const osMessageQueueAttr_t telemetryQueue_attributes = {
   .name = "telemetryQueue"
 };
 
-osMessageQueueId_t loggingQueueHandle;
 const osMessageQueueAttr_t loggingQueue_attributes = {
   .name = "loggingQueue"
 };
@@ -35,11 +33,17 @@ int main(void)
 
   SPI_Handler* spi_handler_imu = new SPI_STM(&hspi1, IMU_CS_PORT, IMU_CS_PIN);
   SPI_Handler* spi_handler_radio = new SPI_STM(&hspi1, RA_CS_PORT, RA_CS_PIN);
+  PWM_Handler* pwm_handler = new PWM_STM(&htim1, SERVO_PWM_CHANNEL);
+
   IMU* imu = new LSM6DOF(*spi_handler_imu);
   Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
-  I
+  Servo* servo = new Servo(pwm_handler, SERVO_PWM_CHANNEL);
 
-  static task::State_Machine state_machine(imu, telemetryQueueHandle,loggingQueueHandle);
+
+  telemetryQueueHandle = osMessageQueueNew(16, sizeof(task::State), &telemetryQueue_attributes);
+  loggingQueueHandle = osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
+
+  static task::State_Machine state_machine(imu, servo, telemetryQueueHandle, loggingQueueHandle);
   static task::Telemetry telem(radio, telemetryQueueHandle);
 
   state_machine.run();
