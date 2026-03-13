@@ -22,8 +22,19 @@ void State_Machine::StartStateMachine() {
 
     for (;;) {
         imu_.update();
-    
-        osMessageQueuePut(telem_queue_, &data, 0, 0);
+        State active_state;
+        osMessageQueueGet(&telem_queue_, &active_state, 0, 0);
+        switch (active_state)
+        {
+            case State::ROLL:
+                do_roll_action();
+            case State::UNROLL:
+                do_unroll_action();
+            case State::STOP:
+                stop_action():
+            default:
+                stop_action();
+        }
 
         uint32_t msg = HAL_GetTick();
         osMessageQueuePut(logger_queue_, &msg, 0, 0);
