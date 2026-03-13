@@ -10,12 +10,22 @@
 #include <I2C/I2C_STM.h>
 #include <SPI/SPI_STM.h>
 
-#include "tasks/default.h"
+#include "tasks/state_machine.h"
+#include "tasks/telemetry.h"
 
 
 void SystemClock_Config(void);
 void Error_Handler(void);
 
+osMessageQueueId_t telemetryQueueHandle;
+const osMessageQueueAttr_t telemetryQueue_attributes = {
+  .name = "telemetryQueue"
+};
+
+osMessageQueueId_t loggingQueueHandle;
+const osMessageQueueAttr_t loggingQueue_attributes = {
+  .name = "loggingQueue"
+};
 
 int main(void)
 {
@@ -23,10 +33,17 @@ int main(void)
   SystemClock_Config();
   osKernelInitialize();
 
-  
-  static task::Default default_task; 
-  default_task.run();
+  SPI_Handler* spi_handler_imu = new SPI_STM(&hspi1, IMU_CS_PORT, IMU_CS_PIN);
+  SPI_Handler* spi_handler_radio = new SPI_STM(&hspi1, RA_CS_PORT, RA_CS_PIN);
+  IMU* imu = new LSM6DOF(*spi_handler_imu);
+  Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
+  I
 
+  static task::State_Machine state_machine(imu, telemetryQueueHandle,loggingQueueHandle);
+  static task::Telemetry telem(radio, telemetryQueueHandle);
+
+  state_machine.run();
+  telem.run();
   
   osKernelStart();
   // never get here 
