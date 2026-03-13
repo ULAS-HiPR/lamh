@@ -1,6 +1,5 @@
 #include "state_machine.h"
 
-
 namespace task {
 
 void State_Machine::run() {
@@ -42,5 +41,21 @@ void State_Machine::StartStateMachine() {
         osDelay(100);  
     }
 }
+
+void State_Machine::do_roll_action() {
+    servo_.set_position(ROLL_POSITION);
+    osDelay(1000);
+    servo_.set_position(ROLL_HOLD_POSITION);
+};
+
+void State_Machine::do_unroll_action() {
+    servo_.set_position(UNROLL_POSITION);
+    osDelay(1000);
+    servo_.set_position(UNROLL_HOLD_POSITION);
+};
+
+void State_Machine::stop_action() {
+    servo_.set_position(STOP_POSITION);
+};
 
 }
