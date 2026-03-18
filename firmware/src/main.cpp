@@ -37,11 +37,12 @@ int main(void)
 
   IMU* imu = new LSM6DOF(*spi_handler_imu);
   Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
-  Servo* servo = new Servo(pwm_handler, SERVO_PWM_CHANNEL);
+  Servo* servo = new Servo();
+  //pwm_handler, SERVO_PWM_CHANNEL);
 
 
-  telemetryQueueHandle = osMessageQueueNew(16, sizeof(task::State), &telemetryQueue_attributes);
-  loggingQueueHandle = osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
+  osQueueId_t telemetryQueueHandle = osMessageQueueNew(16, sizeof(task::State_Machine::State), &telemetryQueue_attributes);
+  osQueueId_t loggingQueueHandle = osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
 
   static task::State_Machine state_machine(imu, servo, telemetryQueueHandle, loggingQueueHandle);
   static task::Telemetry telem(radio, telemetryQueueHandle);

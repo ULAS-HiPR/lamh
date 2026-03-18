@@ -21,6 +21,12 @@
 #define BARO_CS_PIN GPIO_PIN_4
 #define BARO_CS_PORT GPIOA
 
+#define RA_CS_PIN GPIO_PIN_0
+#define RA_CS_PORT GPIOB
+
+#define IMU_CS_PIN GPIO_PIN_1
+#define IMU_CS_PORT GPIOB
+
 // Extern handles for use by I2C/SPI handlers
 extern I2C_HandleTypeDef hi2c1;
 extern SPI_HandleTypeDef hspi1;
