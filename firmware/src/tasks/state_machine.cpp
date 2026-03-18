@@ -30,7 +30,7 @@ void State_Machine::StartStateMachine() {
             case State::UNROLL:
                 do_unroll_action();
             case State::STOP:
-                stop_action():
+                stop_action();
             default:
                 stop_action();
         }

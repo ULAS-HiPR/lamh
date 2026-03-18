@@ -1,12 +1,14 @@
 #pragma once
+#include <cstdint>
 #if F4
 #include "stm32f4xx_hal.h"
 #include "platform/stm_f4.h"
 #endif
 #include "cmsis_os.h"
 #include <cstdio>
-#include <IMU>
-#include <Servo>
+
+#include <IMU/IMU.h>
+#include <Servo/Servo.h>
 
 namespace task{
 class State_Machine {
@@ -27,7 +29,7 @@ class State_Machine {
             STOP,
             ROLL,
             UNROLL
-        }
+        };
 
     private:
         void StartStateMachine();
@@ -54,6 +56,12 @@ class State_Machine {
             0,
             0
         };
+
+        uint16_t UNROLL_POSITION = 1000;
+        uint16_t UNROLL_HOLD_POSITION = 1200;
+        uint16_t ROLL_POSITION = 2000;
+        uint16_t ROLL_HOLD_POSITION = 1800;
+        uint16_t STOP_POSITION = 1500;
     };
 
 }
