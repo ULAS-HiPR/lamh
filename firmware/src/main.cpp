@@ -10,6 +10,10 @@
 #include <I2C/I2C_STM.h>
 #include <SPI/SPI_STM.h>
 
+#include <IMU/MPU6050.h>
+//#include <Radio/RA01H.h>
+//#include <Servo/Servo.h>
+
 #include "tasks/state_machine.h"
 #include "tasks/telemetry.h"
 
@@ -31,26 +35,34 @@ int main(void)
   SystemClock_Config();
   osKernelInitialize();
 
-  SPI_Handler* spi_handler_imu = new SPI_STM(&hspi1, IMU_CS_PORT, IMU_CS_PIN);
-  SPI_Handler* spi_handler_radio = new SPI_STM(&hspi1, RA_CS_PORT, RA_CS_PIN);
-  PWM_Handler* pwm_handler = new PWM_STM(&htim1, SERVO_PWM_CHANNEL);
+  //SPI_Handler* spi_handler_imu = new SPI_STM(&hspi1, IMU_CS_PORT, IMU_CS_PIN);
+  //SPI_Handler* spi_handler_radio = new SPI_STM(&hspi1, RA_CS_PORT, RA_CS_PIN);
+  //PWM_Handler* pwm_handler = new PWM_STM(&htim1, SERVO_PWM_CHANNEL);
+  I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
 
-  IMU* imu = new LSM6DOF(*spi_handler_imu);
-  Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
-  Servo* servo = new Servo();
+  IMU* imu = new MPU6050(*i2c_handler);
+  //Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
+  //Servo* servo = new Servo();
   //pwm_handler, SERVO_PWM_CHANNEL);
 
 
-  osQueueId_t telemetryQueueHandle = osMessageQueueNew(16, sizeof(task::State_Machine::State), &telemetryQueue_attributes);
-  osQueueId_t loggingQueueHandle = osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
+  osMessageQueueId_t telemetryQueueHandle =
+    osMessageQueueNew(16, sizeof(task::State_Machine::State), &telemetryQueue_attributes);
 
-  static task::State_Machine state_machine(imu, servo, telemetryQueueHandle, loggingQueueHandle);
-  static task::Telemetry telem(radio, telemetryQueueHandle);
+  osMessageQueueId_t loggingQueueHandle =
+    osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
+
+  static task::State_Machine state_machine(*imu, telemetryQueueHandle, loggingQueueHandle);
+    //servo, telemetryQueueHandle, loggingQueueHandle
+
+  static task::Telemetry telem(telemetryQueueHandle);
+    //radio, telemetryQueueHandle);
 
   state_machine.run();
   telem.run();
   
   osKernelStart();
+  
   // never get here 
   while (1)
   {

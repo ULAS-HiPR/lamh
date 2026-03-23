@@ -8,16 +8,17 @@
 #include <cstdio>
 
 #include <IMU/IMU.h>
-#include <Servo/Servo.h>
+//#include <Servo/Servo.h>
 
 namespace task{
 class State_Machine {
     public:
-        State_Machine(IMU& imu, Servo& servo,
+        State_Machine(IMU& imu, 
+                        //Servo& servo,
                       osMessageQueueId_t telem_queue,
                       osMessageQueueId_t logger_queue)
             : imu_(imu),
-              servo_(servo),
+              //servo_(servo),
               telem_queue_(telem_queue),
               logger_queue_(logger_queue),
               taskHandle_(nullptr)
@@ -39,7 +40,7 @@ class State_Machine {
         void stop_action();
 
         IMU& imu_;
-        Servo& servo_;
+        //Servo& servo_;
         osMessageQueueId_t telem_queue_;
         osMessageQueueId_t logger_queue_;
 
