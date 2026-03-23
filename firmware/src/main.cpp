@@ -16,6 +16,7 @@
 
 #include "tasks/state_machine.h"
 #include "tasks/telemetry.h"
+#include "tasks/logger.h"
 
 
 void SystemClock_Config(void);
@@ -58,11 +59,14 @@ int main(void)
   static task::Telemetry telem(telemetryQueueHandle);
     //radio, telemetryQueueHandle);
 
+  static task::Logger logger(loggingQueueHandle);
+
   state_machine.run();
   telem.run();
-  
+  logger.run();
+
   osKernelStart();
-  
+
   // never get here 
   while (1)
   {
