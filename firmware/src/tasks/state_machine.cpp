@@ -1,4 +1,5 @@
 #include "state_machine.h"
+#include <cstdio>
 
 namespace task {
 
@@ -9,7 +10,9 @@ void State_Machine::run() {
 }
 
 void State_Machine::StartStateMachineEntry(void *argument) {
+    printf("State machine starting1\n");
     auto *self = static_cast<State_Machine*>(argument);
+    printf("State machine starting1\n");
     if (self) {
         self->StartStateMachine();
     }
@@ -18,11 +21,13 @@ void State_Machine::StartStateMachineEntry(void *argument) {
 void State_Machine::StartStateMachine() {
 
     printf("State machine started\n");
+    imu_.init();
+    imu_data data;
 
     for (;;) {
-        imu_.update();
+        imu_.update(&data);
         State active_state;
-        osMessageQueueGet(&telem_queue_, &active_state, 0, 0);
+        osMessageQueueGet(&telem_queue_, &active_state, 0, 0); //freezing here 
         switch (active_state)
         {
             case State::ROLL:
@@ -43,19 +48,23 @@ void State_Machine::StartStateMachine() {
 }
 
 void State_Machine::do_roll_action() {
-    servo_.set_position(ROLL_POSITION);
+    //servo_.set_position(ROLL_POSITION);
+    printf("position");
     osDelay(1000);
-    servo_.set_position(ROLL_HOLD_POSITION);
+    //servo_.set_position(ROLL_HOLD_POSITION);
 };
 
 void State_Machine::do_unroll_action() {
-    servo_.set_position(UNROLL_POSITION);
+    //servo_.set_position(UNROLL_POSITION);
+    printf("position");
     osDelay(1000);
-    servo_.set_position(UNROLL_HOLD_POSITION);
+    printf("position");
+    //servo_.set_position(UNROLL_HOLD_POSITION);
 };
 
 void State_Machine::stop_action() {
-    servo_.set_position(STOP_POSITION);
+    //servo_.set_position(STOP_POSITION);
+    printf("position");
 };
 
 }

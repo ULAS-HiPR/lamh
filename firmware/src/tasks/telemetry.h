@@ -11,8 +11,11 @@
 namespace task{
 class Telemetry {
     public:
-        Telemetry(Radio radio_in, osMessageQueueId_t telem_queue,) : 
-            radio_(radio_in), telem_queue_(telem_queue),taskHandle_(nullptr){};
+        Telemetry(
+        // Radio radio_in, 
+            osMessageQueueId_t telem_queue) : 
+            //radio_(radio_in),
+             telem_queue_(telem_queue),taskHandle_(nullptr){};
         void run();
 
     private:
@@ -20,7 +23,7 @@ class Telemetry {
         static void StartTelemetryEntry(void *argument);
         static task::State_Machine::State parse_message(char msg);
 
-        Radio& radio_;
+        //Radio& radio_;
         osMessageQueueId_t telem_queue_;
 
         osThreadId_t taskHandle_;
