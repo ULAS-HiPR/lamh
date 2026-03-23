@@ -1,4 +1,5 @@
 #include "state_machine.h"
+#include "logger.h"
 #include <cstdio>
 
 namespace task {
@@ -26,8 +27,10 @@ void State_Machine::StartStateMachine() {
 
     for (;;) {
         imu_.update(&data);
+        //get servo last position?
         State active_state;
-        osMessageQueueGet(&telem_queue_, &active_state, 0, 0); //freezing here 
+        osMessageQueueGet(&telem_queue_, &active_state, 0, 0); //freezing here -> is pirority of telem to low
+        
         switch (active_state)
         {
             case State::ROLL:
@@ -41,7 +44,15 @@ void State_Machine::StartStateMachine() {
         }
 
         uint32_t msg = HAL_GetTick();
-        osMessageQueuePut(logger_queue_, &msg, 0, 0);
+
+        task::Logger::LogMessage log_msg {
+            .timestamp = msg,
+            .imu = data,
+            .fsm_state = active_state
+            //add in servo position?
+        };
+
+        osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
 
         osDelay(100);  
     }
