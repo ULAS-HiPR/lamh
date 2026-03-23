@@ -51,7 +51,7 @@ int main(void)
     osMessageQueueNew(16, sizeof(task::State_Machine::State), &telemetryQueue_attributes);
 
   osMessageQueueId_t loggingQueueHandle =
-    osMessageQueueNew(16, sizeof(uint32_t), &loggingQueue_attributes);
+    osMessageQueueNew(16, sizeof(task::Logger::LogMessage), &loggingQueue_attributes);
 
   static task::State_Machine state_machine(*imu, telemetryQueueHandle, loggingQueueHandle);
     //servo, telemetryQueueHandle, loggingQueueHandle
