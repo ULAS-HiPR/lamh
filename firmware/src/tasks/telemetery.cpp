@@ -27,7 +27,7 @@ void Telemetry::StartTelemetry() {
         task::State_Machine::State s_data = parse_message(data);
         printf("Parsed message: %d\n", s_data);
         osMessageQueuePut(telem_queue_, &s_data, 0, 0);
-        osDelay(100);  
+        osDelay(1000);  
     }
 }
 
