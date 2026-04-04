@@ -7,47 +7,37 @@
 #include "cmsis_os.h"
 #include <cstdio>
 
-#include <IMU/IMU.h>
+//#include <IMU/IMU.h>
 //#include <Servo/Servo.h>
 
 namespace task{
-class State_Machine {
+class Canards_Controller {
     public:
-        State_Machine(IMU& imu, 
+        Canards_Controller(
                         //Servo& servo,
-                      osMessageQueueId_t telem_queue,
+                      osMessageQueueId_t can_queue,
                       osMessageQueueId_t logger_queue)
-            : imu_(imu),
-              //servo_(servo),
-              telem_queue_(telem_queue),
+            : 
+              can_queue_(can_queue),
               logger_queue_(logger_queue),
-              taskHandle_(nullptr)
-        {};
-
+              taskHandle_(nullptr){};
+              
         void run();
 
-        enum State {
-            STOP,
-            ROLL,
-            UNROLL
-        };
-
     private:
-        void StartStateMachine();
-        static void StartStateMachineEntry(void *argument);
-        void do_roll_action();
-        void do_unroll_action();
+        void StartCanardsController();
+        static void StartCanardsControllerEntry(void *argument);
+        void run_canards_controller();
         void stop_action();
 
-        IMU& imu_;
         //Servo& servo_;
-        osMessageQueueId_t telem_queue_;
+        osMessageQueueId_t can_queue_;
         osMessageQueueId_t logger_queue_;
 
         osThreadId_t taskHandle_;
 
         const osThreadAttr_t task_attributes {
-            "StateMachine",
+            "CanardsController",
             0,
             nullptr,
             0,

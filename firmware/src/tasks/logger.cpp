@@ -18,10 +18,7 @@ void Logger::StartLoggerEntry(void *argument) {
 }
 
 void Logger::StartLogger() {
-
     printf("Logger started\n");
-
-
     for (;;) {
         uint32_t msg;
         osMessageQueueGet(&logger_queue_, &msg, 0, 0);
@@ -29,4 +26,4 @@ void Logger::StartLogger() {
         osDelay(200);  
     }
 }
-
+}

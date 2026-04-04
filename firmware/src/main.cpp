@@ -14,16 +14,16 @@
 //#include <Radio/RA01H.h>
 //#include <Servo/Servo.h>
 
-#include "tasks/state_machine.h"
-#include "tasks/telemetry.h"
+#include "tasks/canards_controller.h"
+#include "tasks/can.h"
 #include "tasks/logger.h"
 
 
 void SystemClock_Config(void);
 void Error_Handler(void);
 
-const osMessageQueueAttr_t telemetryQueue_attributes = {
-  .name = "telemetryQueue"
+const osMessageQueueAttr_t canQueue_attributes = {
+  .name = "canQueue"
 };
 
 const osMessageQueueAttr_t loggingQueue_attributes = {
@@ -36,33 +36,25 @@ int main(void)
   SystemClock_Config();
   osKernelInitialize();
 
-  //SPI_Handler* spi_handler_imu = new SPI_STM(&hspi1, IMU_CS_PORT, IMU_CS_PIN);
-  //SPI_Handler* spi_handler_radio = new SPI_STM(&hspi1, RA_CS_PORT, RA_CS_PIN);
-  //PWM_Handler* pwm_handler = new PWM_STM(&htim1, SERVO_PWM_CHANNEL);
   I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
 
-  IMU* imu = new MPU6050(*i2c_handler);
-  //Radio* radio = new RA01H(*spi_handler_radio, EXTRA_PIN_D0);
   //Servo* servo = new Servo();
   //pwm_handler, SERVO_PWM_CHANNEL);
 
-
-  osMessageQueueId_t telemetryQueueHandle =
-    osMessageQueueNew(16, sizeof(task::State_Machine::State), &telemetryQueue_attributes);
-
+  osMessageQueueId_t canQueueHandle =
+    osMessageQueueNew(16, sizeof(char), &canQueue_attributes);
   osMessageQueueId_t loggingQueueHandle =
     osMessageQueueNew(16, sizeof(task::Logger::LogMessage), &loggingQueue_attributes);
 
-  static task::State_Machine state_machine(*imu, telemetryQueueHandle, loggingQueueHandle);
+  static task::Canards_Controller canards_controller(canQueueHandle, loggingQueueHandle);
     //servo, telemetryQueueHandle, loggingQueueHandle
 
-  static task::Telemetry telem(telemetryQueueHandle);
-    //radio, telemetryQueueHandle);
-
+  static task::CAN can_task(canQueueHandle);
   static task::Logger logger(loggingQueueHandle);
 
-  state_machine.run();
-  telem.run();
+  can_task.run();
+  canards_controller.run();
+  
   logger.run();
 
   osKernelStart();

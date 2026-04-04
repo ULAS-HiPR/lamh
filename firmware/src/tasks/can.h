@@ -5,31 +5,31 @@
 #endif
 #include "cmsis_os.h"
 #include <cstdio>
-#include <Radio/Radio.h>
+//#include <CAN/CanBus.h>
 
 
 namespace task{
-class Telemetry {
+class CAN {
     public:
-        Telemetry(
+        CAN(
         // Radio radio_in, 
-            osMessageQueueId_t telem_queue) : 
+            osMessageQueueId_t can_queue_) : 
             //radio_(radio_in),
-             telem_queue_(telem_queue),taskHandle_(nullptr){};
+             can_queue_(can_queue_),taskHandle_(nullptr){};
         void run();
 
     private:
-        void StartTelemetry();
-        static void StartTelemetryEntry(void *argument);
-        static task::State_Machine::State parse_message(char msg);
+        void StartCAN();
+        static void StartCANEntry(void *argument);
+        char parse_message(char msg);
 
-        //Radio& radio_;
-        osMessageQueueId_t telem_queue_;
+        //CAN& can_bus_;
+        osMessageQueueId_t can_queue_;
 
         osThreadId_t taskHandle_;
 
         const osThreadAttr_t task_attributes {
-            "Telemetry",
+            "CAN",
             0,
             nullptr,
             0,
