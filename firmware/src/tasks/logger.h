@@ -22,7 +22,7 @@ class Logger {
         struct LogMessage {
             uint32_t timestamp;
             imu_data imu;
-            task::State_Machine::State fsm_state;
+            char fsm_state;
         };
 
     private:
