@@ -27,8 +27,15 @@ void CAN::StartCAN() {
         // parse data & send to controller
         printf("Parsed message: %d\n", data);
         osMessageQueuePut(can_queue_, &data, 0, 0);
-        osDelay(1000);  
+        osDelay(CAN_HZ);  
     }
+}
+
+bool CAN::init(){
+    // check whats in stack
+    //true if response is good
+    // ack flight settinga?
+    return true;
 }
 
 char CAN::parse_message(char msg){

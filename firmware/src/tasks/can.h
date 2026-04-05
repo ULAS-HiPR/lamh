@@ -7,6 +7,7 @@
 #include <cstdio>
 //#include <CAN/CanBus.h>
 
+#define CAN_HZ 100U //ticks
 
 namespace task{
 class CAN {
@@ -17,6 +18,7 @@ class CAN {
             //radio_(radio_in),
              can_queue_(can_queue_),taskHandle_(nullptr){};
         void run();
+        bool init();
 
     private:
         void StartCAN();

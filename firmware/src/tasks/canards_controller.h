@@ -7,6 +7,7 @@
 #include "cmsis_os.h"
 #include <cstdio>
 
+#define CANARD_HZ 100U //ticks
 //#include <IMU/IMU.h>
 //#include <Servo/Servo.h>
 
@@ -21,8 +22,9 @@ class Canards_Controller {
               can_queue_(can_queue),
               logger_queue_(logger_queue),
               taskHandle_(nullptr){};
-              
+
         void run();
+        bool init();
 
     private:
         void StartCanardsController();

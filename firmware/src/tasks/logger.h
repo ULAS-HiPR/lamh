@@ -10,6 +10,8 @@
 #include <data.h>
 #include <Flash/flash.h>
 
+#define LOGGER_HZ 200U //ticks
+
 namespace task{
 class Logger {
     public:
@@ -20,6 +22,7 @@ class Logger {
         {};
 
         void run();
+        bool init();
 
         struct LogMessage {
             uint32_t timestamp;
@@ -50,4 +53,3 @@ class Logger {
     };
 
 }
-

@@ -24,7 +24,16 @@ void Logger::StartLogger() {
         osMessageQueueGet(&logger_queue_, &msg, 0, 0);
         //storage_.write(&msg);
         printf("Logged message: %u\n", msg);
-        osDelay(200);  
+        osDelay(LOGGER_HZ);  
     }
 }
+
+bool Logger::init(){
+    //check 
+    // flash.write
+    // flash.read
+    //read flight settings
+    return true;
 }
+}
+

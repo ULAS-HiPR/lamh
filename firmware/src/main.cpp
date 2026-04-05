@@ -57,6 +57,13 @@ int main(void)
   static task::CAN can_task(canQueueHandle);
   static task::Logger logger(flash_memory, loggingQueueHandle);
 
+  bool status[3];
+  status[0] = can_task.init();
+  status[1] = logger.init();
+  status[2] = canards_controller.init();
+
+  //send status along CAN for telemetry, unless CAN faulty, then oops
+  
   can_task.run();
   canards_controller.run();
   logger.run();

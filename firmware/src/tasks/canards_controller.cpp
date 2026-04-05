@@ -45,8 +45,16 @@ void Canards_Controller::StartCanardsController() {
 //
         //osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
 
-        osDelay(100);  
+        osDelay(CANARD_HZ);  
     }
+}
+
+bool Canards_Controller::init(){
+    //check servo signal is good
+    //servo.spin(0)
+    //servo.spin(180)
+    //check all other stuff
+    return true;
 }
 
 void Canards_Controller::run_canards_controller() {
