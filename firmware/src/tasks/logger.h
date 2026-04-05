@@ -8,13 +8,15 @@
 #include <cstdio>
 
 #include <data.h>
+#include <Flash/flash.h>
 
 namespace task{
 class Logger {
     public:
-        Logger(osMessageQueueId_t logger_queue) :
-              logger_queue_(logger_queue),
-              taskHandle_(nullptr)
+        Logger(Flash* storage, osMessageQueueId_t logger_queue) :
+                storage_(storage),
+                logger_queue_(logger_queue),
+                taskHandle_(nullptr)
         {};
 
         void run();
@@ -29,7 +31,7 @@ class Logger {
         void StartLogger();
         static void StartLoggerEntry(void *argument);
 
-        // Falsh falsh_memnery; // placeholder for flash memory interface
+        Flash* storage_;
         osMessageQueueId_t logger_queue_;
         osThreadId_t taskHandle_;
 
