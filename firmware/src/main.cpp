@@ -10,12 +10,25 @@
 #include <I2C/I2C_STM.h>
 #include <SPI/SPI_STM.h>
 
-#include "tasks/default.h"
+#include <IMU/MPU6050.h>
+//#include <Radio/RA01H.h>
+//#include <Servo/Servo.h>
+
+#include "tasks/canards_controller.h"
+#include "tasks/can.h"
+#include "tasks/logger.h"
 
 
 void SystemClock_Config(void);
 void Error_Handler(void);
 
+const osMessageQueueAttr_t canQueue_attributes = {
+  .name = "canQueue"
+};
+
+const osMessageQueueAttr_t loggingQueue_attributes = {
+  .name = "loggingQueue"
+};
 
 int main(void)
 {
@@ -23,12 +36,29 @@ int main(void)
   SystemClock_Config();
   osKernelInitialize();
 
-  
-  static task::Default default_task; 
-  default_task.run();
+  I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
 
+  //Servo* servo = new Servo();
+  //pwm_handler, SERVO_PWM_CHANNEL);
+
+  osMessageQueueId_t canQueueHandle =
+    osMessageQueueNew(16, sizeof(char), &canQueue_attributes);
+  osMessageQueueId_t loggingQueueHandle =
+    osMessageQueueNew(16, sizeof(task::Logger::LogMessage), &loggingQueue_attributes);
+
+  static task::Canards_Controller canards_controller(canQueueHandle, loggingQueueHandle);
+    //servo, telemetryQueueHandle, loggingQueueHandle
+
+  static task::CAN can_task(canQueueHandle);
+  static task::Logger logger(loggingQueueHandle);
+
+  can_task.run();
+  canards_controller.run();
   
+  logger.run();
+
   osKernelStart();
+
   // never get here 
   while (1)
   {

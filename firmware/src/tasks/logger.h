@@ -1,0 +1,51 @@
+#pragma once
+#include <cstdint>
+#if F4
+#include "stm32f4xx_hal.h"
+#include "platform/stm_f4.h"
+#endif
+#include "cmsis_os.h"
+#include <cstdio>
+
+#include <data.h>
+
+namespace task{
+class Logger {
+    public:
+        Logger(osMessageQueueId_t logger_queue) :
+              logger_queue_(logger_queue),
+              taskHandle_(nullptr)
+        {};
+
+        void run();
+
+        struct LogMessage {
+            uint32_t timestamp;
+            imu_data imu;
+            char fsm_state;
+        };
+
+    private:
+        void StartLogger();
+        static void StartLoggerEntry(void *argument);
+
+        // Falsh falsh_memnery; // placeholder for flash memory interface
+        osMessageQueueId_t logger_queue_;
+        osThreadId_t taskHandle_;
+
+        const osThreadAttr_t task_attributes {
+            "Logger",
+            0,
+            nullptr,
+            0,
+            nullptr,
+            512 * 4,        // 2 KB stack
+            osPriorityLow,
+            0,
+            0
+        };
+
+    };
+
+}
+
