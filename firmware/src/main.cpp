@@ -10,7 +10,9 @@
 #include <I2C/I2C_STM.h>
 #include <SPI/SPI_STM.h>
 
-#include <IMU/MPU6050.h>
+#include <Flash/flash.h>
+#include <Flash/MX25L128.h>
+
 //#include <Radio/RA01H.h>
 //#include <Servo/Servo.h>
 
@@ -37,6 +39,9 @@ int main(void)
   osKernelInitialize();
 
   I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
+  SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
+
+  Flash* flash_memory = new MX25L128();
 
   //Servo* servo = new Servo();
   //pwm_handler, SERVO_PWM_CHANNEL);
@@ -50,11 +55,10 @@ int main(void)
     //servo, telemetryQueueHandle, loggingQueueHandle
 
   static task::CAN can_task(canQueueHandle);
-  static task::Logger logger(loggingQueueHandle);
+  static task::Logger logger(flash_memory, loggingQueueHandle);
 
   can_task.run();
   canards_controller.run();
-  
   logger.run();
 
   osKernelStart();
