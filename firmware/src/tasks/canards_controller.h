@@ -8,6 +8,12 @@
 #include <cstdio>
 
 #define CANARD_HZ 100U //ticks
+#define EIGEN_NO_DEBUG
+#define EIGEN_MPL2_ONLY
+#define EIGEN_DONT_VECTORIZE
+#define EIGEN_DISABLE_UNALIGNED_ARRAY_ASSERT
+#include <Eigen/Dense>
+
 //#include <IMU/IMU.h>
 //#include <Servo/Servo.h>
 
@@ -32,6 +38,7 @@ class Canards_Controller {
         void run_canards_controller();
         void stop_action();
 
+        Eigen::VectorXd x;
         //Servo& servo_;
         osMessageQueueId_t can_queue_;
         osMessageQueueId_t logger_queue_;
