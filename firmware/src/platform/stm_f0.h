@@ -1,8 +1,10 @@
-#ifdef F4
-#ifndef STM_F4_H
-#define STM_F4_H
+#ifdef F0
+#ifndef STM_F072xB_H
+#define STM_F072xB_H
 
-#include "stm32f4xx_hal.h"
+#include "stm32f0xx_hal.h"
+#include "stm32f0xx_hal_spi.h"
+#include "stm32f0xx_hal_gpio.h"
 #define LED_PIN GPIO_PIN_5 
 #define LED_GPIO_PORT GPIOA 
 #define LED_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE() 
