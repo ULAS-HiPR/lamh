@@ -1,22 +1,22 @@
-#include "can.h"
+#include "CAN_task.h"
 
 
 namespace task {
 
-void CAN::run() {
-    taskHandle_ = osThreadNew(&CAN::StartCANEntry,
+void CAN_task::run() {
+    taskHandle_ = osThreadNew(&CAN_task::StartCANEntry,
                               this,
                               &task_attributes);
 }
 
-void CAN::StartCANEntry(void *argument) {
-    auto *self = static_cast<CAN*>(argument);
+void CAN_task::StartCANEntry(void *argument) {
+    auto *self = static_cast<CAN_task*>(argument);
     if (self) {
         self->StartCAN();
     }
 }
 
-void CAN::StartCAN() {
+void CAN_task::StartCAN() {
 
     printf("CAN started\n");
 
@@ -31,7 +31,7 @@ void CAN::StartCAN() {
     }
 }
 
-char CAN::parse_message(char msg){
+char CAN_task::parse_message(char msg){
     // placeholder for parsing logic
     return msg;
 }

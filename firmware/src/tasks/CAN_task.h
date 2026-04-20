@@ -3,19 +3,19 @@
 #include "stm32f4xx_hal.h"
 #include "platform/stm_f4.h"
 #endif
+#if F0
+#include "stm32f0xx_hal.h"
+#include "platform/stm_f0.h"
+#endif
 #include "cmsis_os.h"
 #include <cstdio>
 //#include <CAN/CanBus.h>
 
 
 namespace task{
-class CAN {
+class CAN_task {
     public:
-        CAN(
-        // Radio radio_in, 
-            osMessageQueueId_t can_queue_) : 
-            //radio_(radio_in),
-             can_queue_(can_queue_),taskHandle_(nullptr){};
+        CAN_task(osMessageQueueId_t can_queue_) : can_queue_(can_queue_), taskHandle_(nullptr) {};
         void run();
 
     private:
@@ -34,7 +34,7 @@ class CAN {
             nullptr,
             0,
             nullptr,
-            512 * 4,        // 2 KB stack
+            256,        // 2 KB stack
             osPriorityNormal,
             0,
             0

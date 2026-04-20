@@ -4,6 +4,10 @@
 #include "stm32f4xx_hal.h"
 #include "platform/stm_f4.h"
 #endif
+#if F0
+#include "stm32f0xx_hal.h"
+#include "platform/stm_f0.h"
+#endif
 #include "cmsis_os.h"
 #include <cstdio>
 
@@ -24,7 +28,7 @@ class Logger {
         struct LogMessage {
             uint32_t timestamp;
             imu_data imu;
-            char fsm_state;
+           // state fsm_state;
         };
 
     private:
@@ -41,7 +45,7 @@ class Logger {
             nullptr,
             0,
             nullptr,
-            512 * 4,        // 2 KB stack
+            512 * 1,        // 2 KB stack
             osPriorityLow,
             0,
             0
