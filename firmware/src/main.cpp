@@ -12,18 +12,11 @@
 #include <sensor.h>
 
 #include <I2C/I2C_STM.h>
-#include <SPI/SPI_STM.h>
 
-#include <Flash/flash.h>
-#include <Flash/MX25L128.h>
-
-//#include <Radio/RA01H.h>
 //#include <Servo/Servo.h>
 
 #include "tasks/canards_controller.h"
 #include "tasks/CAN_task.h"
-
-
 
 void SystemClock_Config(void);
 void Error_Handler(void);
@@ -32,39 +25,27 @@ const osMessageQueueAttr_t canQueue_attributes = {
   .name = "canQueue"
 };
 
-const osMessageQueueAttr_t loggingQueue_attributes = {
-  .name = "loggingQueue"
-};
-
 int main(void)
 {
   HAL_Init();
   SystemClock_Config();
   osKernelInitialize();
 
-  //bool init_status = true;
-  //I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
-  //SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
-
-  //Flash* flash_memory = new MX25L128();
+  bool init_status = true;
+  I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
 
   //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
   
 
   osMessageQueueId_t canQueueHandle =
     osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
-  osMessageQueueId_t loggingQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(canQueueHandle, loggingQueueHandle);
-    //servo, telemetryQueueHandle, loggingQueueHandle
+  static task::Canards_Controller canards_controller(canQueueHandle);
 
   static task::CAN_task can_task(canQueueHandle);
-  //static task::Logger logger(flash_memory, loggingQueueHandle);
 
   can_task.run();
   canards_controller.run();
-  //logger.run();
 
   osKernelStart();
 
