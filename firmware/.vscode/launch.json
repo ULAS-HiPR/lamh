@@ -12,11 +12,11 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "/Users/dervlagargan/Documents/Projects/HiPR/Code/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
+            "executable": "/home/anav/Documents/Flight Computer (Ogma V1.2)/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
             "projectEnvName": "nucleo_f411re",
-            "toolchainBinDir": "/Users/dervlagargan/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "toolchainBinDir": "/home/anav/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/dervlagargan/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd",
+            "svdPath": "/home/anav/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd",
             "preLaunchTask": {
                 "type": "PlatformIO",
                 "task": "Pre-Debug"
@@ -26,21 +26,21 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "/Users/dervlagargan/Documents/Projects/HiPR/Code/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
+            "executable": "/home/anav/Documents/Flight Computer (Ogma V1.2)/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
             "projectEnvName": "nucleo_f411re",
-            "toolchainBinDir": "/Users/dervlagargan/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "toolchainBinDir": "/home/anav/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/dervlagargan/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd"
+            "svdPath": "/home/anav/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "/Users/dervlagargan/Documents/Projects/HiPR/Code/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
+            "executable": "/home/anav/Documents/Flight Computer (Ogma V1.2)/lamh/firmware/.pio/build/nucleo_f411re/firmware.elf",
             "projectEnvName": "nucleo_f411re",
-            "toolchainBinDir": "/Users/dervlagargan/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin",
+            "toolchainBinDir": "/home/anav/.platformio/packages/toolchain-gccarmnoneeabi/bin",
             "internalConsoleOptions": "openOnSessionStart",
-            "svdPath": "/Users/dervlagargan/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd",
+            "svdPath": "/home/anav/.platformio/platforms/ststm32/misc/svd/STM32F411xx.svd",
             "loadMode": "manual"
         }
     ]

@@ -8,160 +8,138 @@
 #endif
 #include "cmsis_os.h"
 
-#include <data.h>
-#include <sensor.h>
-
 #include <I2C/I2C_STM.h>
-#include <SPI/SPI_STM.h>
-
-#include <Flash/flash.h>
-#include <Flash/MX25L128.h>
-
-//#include <Radio/RA01H.h>
-//#include <Servo/Servo.h>
-
-#include "tasks/canards_controller.h"
-#include "tasks/CAN_task.h"
-
-
+#include <Servo/PCA9685.h>
 
 void SystemClock_Config(void);
 void Error_Handler(void);
 
-const osMessageQueueAttr_t canQueue_attributes = {
-  .name = "canQueue"
+// ============================================================
+// Servo sweep task — mirrors the same pattern as default task
+// ============================================================
+namespace task {
+
+class ServoSweep {
+    public:
+        ServoSweep(PCA9685Servo* servo) : _servo(servo) {}
+
+        void run() {
+            _taskHandle = osThreadNew(
+                &ServoSweep::entry,  // FreeRTOS entry point
+                this,                // pass this object as argument
+                &_attributes
+            );
+        }
+
+    private:
+        static void entry(void* argument) {
+            auto* self = static_cast<ServoSweep*>(argument);
+            if (self) self->loop();
+        }
+
+        void loop() {
+            // initialise the PCA9685 chip
+            _servo->init();
+
+            // start at centre so servo doesn't snap on boot
+            _servo->set_position(90);
+            osDelay(500);
+
+            for (;;) {
+                // sweep 0 → 180 degrees
+                for (int8_t angle = 0; angle <= 180; angle += 2) {
+                    _servo->set_position(angle);
+                    osDelay(15);  // 15ms per step — adjust for sweep speed
+                }
+
+                // sweep 180 → 0 degrees
+                for (int8_t angle = 180; angle >= 0; angle -= 2) {
+                    _servo->set_position(angle);
+                    osDelay(15);
+                }
+            }
+        }
+
+        PCA9685Servo*   _servo;
+        osThreadId_t    _taskHandle;
+
+        const osThreadAttr_t _attributes = {
+            "servoSweep",       // name (visible in debugger)
+            0,
+            nullptr,
+            0,
+            nullptr,
+            256 * 4,            // stack size — 1KB
+            osPriorityNormal,   // priority
+            0,
+            0
+        };
 };
 
-const osMessageQueueAttr_t loggingQueue_attributes = {
-  .name = "loggingQueue"
-};
+} // namespace task
 
-int main(void)
-{
-  HAL_Init();
-  SystemClock_Config();
-  osKernelInitialize();
+// ============================================================
+// Main
+// ============================================================
+int main(void) {
+    HAL_Init();
+    SystemClock_Config();
+    osKernelInitialize();
 
-  //bool init_status = true;
-  //I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
-  //SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
+    // create I2C handler — hi2c1 comes from platform/stm_f0.h
+    // 0x40 << 1 because HAL expects the address pre-shifted
+    I2C_Handler* i2c = new I2C_STM(&hi2c1, 0x40 << 1);
 
-  //Flash* flash_memory = new MX25L128();
+    // create servo on PCA9685 channel 0
+    // change the second argument if your servo is on a different channel
+    PCA9685Servo* servo = new PCA9685Servo(*i2c, 0);
 
-  //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
-  
+    // create and start the sweep task
+    static task::ServoSweep sweep_task(servo);
+    sweep_task.run();
 
-  osMessageQueueId_t canQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
-  osMessageQueueId_t loggingQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
+    osKernelStart();
 
-  static task::Canards_Controller canards_controller(canQueueHandle, loggingQueueHandle);
-    //servo, telemetryQueueHandle, loggingQueueHandle
-
-  static task::CAN_task can_task(canQueueHandle);
-  //static task::Logger logger(flash_memory, loggingQueueHandle);
-
-  can_task.run();
-  canards_controller.run();
-  //logger.run();
-
-  osKernelStart();
-
-  // never get here 
-  while (1)
-  {
-    HAL_Delay(1000);
-  }
+    // never get here
+    while (1) {
+        HAL_Delay(1000);
+    }
 }
 
+// ============================================================
+// System Clock — copied from your existing main.cpp
+// ============================================================
+void SystemClock_Config(void) {
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
+    RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_HSI;
+    RCC_OscInitStruct.HSIState            = RCC_HSI_ON;
+    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_NONE;
 
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
 
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_ClkInitStruct.ClockType      = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
+                                     | RCC_CLOCKTYPE_PCLK1;
+    RCC_ClkInitStruct.SYSCLKSource   = RCC_SYSCLKSOURCE_HSI;
+    RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
+        Error_Handler();
+    }
 }
 
-/**
-  * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM6 interrupt took place, inside
-  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-  * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
-  * @retval None
-  */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM6)
-  {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == TIM6) {
+        HAL_IncTick();
+    }
 }
 
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
+void Error_Handler(void) {
+    __disable_irq();
+    while (1) {}
 }
-#ifdef USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
-}
-#endif /* USE_FULL_ASSERT */
