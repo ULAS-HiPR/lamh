@@ -1,3 +1,4 @@
+#if F0
 #include "stm_f0.h"
 
 I2C_HandleTypeDef hi2c1;
@@ -18,6 +19,24 @@ void MX_I2C1_Init()
     HAL_I2C_Init(&hi2c1);
 }
 
+void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
+{
+    if (hi2c->Instance != I2C1) {
+        return;
+    }
+
+    I2C_GPIO_CLK_ENABLE();
+    __HAL_RCC_I2C1_CLK_ENABLE();
+
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = I2C_SCL_PIN | I2C_SDA_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF1_I2C1;
+    HAL_GPIO_Init(I2C_GPIO_PORT, &GPIO_InitStruct);
+}
+
 void MX_SPI1_Init()
 {
     hspi1.Instance = SPI1;
@@ -35,3 +54,5 @@ void MX_SPI1_Init()
 
     HAL_SPI_Init(&hspi1);
 }
+
+#endif // F0

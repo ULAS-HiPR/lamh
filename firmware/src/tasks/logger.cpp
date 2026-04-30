@@ -21,9 +21,9 @@ void Logger::StartLogger() {
     printf("Logger started\n");
     for (;;) {
         uint32_t msg;
-        osMessageQueueGet(&logger_queue_, &msg, 0, 0);
+        osMessageQueueGet(logger_queue_, &msg, 0, 0);
         //storage_.write(&msg);
-        printf("Logged message: %u\n", msg);
+        printf("Logged message: %lu\n", static_cast<unsigned long>(msg));
         osDelay(200);  
     }
 }

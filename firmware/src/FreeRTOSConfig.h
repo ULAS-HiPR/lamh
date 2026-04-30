@@ -105,7 +105,7 @@
 #define configUSE_COUNTING_SEMAPHORES            1
 
 #if FREERTOS_CPU_M4
-#define configUSE_PORT_OPTIMISED_TASK_SELECTION  1
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION  0
 #else
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION  0
 #endif

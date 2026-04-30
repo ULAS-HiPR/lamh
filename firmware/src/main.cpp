@@ -10,9 +10,49 @@
 
 #include <I2C/I2C_STM.h>
 #include <Servo/PCA9685.h>
+#include <servo_debug.h>
+#include <stdint.h>
 
 void SystemClock_Config(void);
 void Error_Handler(void);
+
+namespace {
+
+uint8_t find_pca9685_address(I2C_HandleTypeDef* hi2c) {
+    servo_debug.stage = SERVO_DEBUG_STAGE_SCAN_START;
+    servo_debug.pca9685_found = 0;
+
+    for (uint16_t address = 0x40; address <= 0x7F; ++address) {
+        if (address == 0x70) {
+            continue; // avoid the default PCA9685 all-call address
+        }
+
+        servo_debug.stage = SERVO_DEBUG_STAGE_SCAN_PROBE;
+        servo_debug.scan_attempts++;
+        servo_debug.scan_last_address = static_cast<uint8_t>(address);
+        servo_debug.i2c_last_op = SERVO_DEBUG_I2C_OP_READY;
+        servo_debug.i2c_last_address = static_cast<uint8_t>(address);
+
+        HAL_StatusTypeDef status = HAL_I2C_IsDeviceReady(hi2c, static_cast<uint16_t>(address << 1), 2, 10);
+        servo_debug.scan_last_status = static_cast<uint32_t>(status);
+        servo_debug.scan_last_error = HAL_I2C_GetError(hi2c);
+        servo_debug.i2c_last_status = servo_debug.scan_last_status;
+        servo_debug.i2c_last_error = servo_debug.scan_last_error;
+
+        if (status == HAL_OK) {
+            servo_debug.stage = SERVO_DEBUG_STAGE_SCAN_FOUND;
+            servo_debug.pca9685_found = 1;
+            servo_debug.pca9685_address = static_cast<uint8_t>(address);
+            return static_cast<uint8_t>(address);
+        }
+    }
+
+    servo_debug.stage = SERVO_DEBUG_STAGE_SCAN_NOT_FOUND;
+    servo_debug.pca9685_address = PCA9685Servo::DEFAULT_ADDRESS;
+    return PCA9685Servo::DEFAULT_ADDRESS;
+}
+
+} // namespace
 
 // ============================================================
 // Servo sweep task — mirrors the same pattern as default task
@@ -38,6 +78,8 @@ class ServoSweep {
         }
 
         void loop() {
+            servo_debug.stage = SERVO_DEBUG_STAGE_TASK_START;
+
             // initialise the PCA9685 chip
             _servo->init();
 
@@ -47,13 +89,13 @@ class ServoSweep {
 
             for (;;) {
                 // sweep 0 → 180 degrees
-                for (int8_t angle = 0; angle <= 180; angle += 2) {
+                for (int16_t angle = 0; angle <= 180; angle += 2) {
                     _servo->set_position(angle);
                     osDelay(15);  // 15ms per step — adjust for sweep speed
                 }
 
                 // sweep 180 → 0 degrees
-                for (int8_t angle = 180; angle >= 0; angle -= 2) {
+                for (int16_t angle = 180; angle >= 0; angle -= 2) {
                     _servo->set_position(angle);
                     osDelay(15);
                 }
@@ -82,22 +124,28 @@ class ServoSweep {
 // Main
 // ============================================================
 int main(void) {
+    servo_debug.magic = SERVO_DEBUG_MAGIC;
+    servo_debug.stage = SERVO_DEBUG_STAGE_BOOT;
     HAL_Init();
     SystemClock_Config();
+    servo_debug.stage = SERVO_DEBUG_STAGE_CLOCK_READY;
+    MX_I2C1_Init();
+    servo_debug.stage = SERVO_DEBUG_STAGE_I2C_READY;
     osKernelInitialize();
 
-    // create I2C handler — hi2c1 comes from platform/stm_f0.h
-    // 0x40 << 1 because HAL expects the address pre-shifted
-    I2C_Handler* i2c = new I2C_STM(&hi2c1, 0x40 << 1);
+    // create I2C handler for the active STM platform
+    uint8_t pca9685_address = find_pca9685_address(&hi2c1);
+    I2C_Handler* i2c = new I2C_STM(&hi2c1, pca9685_address);
 
     // create servo on PCA9685 channel 0
     // change the second argument if your servo is on a different channel
-    PCA9685Servo* servo = new PCA9685Servo(*i2c, 0);
+    PCA9685Servo* servo = new PCA9685Servo(*i2c, 0, pca9685_address);
 
     // create and start the sweep task
     static task::ServoSweep sweep_task(servo);
     sweep_task.run();
 
+    servo_debug.stage = SERVO_DEBUG_STAGE_RTOS_START;
     osKernelStart();
 
     // never get here
@@ -134,9 +182,13 @@ void SystemClock_Config(void) {
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+#if defined(TIM6)
     if (htim->Instance == TIM6) {
         HAL_IncTick();
     }
+#else
+    (void)htim;
+#endif
 }
 
 void Error_Handler(void) {
