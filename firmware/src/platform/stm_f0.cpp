@@ -55,4 +55,34 @@ void MX_SPI1_Init()
     HAL_SPI_Init(&hspi1);
 }
 
+void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
+{
+    if (hspi->Instance != SPI1) {
+        return;
+    }
+
+    SPI_GPIO_CLK_ENABLE();
+    FLASH_CS_GPIO_CLK_ENABLE();
+    __HAL_RCC_SPI1_CLK_ENABLE();
+
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = SPI_SCK_PIN | SPI_MISO_PIN | SPI_MOSI_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF0_SPI1;
+    HAL_GPIO_Init(SPI_GPIO_PORT, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = BARO_CS_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(BARO_CS_PORT, &GPIO_InitStruct);
+    HAL_GPIO_WritePin(BARO_CS_PORT, BARO_CS_PIN, GPIO_PIN_SET);
+
+    GPIO_InitStruct.Pin = FLASH_CS_PIN;
+    HAL_GPIO_Init(FLASH_CS_PORT, &GPIO_InitStruct);
+    HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+}
+
 #endif // F0
