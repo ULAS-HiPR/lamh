@@ -7,6 +7,8 @@
 #include "platform/stm_f0.h"
 #endif
 #include "cmsis_os.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 #include <I2C/I2C_STM.h>
 #include <Servo/PCA9685.h>
@@ -15,6 +17,17 @@
 
 void SystemClock_Config(void);
 void Error_Handler(void);
+
+extern "C" void xPortSysTickHandler(void);
+
+extern "C" void SysTick_Handler(void) {
+    (void)SysTick->CTRL;
+    HAL_IncTick();
+
+    if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED) {
+        xPortSysTickHandler();
+    }
+}
 
 namespace {
 
