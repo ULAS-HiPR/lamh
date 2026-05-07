@@ -1,7 +1,7 @@
+#if F0
 #include "stm_f0.h"
 
 I2C_HandleTypeDef hi2c1;
-SPI_HandleTypeDef hspi1;
 
 void MX_I2C1_Init()
 {
@@ -18,20 +18,22 @@ void MX_I2C1_Init()
     HAL_I2C_Init(&hi2c1);
 }
 
-void MX_SPI1_Init()
+void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
 {
-    hspi1.Instance = SPI1;
+    if (hi2c->Instance != I2C1) {
+        return;
+    }
 
-    hspi1.Init.Mode = SPI_MODE_MASTER;
-    hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-    hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-    hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-    hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-    hspi1.Init.NSS = SPI_NSS_SOFT;
-    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
-    hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-    hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-    hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+    I2C_GPIO_CLK_ENABLE();
+    __HAL_RCC_I2C1_CLK_ENABLE();
 
-    HAL_SPI_Init(&hspi1);
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = I2C_SCL_PIN | I2C_SDA_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF1_I2C1;
+    HAL_GPIO_Init(I2C_GPIO_PORT, &GPIO_InitStruct);
 }
+
+#endif // F0

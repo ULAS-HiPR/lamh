@@ -7,23 +7,20 @@
 #include "platform/stm_f0.h"
 #endif
 #include "cmsis_os.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 #include <data.h>
 #include <sensor.h>
-
 #include <I2C/I2C_STM.h>
-#include <SPI/SPI_STM.h>
-
-#include <Flash/flash.h>
-#include <Flash/MX25L128.h>
-
-//#include <Radio/RA01H.h>
-//#include <Servo/Servo.h>
+#include <Servo/servo.h>
+#include <Servo/PCA9685.h>
+#include <servo_debug.h> //to get rid of later
 
 #include "tasks/canards_controller.h"
 #include "tasks/CAN_task.h"
 
-
+#include <stdint.h>
 
 void SystemClock_Config(void);
 void Error_Handler(void);
@@ -43,6 +40,12 @@ int main(void)
   osKernelInitialize();
 
   //bool init_status = true;
+
+  I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
+  Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
+    // create servo on PCA9685 channel 0
+    // change the second argument if your servo is on a different channel
+
   //I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
   //SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
 
@@ -56,13 +59,13 @@ int main(void)
   osMessageQueueId_t loggingQueueHandle =
     osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(canQueueHandle, loggingQueueHandle);
+  static task::Canards_Controller canards_controller(*servo, canQueueHandle, loggingQueueHandle);
     //servo, telemetryQueueHandle, loggingQueueHandle
 
-  static task::CAN_task can_task(canQueueHandle);
+  //static task::CAN_task can_task(canQueueHandle);
   //static task::Logger logger(flash_memory, loggingQueueHandle);
 
-  can_task.run();
+  //can_task.run();
   canards_controller.run();
   //logger.run();
 
@@ -74,7 +77,6 @@ int main(void)
     HAL_Delay(1000);
   }
 }
-
 
 
 

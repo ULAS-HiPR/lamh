@@ -23,16 +23,33 @@ void Canards_Controller::StartCanardsControllerEntry(void *argument) {
 void Canards_Controller::StartCanardsController() {
 
     printf("Canards_Controller started\n");
+    servo_.init();
+
+            // start at centre so servo doesn't snap on boot
+    servo_.set_position(90);
+    osDelay(500);
 
     for (;;) {
+        // sweep 0 → 180 degrees
+        for (int16_t angle = 0; angle <= 180; angle += 2) {
+            servo_.set_position(angle);
+            osDelay(15);  // 15ms per step — adjust for sweep speed
+        }
+        // sweep 180 → 0 degrees
+        for (int16_t angle = 180; angle >= 0; angle -= 2) {
+            servo_.set_position(angle);
+            osDelay(15);
+        }
+    }
+    //for (;;) {
         //get servo last position?
-        char data;
-        osStatus_t status;
-        status = osMessageQueueGet(can_queue_, &data, NULL, 0U);   // wait for message
+    //    char data;
+    //    osStatus_t status;
+    //    status = osMessageQueueGet(can_queue_, &data, NULL, 0U);   // wait for message
 
-        if (status == osOK) {
+    //    if (status == osOK) {
             //data parsing logic here
-            printf("Received CAN data: %c\n", data);
+     //       printf("Received CAN data: %c\n", data);
 
             //parse data
         //    if (safety_check(data.state, data.imu)) {
@@ -40,7 +57,7 @@ void Canards_Controller::StartCanardsController() {
         //    } else {
         //        stop_action();
         //    }
-        }
+       // }
       
         //uint32_t msg = HAL_GetTick();
 
@@ -53,8 +70,8 @@ void Canards_Controller::StartCanardsController() {
 //
         //osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
 
-        osDelay(100);  
-    }
+    //    osDelay(100);  
+    //}
 }
 
 void Canards_Controller::run_canards_controller(uint16_t sampleCount, imu_data imu, baro_data baro) {
