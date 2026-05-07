@@ -11,18 +11,18 @@
 #include "cmsis_os.h"
 #include <cstdio>
 #include <data.h>
+#include <Servo/servo.h>
 
-//#include <IMU/IMU.h>
-//#include <Servo/Servo.h>
 
 namespace task{
 class Canards_Controller {
     public:
         Canards_Controller(
-                        //Servo& servo,
+                      Servo& servo,
                       osMessageQueueId_t can_queue,
                       osMessageQueueId_t logger_queue)
             : 
+              servo_(servo),
               can_queue_(can_queue),
               logger_queue_(logger_queue),
               taskHandle_(nullptr){};
@@ -37,7 +37,7 @@ class Canards_Controller {
         bool safety_check(int state, imu_data imu);
         void get_up_direction();
 
-        //Servo& servo_;
+        Servo& servo_;
         osMessageQueueId_t can_queue_;
         osMessageQueueId_t logger_queue_;
 
