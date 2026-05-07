@@ -13,7 +13,7 @@
 
 #include <I2C/I2C_STM.h>
 
-//#include <Servo/Servo.h>
+//#include <Servo/servo.h>
 
 #include "tasks/canards_controller.h"
 #include "tasks/CAN_task.h"
@@ -34,13 +34,14 @@ int main(void)
   bool init_status = true;
   I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
 
-  //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
+  //Servo* servo = new Servo();
   
 
   osMessageQueueId_t canQueueHandle =
     osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
 
-  static task::Canards_Controller canards_controller(canQueueHandle);
+  static task::Canards_Controller canards_controller( //*servo,
+     canQueueHandle);
 
   static task::CAN_task can_task(canQueueHandle);
 

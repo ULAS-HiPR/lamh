@@ -1,3 +1,4 @@
+#ifdef F0
 #include "stm_f0.h"
 
 I2C_HandleTypeDef hi2c1;
@@ -16,3 +17,4 @@ void MX_I2C1_Init()
     
     HAL_I2C_Init(&hi2c1);
 }
+#endif

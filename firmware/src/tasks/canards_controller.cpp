@@ -1,7 +1,4 @@
 #include "canards_controller.h"
-#include "logger.h"
-#include <cstdint>
-#include <cstdio>
 
 namespace task {
 
@@ -26,20 +23,20 @@ void Canards_Controller::StartCanardsController() {
 
     for (;;) {
         //get servo last position?
-        char data;
+        flight_data data;
         osStatus_t status;
-        status = osMessageQueueGet(can_queue_, &data, NULL, 0U);   // wait for message
+        status = osMessageQueueGet(can_queue_, &data, 0U, 0U);   // wait for message
 
         if (status == osOK) {
             //data parsing logic here
-            printf("Received CAN data: %c\n", data);
+            printf("Received CAN data: %d\n", data.state);
 
             //parse data
-        //    if (safety_check(data.state, data.imu)) {
-        //       // run_canards_controller(data.sampleCount, data.imu, data.baro);
-        //    } else {
-        //        stop_action();
-        //    }
+            if (safety_check(data.state, data.core_data.imu)) {
+                run_canards_controller(data.core_data.imu, data.core_data.barometer, data.prediction);
+            } else {
+                stop_action();
+            }
         }
       
         //uint32_t msg = HAL_GetTick();
@@ -53,21 +50,39 @@ void Canards_Controller::StartCanardsController() {
 //
         //osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
 
-        osDelay(100);  
+        osDelay(10);  
     }
 }
 
-void Canards_Controller::run_canards_controller(uint16_t sampleCount, imu_data imu, baro_data baro) {
-    //T0 = baro.temperature;
-    //float pressure = baro.pressure;
-    //float rho = pressure / (287.05 * T0);
-    //float q = 0.5 * rho * speedData[sampleCount] * speedData[sampleCount];
-    //float M_alpha = N_CANARDS * q * S_CAN * CL_ALPHA * Y_CP_CAN; 
-//
-    //Kp = (I_XX * OMEGA_N * OMEGA_N) / M_alpha;  
-    //Kd = (2.0 * DAMP_RATIO * OMEGA_N * I_XX) / M_alpha;
-    osDelay(1000);
-    //servo_.set_position(ROLL_HOLD_POSITION);
+float Canards_Controller::get_rocket_angle(imu_data imu) {
+    uint32_t now = HAL_GetTick();
+    float dt = (now - last_time_ms) / 1000.0f;
+    last_time_ms = now;
+
+    // Trapezoidal integration
+    float theta = rocket_angle + 0.5f * (prev_roll_rate + imu.gyro.x) * dt;
+    prev_roll_rate = imu.gyro.x;
+
+    // Clamp to ±20 degrees (±0.349066 rad)
+    const float THETA_MAX_RAD = 0.349066f;
+    theta = fmaxf(-THETA_MAX_RAD, fminf(THETA_MAX_RAD, theta));
+
+    return theta;
+}
+
+float Canards_Controller::run_canards_controller(imu_data imu, baro_data baro, prediction_data prediction) {
+    float rho = baro.pressure / (287.0f * baro.temperature);
+    float q = 0.5f * rho * prediction.velocity * prediction.velocity;
+    float M_alpha = N_canards * q * S_can * C_L_alpha_can * Y_cp_can; 
+
+    float Kp = (I_xx * omega_n * omega_n) / M_alpha;
+    float Kd = (2.0f * damp_ratio * omega_n * I_xx) / M_alpha;
+    
+    rocket_angle = get_rocket_angle(imu);
+    output = Kp * rocket_angle + Kd * imu.gyro.x; // assuming gyro.x is the roll rate in rad/s
+    output_degrees = output * (180.0f / 3.14159f); 
+    servo_angle = output_degrees + 90.0f; 
+    return servo_angle;
 };
 
 
