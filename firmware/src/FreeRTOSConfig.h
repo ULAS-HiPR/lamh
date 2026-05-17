@@ -91,7 +91,7 @@
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
 
 #if FREERTOS_CPU_M4
-#define configTOTAL_HEAP_SIZE                    ((size_t)15360)
+#define configTOTAL_HEAP_SIZE                    ((size_t)6144)
 #elif FREERTOS_CPU_M0
 #define configTOTAL_HEAP_SIZE                    ((size_t)6144)
 #endif
@@ -159,11 +159,11 @@ to exclude the API function. */
 /* Cortex-M specific definitions. */
 #if FREERTOS_CPU_M4
 
- #define configPRIO_BITS         4
+ #define configPRIO_BITS         2
 
  /* The lowest interrupt priority that can be used in a call to a "set priority"
  function. */
- #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY   15
+ #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY   3
 
  /* The highest interrupt priority that can be used by any interrupt service
  routine that makes calls to interrupt safe FreeRTOS API functions.  DO NOT CALL

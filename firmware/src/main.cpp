@@ -115,6 +115,8 @@ void SystemClock_Config(void)
   }
 }
 
+
+#ifdef F0
 /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM6 interrupt took place, inside
@@ -136,6 +138,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
   /* USER CODE END Callback 1 */
 }
+#endif // F0
 
 /**
   * @brief  This function is executed in case of error occurrence.
