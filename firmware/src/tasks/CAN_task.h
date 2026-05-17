@@ -9,13 +9,17 @@
 #endif
 #include "cmsis_os.h"
 #include <cstdio>
-//#include <CAN/CanBus.h>
 
+#include <CAN/CAN_Handler.h>
+#include <CAN/CAN_Frames.h>
+
+#define CAN_DELAY_MS 100
 
 namespace task{
 class CAN_task {
     public:
-        CAN_task(osMessageQueueId_t can_queue_) : can_queue_(can_queue_), taskHandle_(nullptr) {};
+        CAN_task(CAN_Handler& canbus, osMessageQueueId_t can_queue, osMessageQueueId_t logging_queue) :
+            canbus_(canbus), can_queue_(can_queue), logger_queue_(logging_queue), taskHandle_(nullptr) {};
         void run();
 
     private:
@@ -23,8 +27,9 @@ class CAN_task {
         static void StartCANEntry(void *argument);
         char parse_message(char msg);
 
-        //CAN& can_bus_;
+        CAN_Handler& canbus_;
         osMessageQueueId_t can_queue_;
+        osMessageQueueId_t logger_queue_;
 
         osThreadId_t taskHandle_;
 

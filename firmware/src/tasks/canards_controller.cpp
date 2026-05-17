@@ -1,5 +1,4 @@
 #include "canards_controller.h"
-#include "logger.h"
 #include <cstdint>
 #include <cstdio>
 
@@ -29,71 +28,74 @@ void Canards_Controller::StartCanardsController() {
     servo_.set_position(90);
     osDelay(500);
 
+    flight_data flight_data_in;
+
     for (;;) {
-        // sweep 0 → 180 degrees
-        for (int16_t angle = 0; angle <= 180; angle += 2) {
-            servo_.set_position(angle);
-            osDelay(15);  // 15ms per step — adjust for sweep speed
+        osStatus_t status;
+        status = osMessageQueueGet(can_queue_, &flight_data_in, NULL, 0U);   // wait for message
+
+        if (status == osOK) {
+            printf("Received CAN data: %d\n", flight_data_in.state);
+            canards_raw canards_data = run_canards_controller(flight_data_in.core_data.imu, flight_data_in.core_data.barometer, flight_data_in.prediction);
+
+            if (safety_check(flight_data_in.state, flight_data_in.core_data.imu)) {
+                canards_data.active = true;
+                servo_.set_position(canards_data.servo_angle);
+            } else {
+                canards_data.active = false;
+                stop_action();  // keep neutral
+            }
+
+        osMessageQueuePut(logger_queue_, &canards_data, 0, 0);
         }
-        // sweep 180 → 0 degrees
-        for (int16_t angle = 180; angle >= 0; angle -= 2) {
-            servo_.set_position(angle);
-            osDelay(15);
-        }
+        osDelay(CANARDS_DELAY_MS);  
     }
-    //for (;;) {
-        //get servo last position?
-    //    char data;
-    //    osStatus_t status;
-    //    status = osMessageQueueGet(can_queue_, &data, NULL, 0U);   // wait for message
-
-    //    if (status == osOK) {
-            //data parsing logic here
-     //       printf("Received CAN data: %c\n", data);
-
-            //parse data
-        //    if (safety_check(data.state, data.imu)) {
-        //       // run_canards_controller(data.sampleCount, data.imu, data.baro);
-        //    } else {
-        //        stop_action();
-        //    }
-       // }
-      
-        //uint32_t msg = HAL_GetTick();
-
-        //task::Logger::LogMessage log_msg {
-        //    .timestamp = msg,
-        //    .imu = data,
-        //    .fsm_state = active_state
-        //    //add in servo position?
-        //};
-//
-        //osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
-
-    //    osDelay(100);  
-    //}
 }
 
-void Canards_Controller::run_canards_controller(uint16_t sampleCount, imu_data imu, baro_data baro) {
-    //T0 = baro.temperature;
-    //float pressure = baro.pressure;
-    //float rho = pressure / (287.05 * T0);
-    //float q = 0.5 * rho * speedData[sampleCount] * speedData[sampleCount];
-    //float M_alpha = N_CANARDS * q * S_CAN * CL_ALPHA * Y_CP_CAN; 
-//
-    //Kp = (I_XX * OMEGA_N * OMEGA_N) / M_alpha;  
-    //Kd = (2.0 * DAMP_RATIO * OMEGA_N * I_XX) / M_alpha;
-    osDelay(1000);
-    //servo_.set_position(ROLL_HOLD_POSITION);
+canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred) {
+    float rho = baro.pressure / (287.0f * baro.temperature);
+    float q = 0.5f * rho * pred.velocity * pred.velocity;
+    float M_alpha = N_canards * q * S_can * C_L_alpha_can * Y_cp_can; 
+    if (fabs(M_alpha) < 1e-3f) {
+        return {0.0f, 0.0f, 90.0f};
+    }
+
+    float Kp = (I_xx * omega_n * omega_n) / M_alpha;
+    float Kd = (2.0f * damp_ratio * omega_n * I_xx) / M_alpha;
+    
+    rocket_angle = get_rocket_angle(imu);
+    printf("Rocket angle (rad): %.4f\n", rocket_angle);
+    output = Kp * rocket_angle + Kd * imu.gyro.x; // assuming gyro.x is the roll rate in rad/s
+    output_degrees = output * (180.0f / 3.14159f); 
+    servo_angle = output_degrees + 90.0f; 
+    servo_angle = fmaxf(82.0f, fminf(98.0f, servo_angle));
+    return {Kp, Kd, servo_angle};
 };
 
+float Canards_Controller::get_rocket_angle(const imu_data& imu) {
+    uint32_t now = HAL_GetTick();
+    float dt = (now - last_time_ms) / 1000.0f;
+    last_time_ms = now;
+
+
+    // Trapezoidal integration
+    float theta = rocket_angle + 0.5f * (prev_roll_rate + imu.gyro.x) * dt;
+    prev_roll_rate = imu.gyro.x;
+
+    // Clamp to ±20 degrees (±0.349066 rad)
+    const float THETA_MAX_RAD = 0.349066f;
+    theta = fmaxf(-THETA_MAX_RAD, fminf(THETA_MAX_RAD, theta));
+
+    return theta;
+}
 
 void Canards_Controller::stop_action() {
     //servo_.set_position(STOP_POSITION);
     printf("position");
 };
 
-bool Canards_Controller::safety_check(int state, imu_data imu) {
+
+bool Canards_Controller::safety_check(int state, const imu_data& imu) {
     // only use canards in coating
     //if (state != state::COASTING) {
     //    return false; 

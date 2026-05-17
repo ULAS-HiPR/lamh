@@ -9,10 +9,12 @@
 #include "platform/stm_f0.h"
 #endif
 #include "cmsis_os.h"
+#include <math.h>
 #include <cstdio>
 #include <data.h>
 #include <Servo/servo.h>
 
+#define CANARDS_DELAY_MS 100
 
 namespace task{
 class Canards_Controller {
@@ -32,10 +34,28 @@ class Canards_Controller {
     private:
         void StartCanardsController();
         static void StartCanardsControllerEntry(void *argument);
-        void run_canards_controller(uint16_t sampleCount, imu_data imu, baro_data baro);
+        canards_raw run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred);
+        float get_rocket_angle(const imu_data& imu);
         void stop_action();
-        bool safety_check(int state, imu_data imu);
+        bool safety_check(int state, const imu_data& imu);
         void get_up_direction();
+
+        uint32_t last_time_ms{0};
+        float rocket_angle{0.0f};
+        float prev_roll_rate{0.0f};
+        float output{0.0f};
+        float output_degrees{0.0f};
+        float servo_angle{0.0f};
+        float rho{0.0f};
+        float q{0.0f};
+
+        const float omega_n = 6.0f;
+        const float damp_ratio = 1.0f;
+        const float I_xx = 0.00164f;
+        const float N_canards = 2.0f;
+        const float C_L_alpha_can = 2.86f;
+        const float S_can = 0.0024f;
+        const float Y_cp_can = 0.067f;
 
         Servo& servo_;
         osMessageQueueId_t can_queue_;
@@ -49,17 +69,11 @@ class Canards_Controller {
             nullptr,
             0,
             nullptr,
-            512 * 1,        // 2 KB stack
+            512 * 1,        // 512 byte stack
             osPriorityHigh,
             0,
             0
         };
-
-        uint16_t UNROLL_POSITION = 1000;
-        uint16_t UNROLL_HOLD_POSITION = 1200;
-        uint16_t ROLL_POSITION = 2000;
-        uint16_t ROLL_HOLD_POSITION = 1800;
-        uint16_t STOP_POSITION = 1500;
     };
 
 }

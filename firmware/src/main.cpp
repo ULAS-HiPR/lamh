@@ -15,12 +15,18 @@
 #include <I2C/I2C_STM.h>
 #include <Servo/servo.h>
 #include <Servo/PCA9685.h>
-#include <servo_debug.h> //to get rid of later
+#include <CAN/CAN_Handler.h>
+#if F4
+#include <CAN/CAN_MOCK.h>
+#elif F0
+#include <CAN/CAN_STM.h>
+#endif
 
 #include "tasks/canards_controller.h"
 #include "tasks/CAN_task.h"
 
 #include <stdint.h>
+
 
 void SystemClock_Config(void);
 void Error_Handler(void);
@@ -43,6 +49,11 @@ int main(void)
 
   I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
   Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
+  #if F4
+  CAN_Handler* canbus = new CAN_MOCK();
+  #elif F0
+  CAN_Handler* canbus = new CAN_STM(&hcan);
+  #endif
     // create servo on PCA9685 channel 0
     // change the second argument if your servo is on a different channel
 
@@ -54,16 +65,16 @@ int main(void)
   //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
   
 
-  osMessageQueueId_t canQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
-  osMessageQueueId_t loggingQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(*servo, canQueueHandle, loggingQueueHandle);
+  osMessageQueueId_t canInQueueHandle =
+    osMessageQueueNew(8, sizeof(flight_data), &canQueue_attributes);
+  osMessageQueueId_t canOutQueueHandle =
+    osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
+
+  static task::Canards_Controller canards_controller(*servo, canInQueueHandle, canOutQueueHandle);
     //servo, telemetryQueueHandle, loggingQueueHandle
 
-  //static task::CAN_task can_task(canQueueHandle);
-  //static task::Logger logger(flash_memory, loggingQueueHandle);
+  static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
   //can_task.run();
   canards_controller.run();
