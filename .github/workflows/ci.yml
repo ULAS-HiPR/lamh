@@ -61,10 +61,15 @@ jobs:
       - name: Install PlatformIO
         run: pip install platformio
 
-      - name: Build STM firmware
+      - name: Build STM firmware f0
         run: |
           cd firmware
           pio run -e stm32f072c8t6
+
+      - name: Build STM firmware f4
+        run: |
+          cd firmware
+          pio run -e nucleo_f411re
 
       - name: Upload STM firmware
         uses: actions/upload-artifact@v4
