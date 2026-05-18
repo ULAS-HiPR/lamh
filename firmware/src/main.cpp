@@ -1,10 +1,11 @@
 #if F4
 #include "stm32f4xx_hal.h"
 #include "platform/stm_f4.h"
-#endif
-#if F0
+#elif F0
 #include "stm32f0xx_hal.h"
 #include "platform/stm_f0.h"
+#elif defined(LINUX)
+#include "platform/linux.h"
 #endif
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
@@ -13,6 +14,7 @@
 #include <data.h>
 #include <sensor.h>
 #include <I2C/I2C_STM.h>
+#include <CAN/CAN_Handler.h>
 #include <Servo/servo.h>
 #include <Servo/PCA9685.h>
 #include <servo_debug.h> //to get rid of later
@@ -41,7 +43,11 @@ int main(void)
 
   //bool init_status = true;
 
+#ifndef LINUX
   I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
+#else
+  I2C_Handler* i2c = new I2C_Mock();
+#endif
   Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
     // create servo on PCA9685 channel 0
     // change the second argument if your servo is on a different channel
@@ -54,20 +60,22 @@ int main(void)
   //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
   
 
+  CAN_Handler* can = nullptr;
+#ifdef LINUX
+  g_can.init();
+  can = &g_can;
+#endif
+
   osMessageQueueId_t canQueueHandle =
     osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
   osMessageQueueId_t loggingQueueHandle =
     osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
 
   static task::Canards_Controller canards_controller(*servo, canQueueHandle, loggingQueueHandle);
-    //servo, telemetryQueueHandle, loggingQueueHandle
+  static task::CAN_task can_task(canQueueHandle, can);
 
-  //static task::CAN_task can_task(canQueueHandle);
-  //static task::Logger logger(flash_memory, loggingQueueHandle);
-
-  //can_task.run();
+  can_task.run();
   canards_controller.run();
-  //logger.run();
 
   osKernelStart();
 
@@ -80,77 +88,37 @@ int main(void)
 
 
 
-/**
-  * @brief System Clock Configuration
-  * @retval None
-  */
+#ifndef LINUX
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) { Error_Handler(); }
 
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-  {
-    Error_Handler();
-  }
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) { Error_Handler(); }
 }
 
-/**
-  * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM6 interrupt took place, inside
-  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
-  * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
-  * @retval None
-  */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  /* USER CODE BEGIN Callback 0 */
-
-  /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM6)
-  {
-    HAL_IncTick();
-  }
-  /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
+  if (htim->Instance == TIM6) { HAL_IncTick(); }
 }
 
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
 void Error_Handler(void)
 {
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
+  while (1) {}
 }
+#endif /* LINUX */
 #ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
