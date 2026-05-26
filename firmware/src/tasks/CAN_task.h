@@ -13,7 +13,7 @@
 #include <CAN/CAN_Handler.h>
 #include <CAN/CAN_Frames.h>
 
-#define CAN_DELAY_MS 100
+#define CAN_DELAY_MS 1000
 
 namespace task{
 class CAN_task {
@@ -39,7 +39,7 @@ class CAN_task {
             nullptr,
             0,
             nullptr,
-            256,        // 2 KB stack
+            512,        // 2 KB stack
             osPriorityNormal,
             0,
             0

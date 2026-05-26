@@ -107,9 +107,19 @@ void CAN_task::StartCAN() {
                 default:
                     break;
             }
-
-            osMessageQueuePut(can_queue_, &shared_data, 0, 0U);
         }
+        // --- IGNORE THIS TEST CODE ---/
+            shared_data.core_data.imu.gyro.x = 100.0f; 
+            shared_data.core_data.imu.gyro.y = 0.0f;
+            shared_data.core_data.imu.gyro.z = 0.0f;
+            shared_data.core_data.barometer.pressure = 101325.0f;
+            shared_data.core_data.barometer.temperature = 20.0f;
+            shared_data.prediction.altitude = 100.0f;
+            shared_data.prediction.velocity = 50.0f;
+            shared_data.prediction.acceleration = -9.8f;
+            shared_data.state = 1;
+            osMessageQueuePut(can_queue_, &shared_data, 0, 10U);
+        //}
 
         if (osMessageQueueGet(logger_queue_,&canards_data, 0, 0U) == osOK) {
             TX_STATUS_Payload tx{}; // temp payload struct until canards implemented

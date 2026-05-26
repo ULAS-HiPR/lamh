@@ -14,7 +14,7 @@
 #include <data.h>
 #include <Servo/servo.h>
 
-#define CANARDS_DELAY_MS 100
+#define CANARDS_DELAY_MS 1000
 
 namespace task{
 class Canards_Controller {
@@ -69,7 +69,7 @@ class Canards_Controller {
             nullptr,
             0,
             nullptr,
-            512 * 1,        // 512 byte stack
+            512,        // 512 byte stack
             osPriorityHigh,
             0,
             0

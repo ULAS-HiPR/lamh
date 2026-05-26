@@ -43,7 +43,11 @@ int main(void)
 {
   HAL_Init();
   SystemClock_Config();
+
+  MX_I2C1_Init();
+  MX_SPI1_Init();
   osKernelInitialize();
+  printf("BOOT 1\n");
 
   //bool init_status = true;
 
@@ -54,17 +58,6 @@ int main(void)
   #elif F0
   CAN_Handler* canbus = new CAN_STM(&hcan);
   #endif
-    // create servo on PCA9685 channel 0
-    // change the second argument if your servo is on a different channel
-
-  //I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
-  //SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
-
-  //Flash* flash_memory = new MX25L128();
-
-  //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
-  
-
 
   osMessageQueueId_t canInQueueHandle =
     osMessageQueueNew(8, sizeof(flight_data), &canQueue_attributes);
@@ -72,13 +65,10 @@ int main(void)
     osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
   static task::Canards_Controller canards_controller(*servo, canInQueueHandle, canOutQueueHandle);
-    //servo, telemetryQueueHandle, loggingQueueHandle
-
   static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
-  //can_task.run();
+  can_task.run();
   canards_controller.run();
-  //logger.run();
 
   osKernelStart();
 
@@ -97,20 +87,20 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_NONE;
+
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
@@ -118,12 +108,12 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
-    Error_Handler();
-  }
+        Error_Handler();
+    }
 }
 
 
@@ -143,8 +133,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM6)
   {
-    HAL_IncTick();
-  }
+        HAL_IncTick();
+    }
   /* USER CODE BEGIN Callback 1 */
 
   /* USER CODE END Callback 1 */
@@ -159,7 +149,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
+    __disable_irq();
   while (1)
   {
   }

@@ -32,7 +32,7 @@ void Canards_Controller::StartCanardsController() {
 
     for (;;) {
         osStatus_t status;
-        status = osMessageQueueGet(can_queue_, &flight_data_in, NULL, 0U);   // wait for message
+        status = osMessageQueueGet(can_queue_, &flight_data_in, NULL, 10U);   // wait for message
 
         if (status == osOK) {
             printf("Received CAN data: %d\n", flight_data_in.state);
