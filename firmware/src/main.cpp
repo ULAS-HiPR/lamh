@@ -45,7 +45,6 @@ int main(void)
   SystemClock_Config();
 
   MX_I2C1_Init();
-  MX_SPI1_Init();
   osKernelInitialize();
   printf("BOOT 1\n");
 
