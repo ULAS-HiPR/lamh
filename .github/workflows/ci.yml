@@ -23,7 +23,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-
+      - name: Get Submodules
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote --recursive		
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -35,7 +39,7 @@ jobs:
       - name: Run tests on SIL
         run: |
           cd firmware
-        # pio test -e sil -vvv  no tests for this repo rn
+          pio test -e sil -vvv  no tests for this repo rn
 
       - name: Quality Check STM
         run: |
@@ -71,10 +75,14 @@ jobs:
           cd firmware
           pio run -e nucleo_f411re
 
-      - name: Upload STM firmware
+      - name: Upload STM_F4 firmware
         uses: actions/upload-artifact@v4
         with:
-          name: stm-firmware
-          path: |
-            cd firmware
-            .pio/build/nucleo_f411re
+          name: stmf4-firmware
+          path: firmware/.pio/build/nucleo_f411re
+
+      - name: Upload STM_F0 firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: stmf0-firmware
+          path: firmware/.pio/build/smt32f072c8t6

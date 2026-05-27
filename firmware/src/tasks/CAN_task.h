@@ -7,8 +7,10 @@
 #include "stm32f0xx_hal.h"
 #include "platform/stm_f0.h"
 #endif
+#include "platform/hal_time.h"
 #include "cmsis_os.h"
 #include <cstdio>
+#include <data.h>
 
 #include <CAN/CAN_Handler.h>
 #include <CAN/CAN_Frames.h>
@@ -39,7 +41,7 @@ class CAN_task {
             nullptr,
             0,
             nullptr,
-            512,        // 2 KB stack
+            512,       
             osPriorityNormal,
             0,
             0

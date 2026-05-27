@@ -8,9 +8,13 @@
 #include "stm32f0xx_hal.h"
 #include "platform/stm_f0.h"
 #endif
+#include "platform/hal_time.h"
+
+
 #include "cmsis_os.h"
 #include <math.h>
 #include <cstdio>
+#include <cstdint>
 #include <data.h>
 #include <Servo/servo.h>
 
@@ -27,7 +31,9 @@ class Canards_Controller {
               servo_(servo),
               can_queue_(can_queue),
               logger_queue_(logger_queue),
-              taskHandle_(nullptr){};
+              taskHandle_(nullptr){
+                last_time_ms = HAL_GetTick();
+              };
               
         void run();
 

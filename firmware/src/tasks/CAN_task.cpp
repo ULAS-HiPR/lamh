@@ -1,7 +1,4 @@
 #include "CAN_task.h"
-#include "canards_controller.h"
-
-#include <cstdio>
 
 namespace task {
 
