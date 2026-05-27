@@ -17,7 +17,7 @@
 #include <Servo/PCA9685.h>
 #include <CAN/CAN_Handler.h>
 #if F4
-#include <CAN/CAN_MOCK.h>
+#include <CAN/CAN_Mock.h>
 #elif F0
 #include <CAN/CAN_STM.h>
 #endif
