@@ -15,12 +15,18 @@
 #include <I2C/I2C_STM.h>
 #include <Servo/servo.h>
 #include <Servo/PCA9685.h>
-#include <servo_debug.h> //to get rid of later
+#include <CAN/CAN_Handler.h>
+#if F4
+#include <CAN/CAN_Mock.h>
+#elif F0
+#include <CAN/CAN_STM.h>
+#endif
 
 #include "tasks/canards_controller.h"
 #include "tasks/CAN_task.h"
 
 #include <stdint.h>
+
 
 void SystemClock_Config(void);
 void Error_Handler(void);
@@ -37,37 +43,31 @@ int main(void)
 {
   HAL_Init();
   SystemClock_Config();
+
+  MX_I2C1_Init();
   osKernelInitialize();
+  printf("BOOT 1\n");
 
   //bool init_status = true;
 
   I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
   Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
-    // create servo on PCA9685 channel 0
-    // change the second argument if your servo is on a different channel
+  #if F4
+  CAN_Handler* canbus = new CAN_MOCK();
+  #elif F0
+  CAN_Handler* canbus = new CAN_STM(&hcan);
+  #endif
 
-  //I2C_Handler* i2c_handler = new I2C_STM(&hi2c1, 0x68 << 1);
-  //SPI_Handler* spi_handler = new SPI_STM(&hspi1, GPIOA, GPIO_PIN_4);
+  osMessageQueueId_t canInQueueHandle =
+    osMessageQueueNew(8, sizeof(flight_data), &canQueue_attributes);
+  osMessageQueueId_t canOutQueueHandle =
+    osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
-  //Flash* flash_memory = new MX25L128();
+  static task::Canards_Controller canards_controller(*servo, canInQueueHandle, canOutQueueHandle);
+  static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
-  //Servo* servo = new Servo(i2c_handler, SERVO_PWM_CHANNEL);
-  
-
-  osMessageQueueId_t canQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &canQueue_attributes);
-  osMessageQueueId_t loggingQueueHandle =
-    osMessageQueueNew(8, sizeof(char), &loggingQueue_attributes);
-
-  static task::Canards_Controller canards_controller(*servo, canQueueHandle, loggingQueueHandle);
-    //servo, telemetryQueueHandle, loggingQueueHandle
-
-  //static task::CAN_task can_task(canQueueHandle);
-  //static task::Logger logger(flash_memory, loggingQueueHandle);
-
-  //can_task.run();
+  can_task.run();
   canards_controller.run();
-  //logger.run();
 
   osKernelStart();
 
@@ -86,20 +86,20 @@ int main(void)
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
+    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_NONE;
+
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
@@ -107,14 +107,16 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
-    Error_Handler();
-  }
+        Error_Handler();
+    }
 }
 
+
+#ifdef F0
 /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM6 interrupt took place, inside
@@ -130,12 +132,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM6)
   {
-    HAL_IncTick();
-  }
+        HAL_IncTick();
+    }
   /* USER CODE BEGIN Callback 1 */
 
   /* USER CODE END Callback 1 */
 }
+#endif // F0
 
 /**
   * @brief  This function is executed in case of error occurrence.
@@ -145,7 +148,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
+    __disable_irq();
   while (1)
   {
   }

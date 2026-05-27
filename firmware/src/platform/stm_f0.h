@@ -18,6 +18,8 @@
 // Extern handles for use by I2C/SPI handlers
 extern I2C_HandleTypeDef hi2c1;
 
+extern CAN_HandleTypeDef hcan;
+
 // Initialization functions
 void MX_I2C1_Init();
 
