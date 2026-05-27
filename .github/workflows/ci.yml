@@ -39,7 +39,7 @@ jobs:
       - name: Run tests on SIL
         run: |
           cd firmware
-          pio test -e sil -vvv  no tests for this repo rn
+          pio test -e sil -vvv
 
       - name: Quality Check STM
         run: |
