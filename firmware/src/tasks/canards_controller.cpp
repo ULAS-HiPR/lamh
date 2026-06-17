@@ -1,4 +1,5 @@
 #include "canards_controller.h"
+#include <ratio>
 
 namespace task {
 
@@ -31,12 +32,11 @@ void Canards_Controller::StartCanardsController() {
         if (status == osOK) {
             printf("Received CAN data: %d\n", flight_data_in.state);
             canards_raw canards_data = run_canards_controller(flight_data_in.core_data.imu, flight_data_in.core_data.barometer, flight_data_in.prediction);
+            HAL_GPIO_ReadPin(active_port_, active_pin_) ? canards_data.active = true : canards_data.active = false;
 
-            if (safety_check(flight_data_in.state, flight_data_in.core_data.imu)) {
-                canards_data.active = true;
+            if (safety_check(canards_data.active, flight_data_in.core_data.imu)) {
                 servo_.set_position(canards_data.servo_angle);
             } else {
-                canards_data.active = false;
                 stop_action();  // keep neutral
             }
 
@@ -46,6 +46,7 @@ void Canards_Controller::StartCanardsController() {
     }
 }
 
+// to change to airbrakes algo
 canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred) {
     float rho = baro.pressure / (287.0f * baro.temperature);
     float q = 0.5f * rho * pred.velocity * pred.velocity;
@@ -91,9 +92,9 @@ void Canards_Controller::stop_action() {
 };
 
 
-bool Canards_Controller::safety_check(int state, const imu_data& imu) {
-    // only use canards in coating
-    if (state != State::COASTING) {
+bool Canards_Controller::safety_check(bool active, const imu_data& imu) {
+    // only use airbrakes when cots computer signals coasting
+    if (active == false) {
         return false; 
     }
     

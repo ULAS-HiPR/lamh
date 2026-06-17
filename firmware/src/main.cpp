@@ -45,6 +45,8 @@ int main(void)
   SystemClock_Config();
 
   MX_I2C1_Init();
+  MX_GPIO_Init();
+
   osKernelInitialize();
   printf("BOOT 1\n");
 
@@ -53,9 +55,10 @@ int main(void)
   I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
   Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
   #if F4
-  CAN_Handler* canbus = new CAN_MOCK();
+   CAN_Handler* canbus = new CAN_MOCK();
   #elif F0
-  CAN_Handler* canbus = new CAN_STM(&hcan);
+    MX_CAN_Init();
+    CAN_Handler* canbus = new CAN_STM(&hcan);
   #endif
 
   osMessageQueueId_t canInQueueHandle =
@@ -63,7 +66,7 @@ int main(void)
   osMessageQueueId_t canOutQueueHandle =
     osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(*servo, canInQueueHandle, canOutQueueHandle);
+  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, canInQueueHandle, canOutQueueHandle);
   static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
   can_task.run();

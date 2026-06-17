@@ -1,4 +1,5 @@
 #pragma once
+#include <atomic>
 #include <cstdint>
 #if F4
 #include "stm32f4xx_hal.h"
@@ -25,6 +26,8 @@ class Canards_Controller {
     public:
         Canards_Controller(
                       Servo& servo,
+                      int8_t active_pin,  // should make a pin wrapper but whatever
+                      GPIO_TypeDef* active_port,
                       osMessageQueueId_t can_queue,
                       osMessageQueueId_t logger_queue)
             : 
@@ -43,8 +46,11 @@ class Canards_Controller {
         canards_raw run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred);
         float get_rocket_angle(const imu_data& imu);
         void stop_action();
-        bool safety_check(int state, const imu_data& imu);
+        bool safety_check(bool active, const imu_data& imu);
         void get_up_direction();
+
+        int8_t active_pin_;
+        GPIO_TypeDef* active_port_;
 
         uint32_t last_time_ms{0};
         float rocket_angle{0.0f};
