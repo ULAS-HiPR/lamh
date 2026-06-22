@@ -17,11 +17,12 @@ void Canards_Controller::StartCanardsControllerEntry(void *argument) {
 }
 
 void Canards_Controller::StartCanardsController() {
-    servo_.init();
+    bool servo_init = servo_.init();
 
     // start at centre so servo doesn't snap on boot
-    servo_.set_position(90);
-    osDelay(500);
+    servo_.set_position(180);
+    osDelay(1000);
+    servo_.set_position(15);
 
     flight_data flight_data_in;
 

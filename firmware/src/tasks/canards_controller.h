@@ -20,6 +20,9 @@
 #include <Servo/servo.h>
 
 #define CANARDS_DELAY_MS 1000
+// this is actully for airbrakes
+//180 = in
+//0 = out
 
 namespace task{
 class Canards_Controller {
