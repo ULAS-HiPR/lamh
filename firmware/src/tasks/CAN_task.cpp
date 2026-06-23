@@ -140,9 +140,7 @@ void CAN_task::StartCAN() {
         hb.uptime_s = 0;
         CAN_Frame hb_frame = pack_frame(CAN_ID_HEARTBEAT, hb);
         canbus_.send(&hb_frame);
-
-        if (canbus_.receive(&rx_frame))
-           printf("RX OK\n");
+        
         
         osDelay(CAN_DELAY_MS);
     }

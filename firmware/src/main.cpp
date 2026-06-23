@@ -70,7 +70,7 @@ int main(void)
   osMessageQueueId_t canOutQueueHandle =
     osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, canInQueueHandle, canOutQueueHandle);
+  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, 2275.0f, canInQueueHandle, canOutQueueHandle);
   static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
   
