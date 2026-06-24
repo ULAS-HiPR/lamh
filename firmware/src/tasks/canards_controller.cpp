@@ -74,7 +74,8 @@ canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, cons
         + (0.0035f * powf(d, 2.0f))
         - (0.0086f * powf(d, 2.0f) * M)
         + (0.0179f * powf(d, 2.0f) * powf(M, 2.0f))
-        - (0.0118f * powf(d, 2.0f) * powf(M, 3.0f));
+        - (0.0118f * powf(d, 2.0f) * powf(M, 3.0f))
+        + 0.4 ;
     
 
     PreviousCd = fmaxf(PreviousCd, CD_FLOOR);
