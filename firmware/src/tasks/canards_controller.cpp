@@ -60,6 +60,7 @@ canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, cons
         dt = 0.02f;   
     }
 
+    float speedOfSound = sqrt(401.87f * (baro.temperature + 273.15f));  // m/s, speed of sound in air at given temperature
     float mach = pred.velocity / speedOfSound;
     float machClamped = fmaxf(0.3f, fminf(1.1f, mach));
 
@@ -75,12 +76,12 @@ canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, cons
         - (0.0086f * powf(d, 2.0f) * M)
         + (0.0179f * powf(d, 2.0f) * powf(M, 2.0f))
         - (0.0118f * powf(d, 2.0f) * powf(M, 3.0f))
-        + 0.4 ;
+        + 0.006424f;
     
 
     PreviousCd = fmaxf(PreviousCd, CD_FLOOR);
 
-    float aDrag = (rho * PreviousCd * areaMax * pred.velocity * pred.velocity) / (2.0f * mass);
+    float aDrag = (rho * PreviousCd * pred.velocity * pred.velocity) / (2.0f * mass);
 
     if (fabsf(pred.velocity) < 1.0f) {
         servo_angle = 180.0f;  // airbrakes stowed

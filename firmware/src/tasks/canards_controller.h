@@ -70,10 +70,10 @@ class Canards_Controller {
         float servo_angle = 180.0f;
 
 
-        static constexpr float mass = 14.544; //kg
-        static constexpr float g = 9.80665;   // m/s^2
-        static constexpr float speedOfSound = 343;  // m/s
-        static constexpr float areaMax = 0.00388;    // m^2 (maximum deployed area)
+        static constexpr float mass = 14.544f; //kg
+        static constexpr float g = 9.80665f;   // m/s^2
+        static constexpr float speedOfSound = 343.0f;  // m/s
+        static constexpr float areaMax = 0.00388f;    // m^2 (maximum deployed area)
         static constexpr float zeta = 1; // damping ratio
         static constexpr float CD_FLOOR = 1e-3f;  // minimum drag coefficient
         
