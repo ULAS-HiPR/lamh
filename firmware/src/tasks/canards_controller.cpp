@@ -1,7 +1,5 @@
 #include "canards_controller.h"
-#include "logger.h"
-#include <cstdint>
-#include <cstdio>
+#include <ratio>
 
 namespace task {
 
@@ -12,81 +10,128 @@ void Canards_Controller::run() {
 }
 
 void Canards_Controller::StartCanardsControllerEntry(void *argument) {
-    printf("Canards_Controller starting1\n");
     auto *self = static_cast<Canards_Controller*>(argument);
-    printf("Canards_Controller starting1\n");
     if (self) {
         self->StartCanardsController();
     }
 }
 
 void Canards_Controller::StartCanardsController() {
+    bool servo_init = servo_.init();
 
-    printf("Canards_Controller started\n");
+    // start at centre so servo doesn't snap on boot
+    servo_.set_position(180);
+    osDelay(1000);
+    servo_.set_position(15);
+
+    flight_data flight_data_in;
 
     for (;;) {
-        //get servo last position?
-        char data;
         osStatus_t status;
-        status = osMessageQueueGet(can_queue_, &data, NULL, 0U);   // wait for message
+        status = osMessageQueueGet(can_queue_, &flight_data_in, NULL, 10U);   // wait for message
 
         if (status == osOK) {
-            //data parsing logic here
-            printf("Received CAN data: %c\n", data);
+            printf("Received CAN data: %d\n", flight_data_in.state);            
+            canards_raw canards_data = run_canards_controller(flight_data_in.core_data.imu, flight_data_in.core_data.barometer, flight_data_in.prediction);
+            HAL_GPIO_ReadPin(active_port_, active_pin_) ? canards_data.active = true : canards_data.active = false;
 
-            //parse data
-        //    if (safety_check(data.state, data.imu)) {
-        //       // run_canards_controller(data.sampleCount, data.imu, data.baro);
-        //    } else {
-        //        stop_action();
-        //    }
+            if (safety_check(canards_data.active, flight_data_in.core_data.imu)) {
+                servo_.set_position(canards_data.servo_angle);
+            } else {
+                stop_action();  // keep neutral
+            }
+
+        osMessageQueuePut(logger_queue_, &canards_data, 0, 0);
         }
-      
-        //uint32_t msg = HAL_GetTick();
-
-        //task::Logger::LogMessage log_msg {
-        //    .timestamp = msg,
-        //    .imu = data,
-        //    .fsm_state = active_state
-        //    //add in servo position?
-        //};
-//
-        //osMessageQueuePut(logger_queue_, &log_msg, 0, 0);
-
-        osDelay(100);  
+        osDelay(CANARDS_DELAY_MS);  
     }
 }
 
-void Canards_Controller::run_canards_controller(uint16_t sampleCount, imu_data imu, baro_data baro) {
-    //T0 = baro.temperature;
-    //float pressure = baro.pressure;
-    //float rho = pressure / (287.05 * T0);
-    //float q = 0.5 * rho * speedData[sampleCount] * speedData[sampleCount];
-    //float M_alpha = N_CANARDS * q * S_CAN * CL_ALPHA * Y_CP_CAN; 
-//
-    //Kp = (I_XX * OMEGA_N * OMEGA_N) / M_alpha;  
-    //Kd = (2.0 * DAMP_RATIO * OMEGA_N * I_XX) / M_alpha;
-    osDelay(1000);
-    //servo_.set_position(ROLL_HOLD_POSITION);
-};
+// to change to airbrakes algo
+canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred) {
+    // density of air = pressure / (R * temperature)
+    float rho = baro.pressure / (287.058f * (baro.temperature + 273.15f));  // kg/m^3
 
+    // dt since last call 
+    uint32_t now = HAL_GetTick();
+    float dt = (now - last_airbrake_time_ms_) * 0.001f;
+    last_airbrake_time_ms_ = now;
+    if (dt <= 0.0f) {
+        dt = 0.02f;   
+    }
+
+    float speedOfSound = sqrt(401.87f * (baro.temperature + 273.15f));  // m/s, speed of sound in air at given temperature
+    float mach = pred.velocity / speedOfSound;
+    float machClamped = fmaxf(0.3f, fminf(1.1f, mach));
+
+
+    float d = last_deployment_;
+    float M = machClamped;
+    float PreviousCd =
+        (-0.0027f * d)
+        + (0.0197f * d * M)
+        - (0.0394f * d * powf(M, 2.0f))
+        + (0.0246f * d * powf(M, 3.0f))
+        + (0.0035f * powf(d, 2.0f))
+        - (0.0086f * powf(d, 2.0f) * M)
+        + (0.0179f * powf(d, 2.0f) * powf(M, 2.0f))
+        - (0.0118f * powf(d, 2.0f) * powf(M, 3.0f))
+        + 0.006424f;
+    
+
+    PreviousCd = fmaxf(PreviousCd, CD_FLOOR);
+
+    float aDrag = (rho * PreviousCd * pred.velocity * pred.velocity) / (2.0f * mass);
+
+    if (fabsf(pred.velocity) < 1.0f) {
+        servo_angle = 180.0f;  // airbrakes stowed
+        return {0.0f, 0.0f, servo_angle};
+    }
+
+    float Kp = (4.0f * mass * powf(g + aDrag, 2.0f)) / (rho * PreviousCd * areaMax * powf(pred.velocity, 4.0f));
+    float Kd = (8.0f * zeta * mass * powf(g + aDrag, 2.0f)) / (rho * PreviousCd * areaMax * powf(pred.velocity, 4.0f));
+    
+    // Apogee prediction
+    // ApogeePredicted = CurrentAltitude + VerticalVelocity^2 / (2*(g+aDrag))
+    float ApogeePredicted = baro.altitude + (pred.velocity * pred.velocity) / (2.0f * (g + aDrag));
+
+    float Error = ApogeePredicted - apogeeDesired;
+    float ErrorRate = (Error - previous_error_) / dt;
+    previous_error_ = Error;
+
+    float Proportional = Kp * Error;
+    float Derivative = Kd * ErrorRate;
+    float output = Proportional + Derivative;
+
+    // Clamp output (deployment level) 0..1
+    output = fmaxf(0.0f, fminf(1.0f, output));
+
+    // Remember deployment level for next iteration's PreviousCd calc
+    last_deployment_ = output;
+
+    // Map deployment level [0,1] -> servo angle: 180 = fully in, 15 = fully out
+    servo_angle = 180.0f + output * (15.0f - 180.0f);
+
+    return {Kp, Kd, servo_angle};
+};
 
 void Canards_Controller::stop_action() {
-    //servo_.set_position(STOP_POSITION);
-    printf("position");
+    servo_.set_position(180);   //neutral position
 };
 
-bool Canards_Controller::safety_check(int state, imu_data imu) {
-    // only use canards in coating
-    //if (state != state::COASTING) {
-    //    return false; 
-    //}
+
+bool Canards_Controller::safety_check(bool active, const imu_data& imu) {
+    // only use airbrakes when cots computer signals coasting
+    if (active == false) {
+        return false; 
+    }
     
     // check tilt angle from IMU, if too large, stop the canards to prevent further instability
+    // for airbrakes indicated 1 has broken
     if (imu.acceleration.x > 50.0f || imu.acceleration.x < -50.0f) {
         return false; 
     }
-    return true; // Placeholder for actual safety check logic
+    return true;
 
 }
 }

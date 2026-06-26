@@ -25,13 +25,19 @@
 #define FLASH_CS_PORT GPIOB
 #define FLASH_CS_GPIO_CLK_ENABLE() __HAL_RCC_GPIOB_CLK_ENABLE()
 
+#define SERVO_ADDR 0x40 // default PCA9685 I2C address
+
+#define ACTIVE_PIN GPIO_PIN_2
+#define ACTIVE_GPIO_PORT GPIOB
+#define ACTIVE_GPIO_CLK_ENABLE() __HAL_RCC_GPIOB_CLK_ENABLE()
+
 // Extern handles for use by I2C/SPI handlers
 extern I2C_HandleTypeDef hi2c1;
 extern SPI_HandleTypeDef hspi1;
 
 // Initialization functions
 void MX_I2C1_Init();
-void MX_SPI1_Init();
+void MX_GPIO_Init();
 
 #endif // STM_F4_H
 #endif // F4
