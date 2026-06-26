@@ -9,6 +9,8 @@
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "platform/error_handler.h"
+#include "platform/hal_time.h"
 
 #include <data.h>
 #include <sensor.h>
@@ -29,7 +31,7 @@
 
 
 void SystemClock_Config(void);
-void Error_Handler(void);
+
 
 const osMessageQueueAttr_t canQueue_attributes = {
   .name = "canQueue"
@@ -44,18 +46,23 @@ int main(void)
   HAL_Init();
   SystemClock_Config();
 
+  MX_GPIO_Init();
   MX_I2C1_Init();
+
   osKernelInitialize();
   printf("BOOT 1\n");
 
   //bool init_status = true;
+  //shifting occuring in the I2C_STM class, so no need to shift here -> shouldnt do that imo
+  I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR);
+  Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR);
 
-  I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR << 1);
-  Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR << 1);
   #if F4
-  CAN_Handler* canbus = new CAN_MOCK();
+   CAN_Handler* canbus = new CAN_MOCK();
   #elif F0
-  CAN_Handler* canbus = new CAN_STM(&hcan);
+    MX_CAN_Init();
+    CAN_Handler* canbus = new CAN_STM(&hcan);
+    bool can_init_status = canbus->init();
   #endif
 
   osMessageQueueId_t canInQueueHandle =
@@ -63,9 +70,10 @@ int main(void)
   osMessageQueueId_t canOutQueueHandle =
     osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(*servo, canInQueueHandle, canOutQueueHandle);
+  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, 2275.0f, canInQueueHandle, canOutQueueHandle);
   static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
 
+  
   can_task.run();
   canards_controller.run();
 
@@ -115,6 +123,24 @@ void SystemClock_Config(void)
     }
 }
 
+volatile uint32_t fault_pc = 0;
+volatile uint32_t fault_lr = 0;
+volatile uint32_t fault_sp = 0;
+
+void HardFault_Handler(void)
+{
+    __asm volatile("mrs r0, MSP\n"
+                   "b hard_fault_handler_c");
+}
+
+void hard_fault_handler_c(uint32_t *stack)
+{
+    fault_sp = (uint32_t)stack;
+    fault_lr = stack[5];
+    fault_pc = stack[6];
+
+    while (1);
+}
 
 #ifdef F0
 /**
@@ -139,34 +165,3 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 1 */
 }
 #endif // F0
-
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-    __disable_irq();
-  while (1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
-#ifdef USE_FULL_ASSERT
-/**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
-  /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
-}
-#endif /* USE_FULL_ASSERT */

@@ -1,4 +1,5 @@
 #pragma once
+#include <atomic>
 #include <cstdint>
 #if F4
 #include "stm32f4xx_hal.h"
@@ -18,54 +19,67 @@
 #include <data.h>
 #include <Servo/servo.h>
 
-#define CANARDS_DELAY_MS 1000
+#define CANARDS_DELAY_MS 100
+// this is actully for airbrakes
+//180 = in
+//0 = out
 
 namespace task{
 class Canards_Controller {
     public:
         Canards_Controller(
                       Servo& servo,
+                      int8_t active_pin,  // should make a pin wrapper but whatever
+                      GPIO_TypeDef* active_port,
+                      float apogeeDesired,
                       osMessageQueueId_t can_queue,
                       osMessageQueueId_t logger_queue)
             : 
               servo_(servo),
+              active_pin_(active_pin),
+              active_port_(active_port),
+              apogeeDesired(apogeeDesired),
               can_queue_(can_queue),
               logger_queue_(logger_queue),
-              taskHandle_(nullptr){
-                last_time_ms = HAL_GetTick();
-              };
+              taskHandle_(nullptr){};
               
         void run();
 
     private:
+        Servo& servo_;
+        int8_t active_pin_;
+        GPIO_TypeDef* active_port_;
+        float apogeeDesired{2000.0f}; // desired apogee in meters
+        osMessageQueueId_t can_queue_;
+        osMessageQueueId_t logger_queue_;
+
         void StartCanardsController();
         static void StartCanardsControllerEntry(void *argument);
         canards_raw run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred);
         float get_rocket_angle(const imu_data& imu);
         void stop_action();
-        bool safety_check(int state, const imu_data& imu);
+        bool safety_check(bool active, const imu_data& imu);
         void get_up_direction();
 
-        uint32_t last_time_ms{0};
-        float rocket_angle{0.0f};
-        float prev_roll_rate{0.0f};
-        float output{0.0f};
-        float output_degrees{0.0f};
-        float servo_angle{0.0f};
-        float rho{0.0f};
-        float q{0.0f};
+        
 
-        const float omega_n = 6.0f;
-        const float damp_ratio = 1.0f;
-        const float I_xx = 0.00164f;
-        const float N_canards = 2.0f;
-        const float C_L_alpha_can = 2.86f;
-        const float S_can = 0.0024f;
-        const float Y_cp_can = 0.067f;
+        // controller state
+        float last_deployment_ = 0.0f;   // previous step's clamped output (d in Artem's formula)
+        float previous_error_ = 0.0f;    // for ErrorRate
+        uint32_t last_airbrake_time_ms_ = 0;
+        float servo_angle = 180.0f;
 
-        Servo& servo_;
-        osMessageQueueId_t can_queue_;
-        osMessageQueueId_t logger_queue_;
+
+        static constexpr float mass = 14.544f; //kg
+        static constexpr float g = 9.80665f;   // m/s^2
+        static constexpr float speedOfSound = 343.0f;  // m/s
+        static constexpr float areaMax = 0.00388f;    // m^2 (maximum deployed area)
+        static constexpr float zeta = 1; // damping ratio
+        static constexpr float CD_FLOOR = 1e-3f;  // minimum drag coefficient
+        
+  
+
+      
 
         osThreadId_t taskHandle_;
 
