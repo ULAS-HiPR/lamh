@@ -17,44 +17,70 @@ void Canards_Controller::StartCanardsControllerEntry(void *argument) {
 }
 
 void Canards_Controller::StartCanardsController() {
-    bool servo_init = servo_.init();
 
-    // start at centre so servo doesn't snap on boot
-    servo_.set_position(180);
-    osDelay(1000);
-    servo_.set_position(15);
-
-    flight_data flight_data_in;
+    flight_data current_data;
+    canards_raw canards_data;
 
     for (;;) {
-        osStatus_t status;
-        status = osMessageQueueGet(can_queue_, &flight_data_in, NULL, 10U);   // wait for message
 
-        if (status == osOK) {
-            printf("Received CAN data: %d\n", flight_data_in.state);            
-            canards_raw canards_data = run_canards_controller(flight_data_in.core_data.imu, flight_data_in.core_data.barometer, flight_data_in.prediction);
-            HAL_GPIO_ReadPin(active_port_, active_pin_) ? canards_data.active = true : canards_data.active = false;
+        flight_data rx_data{};
 
-            if (safety_check(canards_data.active, flight_data_in.core_data.imu)) {
-                servo_.set_position(canards_data.servo_angle);
-            } else {
-                stop_action();  // keep neutral
-            }
+        if (osMessageQueueGet(can_queue_, &rx_data, NULL, 10U) == osOK)
+        {
+            if (rx_data.core_data.time != 0)
+                current_data.core_data.time = rx_data.core_data.time;
+            if (rx_data.prediction.altitude != 0.0f)
+                current_data.prediction.altitude = rx_data.prediction.altitude;
+            if (rx_data.prediction.velocity != 0.0f)
+                current_data.prediction.velocity = rx_data.prediction.velocity;
+            if (rx_data.prediction.acceleration != 0.0f)
+                current_data.prediction.acceleration = rx_data.prediction.acceleration;
+            if (rx_data.core_data.barometer.pressure != 0)
+                current_data.core_data.barometer.pressure = rx_data.core_data.barometer.pressure;
+            if (rx_data.core_data.barometer.temperature != 0.0f)
+                current_data.core_data.barometer.temperature = rx_data.core_data.barometer.temperature;
+            if (rx_data.core_data.barometer.altitude != 0.0f)
+                current_data.core_data.barometer.altitude = rx_data.core_data.barometer.altitude;
+            if (rx_data.core_data.imu.acceleration.x != 0.0f)
+                current_data.core_data.imu.acceleration.x = rx_data.core_data.imu.acceleration.x;
+            if (rx_data.core_data.imu.acceleration.y != 0.0f)
+                current_data.core_data.imu.acceleration.y = rx_data.core_data.imu.acceleration.y;
+            if (rx_data.core_data.imu.acceleration.z != 0.0f)
+                current_data.core_data.imu.acceleration.z = rx_data.core_data.imu.acceleration.z;
+            if (rx_data.core_data.imu.gyro.x != 0)
+                current_data.core_data.imu.gyro.x = rx_data.core_data.imu.gyro.x;
+            if (rx_data.core_data.imu.gyro.y != 0)
+                current_data.core_data.imu.gyro.y = rx_data.core_data.imu.gyro.y;
+            if (rx_data.core_data.imu.gyro.z != 0)
+                current_data.core_data.imu.gyro.z = rx_data.core_data.imu.gyro.z;
+            if (rx_data.state != 0)
+                current_data.state = rx_data.state;
+           }
+         
+        canards_raw canards_data = run_canards_controller(current_data.core_data.barometer, current_data.prediction);
+        HAL_GPIO_ReadPin(active_port_, active_pin_) ? canards_data.active = true : canards_data.active = false;
 
-        osMessageQueuePut(logger_queue_, &canards_data, 0, 0);
+        if (safety_check(canards_data.active, current_data.core_data.imu)) {
+            servo_.set_position(canards_data.servo_angle);
+        } else {
+            stop_action();  // keep neutral
         }
+
+        
+        osMessageQueuePut(logger_queue_, &canards_data, 0, 0);
         osDelay(CANARDS_DELAY_MS);  
     }
 }
 
+
 // to change to airbrakes algo
-canards_raw Canards_Controller::run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred) {
+canards_raw Canards_Controller::run_canards_controller(const baro_data& baro, const prediction_data& pred) {
     // density of air = pressure / (R * temperature)
     float rho = baro.pressure / (287.058f * (baro.temperature + 273.15f));  // kg/m^3
 
     // dt since last call 
     uint32_t now = HAL_GetTick();
-    float dt = (now - last_airbrake_time_ms_) * 0.001f;
+    float dt = (now - last_airbrake_time_ms_)* 0.001f;
     last_airbrake_time_ms_ = now;
     if (dt <= 0.0f) {
         dt = 0.02f;   

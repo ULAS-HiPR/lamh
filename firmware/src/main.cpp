@@ -57,21 +57,35 @@ int main(void)
   I2C_Handler* i2c = new I2C_STM(&hi2c1, SERVO_ADDR);
   Servo* servo = new PCA9685Servo(*i2c, 0, SERVO_ADDR);
 
+  bool servo_init = servo->init();
+
+   
+
+  servo->set_position(180);
+  HAL_Delay(1000);
+  servo->set_position(15);
+  HAL_Delay(1000);
+  servo->set_position(180);
+
+
   #if F4
-   CAN_Handler* canbus = new CAN_MOCK();
+    static CAN_MOCK canbus;
   #elif F0
     MX_CAN_Init();
-    CAN_Handler* canbus = new CAN_STM(&hcan);
-    bool can_init_status = canbus->init();
+    static CAN_STM canbus(&hcan);
+    if (!canbus.init()) {
+       Error_Handler();
+    }
   #endif
 
-  osMessageQueueId_t canInQueueHandle =
+  osMessageQueueId_t canReciverQueueHandle =
     osMessageQueueNew(8, sizeof(flight_data), &canQueue_attributes);
-  osMessageQueueId_t canOutQueueHandle =
+  osMessageQueueId_t canSenderQueueHandle =
     osMessageQueueNew(8, sizeof(canards_raw), &loggingQueue_attributes);
 
-  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, 2275.0f, canInQueueHandle, canOutQueueHandle);
-  static task::CAN_task can_task(*canbus, canInQueueHandle, canOutQueueHandle);
+  static task::Canards_Controller canards_controller(*servo, ACTIVE_PIN, ACTIVE_GPIO_PORT, 2275.0f, canReciverQueueHandle, canSenderQueueHandle);
+  static task::CAN_task can_task(canbus, canSenderQueueHandle, canReciverQueueHandle, NODE_LAMH);
+      
 
   
   can_task.run();
@@ -87,40 +101,40 @@ int main(void)
 }
 
 
-
 /**
   * @brief System Clock Configuration
   * @retval None
   */
 void SystemClock_Config(void)
 {
-    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_NONE;
-
-    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
-        Error_Handler();
-    }
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PREDIV = RCC_PREDIV_DIV1;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+      Error_Handler();
+  }
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
   {
-        Error_Handler();
-    }
+      Error_Handler();
+  }
 }
 
 volatile uint32_t fault_pc = 0;
