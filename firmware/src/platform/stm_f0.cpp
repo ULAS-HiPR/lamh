@@ -3,6 +3,7 @@
 
 I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
+CAN_HandleTypeDef hcan;
 
 void MX_I2C1_Init()
 {
@@ -83,6 +84,67 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Pin = FLASH_CS_PIN;
     HAL_GPIO_Init(FLASH_CS_PORT, &GPIO_InitStruct);
     HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET);
+}
+
+bool MX_CAN_Init()
+{
+    hcan.Instance = CAN;
+    hcan.Init.Prescaler = 6U;
+    hcan.Init.Mode = CAN_MODE_NORMAL;
+    hcan.Init.SyncJumpWidth = CAN_SJW_1TQ;
+    hcan.Init.TimeSeg1 = CAN_BS1_13TQ;
+    hcan.Init.TimeSeg2 = CAN_BS2_2TQ;
+    hcan.Init.TimeTriggeredMode = DISABLE;
+    hcan.Init.AutoBusOff = ENABLE;
+    hcan.Init.AutoWakeUp = DISABLE;
+    hcan.Init.AutoRetransmission = ENABLE;
+    hcan.Init.ReceiveFifoLocked = DISABLE;
+    hcan.Init.TransmitFifoPriority = DISABLE;
+
+    if (HAL_CAN_Init(&hcan) != HAL_OK) {
+        return false;
+    }
+
+    CAN_FilterTypeDef filter{};
+    filter.FilterIdHigh = 0U;
+    filter.FilterIdLow = 0U;
+    filter.FilterMaskIdHigh = 0U;
+    filter.FilterMaskIdLow = 0U;
+    filter.FilterFIFOAssignment = CAN_RX_FIFO0;
+    filter.FilterBank = 0U;
+    filter.FilterMode = CAN_FILTERMODE_IDMASK;
+    filter.FilterScale = CAN_FILTERSCALE_32BIT;
+    filter.FilterActivation = ENABLE;
+    filter.SlaveStartFilterBank = 14U;
+    return HAL_CAN_ConfigFilter(&hcan, &filter) == HAL_OK;
+}
+
+void HAL_CAN_MspInit(CAN_HandleTypeDef* handle)
+{
+    if (handle->Instance != CAN) {
+        return;
+    }
+
+    __HAL_RCC_CAN1_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+    GPIO_InitTypeDef gpio{};
+    gpio.Pin = GPIO_PIN_11 | GPIO_PIN_12;
+    gpio.Mode = GPIO_MODE_AF_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
+    gpio.Alternate = GPIO_AF4_CAN;
+    HAL_GPIO_Init(GPIOA, &gpio);
+}
+
+void HAL_CAN_MspDeInit(CAN_HandleTypeDef* handle)
+{
+    if (handle->Instance != CAN) {
+        return;
+    }
+
+    __HAL_RCC_CAN1_CLK_DISABLE();
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_11 | GPIO_PIN_12);
 }
 
 #endif // F0

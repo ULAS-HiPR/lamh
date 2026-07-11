@@ -5,6 +5,7 @@
 #include "stm32f0xx_hal.h"
 #include "stm32f0xx_hal_spi.h"
 #include "stm32f0xx_hal_gpio.h"
+#include "stm32f0xx_hal_can.h"
 #define LED_PIN GPIO_PIN_5 
 #define LED_GPIO_PORT GPIOA 
 #define LED_GPIO_CLK_ENABLE() __HAL_RCC_GPIOA_CLK_ENABLE() 
@@ -30,10 +31,12 @@
 // Extern handles for use by I2C/SPI handlers
 extern I2C_HandleTypeDef hi2c1;
 extern SPI_HandleTypeDef hspi1;
+extern CAN_HandleTypeDef hcan;
 
 // Initialization functions
 void MX_I2C1_Init();
 void MX_SPI1_Init();
+bool MX_CAN_Init();
 
 #endif // STM_F072xB_H
 #endif // F0

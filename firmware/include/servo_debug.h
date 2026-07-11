@@ -17,6 +17,7 @@ enum {
     SERVO_DEBUG_STAGE_SCAN_FOUND = 6,
     SERVO_DEBUG_STAGE_SCAN_NOT_FOUND = 7,
     SERVO_DEBUG_STAGE_RTOS_START = 8,
+    SERVO_DEBUG_STAGE_TASK_CREATE_FAILED = 9,
     SERVO_DEBUG_STAGE_TASK_START = 20,
     SERVO_DEBUG_STAGE_PCA_INIT_START = 21,
     SERVO_DEBUG_STAGE_PCA_RESET = 22,
@@ -24,6 +25,7 @@ enum {
     SERVO_DEBUG_STAGE_PCA_FREQ_START = 24,
     SERVO_DEBUG_STAGE_PCA_FREQ_DONE = 25,
     SERVO_DEBUG_STAGE_PCA_INIT_DONE = 26,
+    SERVO_DEBUG_STAGE_PCA_INIT_FAILED = 27,
     SERVO_DEBUG_STAGE_SERVO_SET = 30,
     SERVO_DEBUG_STAGE_PWM_WRITE = 31
 };
@@ -71,6 +73,24 @@ typedef struct {
     uint16_t servo_pwm;
     uint16_t pwm_on;
     uint16_t pwm_off;
+    uint32_t can_init_ok;
+    uint32_t can_bus_off;
+    uint32_t can_error;
+    uint32_t can_tx_count;
+    uint32_t can_rx_count;
+    uint32_t can_tx_drops;
+    uint32_t can_tx_queue_depth;
+    uint32_t heartbeat_tx_count;
+    uint32_t command_rx_count;
+    uint32_t croi_last_seen_ms;
+    uint32_t failsafe_count;
+    uint32_t can_esr;
+    uint32_t safety_config_magic;
+    uint16_t safety_config_version;
+    uint16_t reserved3;
+    int16_t safe_angles_deg[4];
+    uint32_t arm_input_active;
+    uint32_t arm_input_raw_active;
 } ServoDebugStatus;
 
 extern volatile ServoDebugStatus servo_debug;

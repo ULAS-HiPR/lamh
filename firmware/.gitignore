@@ -1,2 +1,4 @@
-.pio
-.vs_code/
+.pio/
+.vscode/
+.DS_Store
+*.map

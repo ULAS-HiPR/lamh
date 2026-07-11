@@ -40,3 +40,5 @@ fp-info-cache
 *.kicad_prl
 
 .DS_Store
+firmware/.pio/
+firmware/.vscode/
