@@ -471,7 +471,7 @@ class ServoFlight {
                 Error_Handler();
             }
             apply_safe_state();
-            if (!failsafe_active || !init_watchdog()) {
+            if (!failsafe_active) {
                 Error_Handler();
             }
             last_heartbeat_ms = HAL_GetTick();
@@ -738,6 +738,9 @@ int main(void) {
     HAL_Init();
     SystemClock_Config();
     servo_debug.stage = SERVO_DEBUG_STAGE_CLOCK_READY;
+    if (!init_watchdog()) {
+        Error_Handler();
+    }
     init_arm_input();
     MX_I2C1_Init();
     servo_debug.stage = SERVO_DEBUG_STAGE_I2C_READY;

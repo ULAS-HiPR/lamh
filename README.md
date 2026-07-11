@@ -53,7 +53,7 @@ Hardware mapping from the schematic:
 - Loss of Croi heartbeat or CAN command for 5 s returns all outputs to the safe angle.
 - Each output has a separate build-time safe angle. Ogma Console sets the four values, builds, flashes, and verifies them over SWD. Defaults are 90 degrees and need mechanical sign-off before flight.
 - Flight CAN commands use the unified leased actuator payload from `comheadan`.
-- The hardware watchdog starts only after PCA9685 init and the initial safe-angle writes succeed.
+- The hardware watchdog starts immediately after clock setup. Any later PCA9685, safe-write, task, or runtime failure forces reset and another boot-first safe-write attempt.
 - Rev1 hardware ties PCA9685 OE low, so PWM can remain driven during MCU reset until firmware rewrites outputs. Rev2 should route OE to the MCU or a hardware safe-disable path.
 
 ## Dependency Lock
