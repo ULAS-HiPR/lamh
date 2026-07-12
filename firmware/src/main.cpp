@@ -558,7 +558,9 @@ class ServoFlight {
             if ((payload.flags & ACTUATOR_COMMAND_FLAG_ACTIVE) == 0U) {
                 actuator_sequence_seen = true;
                 last_actuator_sequence = payload.sequence;
-                apply_safe_state();
+                if (!failsafe_active) {
+                    apply_safe_state();
+                }
                 return;
             }
             const bool sequence_fresh = !actuator_sequence_seen ||
