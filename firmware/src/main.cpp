@@ -158,6 +158,7 @@ uint16_t last_actuator_sequence = 0U;
 bool actuator_sequence_seen = false;
 bool watchdog_refresh_allowed = true;
 uint8_t active_output_index = 0xFFU;
+int16_t active_output_angle_deg = -1;
 CANFrame tx_queue[CAN_TX_QUEUE_LEN]{};
 uint8_t tx_head = 0U;
 uint8_t tx_tail = 0U;
@@ -529,6 +530,7 @@ class ServoFlight {
             watchdog_refresh_allowed = all_writes_ok;
             if (all_writes_ok) {
                 active_output_index = 0xFFU;
+                active_output_angle_deg = -1;
             }
             return all_writes_ok;
         }
@@ -574,7 +576,9 @@ class ServoFlight {
             if (!arm_input_active || payload.output_index >= 4U ||
                 payload.lease_ms < ACTUATOR_COMMAND_MIN_LEASE_MS ||
                 payload.lease_ms > ACTUATOR_COMMAND_MAX_LEASE_MS) {
-                apply_safe_state();
+                if (!failsafe_active) {
+                    apply_safe_state();
+                }
                 return;
             }
 
@@ -593,14 +597,19 @@ class ServoFlight {
                     return;
                 }
             }
-            PCA9685Servo servo(*_i2c, LAMH_SERVO_CHANNELS[payload.output_index], _pca9685_address);
-            if (!servo.set_position(static_cast<int16_t>(angle))) {
-                apply_safe_state();
-                return;
+            if (active_output_index != payload.output_index ||
+                active_output_angle_deg != static_cast<int16_t>(angle)) {
+                PCA9685Servo servo(
+                    *_i2c, LAMH_SERVO_CHANNELS[payload.output_index], _pca9685_address);
+                if (!servo.set_position(static_cast<int16_t>(angle))) {
+                    apply_safe_state();
+                    return;
+                }
+                servo_debug.servo_channel = LAMH_SERVO_CHANNELS[payload.output_index];
+                servo_debug.servo_angle = static_cast<int16_t>(angle);
             }
-            servo_debug.servo_channel = LAMH_SERVO_CHANNELS[payload.output_index];
-            servo_debug.servo_angle = static_cast<int16_t>(angle);
             active_output_index = payload.output_index;
+            active_output_angle_deg = static_cast<int16_t>(angle);
             failsafe_active = false;
             watchdog_refresh_allowed = true;
             last_command_ms = now_ms;
@@ -704,6 +713,7 @@ class ServoFlight {
                 (channel == LAMH_SERVO_CHANNELS[0]) ? 0U :
                 (channel == LAMH_SERVO_CHANNELS[1]) ? 1U :
                 (channel == LAMH_SERVO_CHANNELS[2]) ? 2U : 3U);
+            active_output_angle_deg = angle;
             last_command_ms = now_ms;
             return true;
         }
