@@ -19,7 +19,7 @@
 #include <data.h>
 #include <Servo/servo.h>
 
-#define CANARDS_DELAY_MS 100
+#define CANARDS_DELAY_MS 50
 // this is actully for airbrakes
 //180 = in
 //0 = out
@@ -55,13 +55,11 @@ class Canards_Controller {
 
         void StartCanardsController();
         static void StartCanardsControllerEntry(void *argument);
-        canards_raw run_canards_controller(const imu_data& imu, const baro_data& baro, const prediction_data& pred);
+        canards_raw run_canards_controller(const baro_data& baro, const prediction_data& pred);
         float get_rocket_angle(const imu_data& imu);
         void stop_action();
         bool safety_check(bool active, const imu_data& imu);
         void get_up_direction();
-
-        
 
         // controller state
         float last_deployment_ = 0.0f;   // previous step's clamped output (d in Artem's formula)
@@ -69,18 +67,13 @@ class Canards_Controller {
         uint32_t last_airbrake_time_ms_ = 0;
         float servo_angle = 180.0f;
 
-
-        static constexpr float mass = 14.544f; //kg
+        static constexpr float mass = 16.8f; //kg
         static constexpr float g = 9.80665f;   // m/s^2
         static constexpr float speedOfSound = 343.0f;  // m/s
         static constexpr float areaMax = 0.00388f;    // m^2 (maximum deployed area)
         static constexpr float zeta = 1; // damping ratio
         static constexpr float CD_FLOOR = 1e-3f;  // minimum drag coefficient
         
-  
-
-      
-
         osThreadId_t taskHandle_;
 
         const osThreadAttr_t task_attributes {
